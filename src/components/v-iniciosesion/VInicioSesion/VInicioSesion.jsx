@@ -20,7 +20,7 @@ function VInicioSesion({ onLoginSuccess }) {
 
     try {
       const response = await axios.post(
-        "http://18.231.151.214:8080/auth/login",
+        "http://localhost:8080/auth/login",
         {
           username: username,
           password: password,
