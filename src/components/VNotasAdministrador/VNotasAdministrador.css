@@ -1,0 +1,82 @@
+.VNotasAdministradorCursosContainer{
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    box-sizing: border-box;
+    padding: 2%;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: space-between;
+
+}
+
+
+.VNotasAdministradorCursosContainer .SelectNotasAdministradorCursosContainer{
+    height: auto;
+    align-self: flex-start;
+    display: flex;
+    align-items: center;
+    width: 740px;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.VNotasAdministradorCursosContainer .VNotasAdministradorCursosContent{
+    width: 100%;
+    height: auto;
+    margin: 0;
+    padding: 10px;
+    margin-top: 10px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-items: center;
+}
+
+.VNotasAdministradorCursosContainer .VNotasAdministradorTitle{
+    width: 100%;
+    display: flex;
+    align-self:flex-start;
+    height: auto;
+}
+.VNotasAdministradorCursosContainer .VNotasAdministradorTitle h3{
+    margin: 0;
+    padding: 0;
+    justify-self: start;
+}
+
+@media (max-width:760px){
+    .VNotasAdministradorCursosContainer .SelectNotasAdministradorCursosContainer{
+            display: grid;
+            gap: 10px;
+            grid-template-columns: repeat(3,1fr);
+            width: 100%;
+    }
+}
+
+@media (max-width:564px){
+    .VNotasAdministradorCursosContainer .SelectNotasAdministradorCursosContainer{
+            display: grid;
+            gap: 10px;
+            grid-template-columns: repeat(2,1fr);
+            width: 100%;
+    }
+    .VNotasDocenteAdministradorCursosContainer .VNotasDocenteAdministradorCursosContent{
+        margin-top: 0;
+    }
+}
+
+@media (max-width:380px){
+    .VNotasAdministradorCursosContainer .SelectNotasAdministradorCursosContainer{
+            display: grid;
+            gap: 10px;
+            grid-template-columns: repeat(1,1fr);
+            width: 100%;
+    }
+    .VNotasDocenteAdministradorCursosContainer .VNotasDocenteAdministradorCursosContent{
+        margin-top: 0;
+    }
+}

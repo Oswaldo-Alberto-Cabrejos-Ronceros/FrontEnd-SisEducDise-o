@@ -1,0 +1,46 @@
+.VNotasEstudianteElementContainer {
+  width: 100%;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.VNotasEstudianteElementContainer .TitleVNotasEstudianteElementContainer {
+  height: auto;
+  margin: 1%;
+  align-self: flex-start;
+}
+
+.VNotasEstudianteElementContainer .TitleVNotasEstudianteElementContainer h3 {
+  padding: 0;
+  margin: 0;
+}
+
+.VNotasEstudianteElementContainer .VNotasEstudianteElementContent{
+  width: 100%;
+  height: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 10px;
+}
+
+
+
+
+@media (max-width:460px) {
+  .VNotasEstudianteElementContainer .VNotasEstudianteElementContent {
+    justify-content: flex-start;
+  }
+
+}
+
+@media (max-width:902px) {
+  .VNotasEstudianteElementContainer .VNotasEstudianteElementContent.VNotasEstudianteElementBimestreContent{
+    justify-content: flex-start;
+    }
+}
+
+

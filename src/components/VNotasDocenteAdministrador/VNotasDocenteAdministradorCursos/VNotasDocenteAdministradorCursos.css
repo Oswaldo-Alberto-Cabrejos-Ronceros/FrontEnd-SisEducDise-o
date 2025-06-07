@@ -1,0 +1,57 @@
+.VNotasDocenteAdministradorCursosContainer{
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+
+.VNotasDocenteAdministradorCursosContainer .SelectNotasDocenteAdministradorCursosContainer{
+    height: auto;
+    align-self: flex-start;
+    display: flex;
+    align-items: center;
+    width: 560px;
+    justify-content: space-between;
+    gap:20px;
+}
+
+.VNotasDocenteAdministradorCursosContainer .VNotasDocenteAdministradorCursosContent{
+    width: 100%;
+    height: auto;
+    margin: 0;
+    padding: 10px;
+    margin-top: 10px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-items: center;
+}
+
+
+@media (max-width:564px){
+    .VNotasDocenteAdministradorCursosContainer .SelectNotasDocenteAdministradorCursosContainer{
+            display: grid;
+            gap: 10px;
+            grid-template-columns: repeat(2,1fr);
+            width: 100%;
+    }
+    .VNotasDocenteAdministradorCursosContainer .VNotasDocenteAdministradorCursosContent{
+        margin-top: 0;
+    }
+}
+
+@media (max-width:380px){
+    .VNotasDocenteAdministradorCursosContainer .SelectNotasDocenteAdministradorCursosContainer{
+            display: grid;
+            gap: 10px;
+            grid-template-columns: repeat(1,1fr);
+            width: 100%;
+    }
+    .VNotasDocenteAdministradorCursosContainer .VNotasDocenteAdministradorCursosContent{
+        margin-top: 0;
+    }
+}

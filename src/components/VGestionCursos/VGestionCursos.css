@@ -1,0 +1,71 @@
+.VGestionCursosContainer {
+    width: 100%;
+    min-height: 100%;
+    display: flex;
+    padding: 10px;
+    box-sizing: border-box;
+    align-items: center;
+    flex-direction: column;
+}
+
+.VGestionCursosContainer .LinkGestionCursos{
+    text-decoration: none;
+}
+
+.VGestionCursosContainer .TitleGestionCursos{
+    align-self:flex-start;
+    margin: 1%;
+    height: auto;
+}
+.VGestionCursosContainer .TitleGestionCursos h3{
+    margin: 0;
+    padding: 0;
+    font-size: 28px;
+} 
+
+
+.VGestionCursosContainer .VGestionCursosButtonsContainer{
+    align-self: start;
+    padding: 0px 10px 10px 10px;
+    box-sizing: border-box;
+    margin: 0;
+    width: 100%;
+    max-width: 450px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap; 
+    gap: 30px;
+}
+
+/* Contenedor del Contenido Cambiante */
+.VGestionCursosContainer .CambGestionCursos {
+    width: 100%;
+    flex-grow: 1;
+}
+
+/* Media Queries */
+
+/* Pantallas medianas */
+@media (max-width: 768px) {
+    .VGestionCursosContainer .TitleGestionCursos h3 {
+        font-size: 22px;
+    }
+
+    .VGestionCursosContainer .VGestionCursosButtonsContainer {
+        gap: 10px;
+    }
+}
+
+/* Pantallas pequeñas */
+@media (max-width: 250px) {
+    .VGestionCursosContainer .TitleGestionCursos h3 {
+        font-size: 20px;
+    }
+
+    .VGestionCursosContainer .VGestionCursosButtonsContainer {
+        flex-direction: column ;
+        align-items: stretch;
+        gap: 10px;
+    }
+}

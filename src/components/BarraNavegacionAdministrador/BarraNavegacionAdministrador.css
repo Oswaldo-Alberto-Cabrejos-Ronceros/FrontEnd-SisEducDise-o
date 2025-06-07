@@ -1,0 +1,225 @@
+
+:root{
+    --BackgroudColorVertical:#DC2626;
+    --ColorItems:#FEF2F2;
+    --ColorOutSessionHover:#171717;
+  }
+
+.BarraNavegacionAdministradorContainer .HorizontalContainerBarAdministrador{
+    position: absolute;
+    left: 0;    
+    top: 0; 
+    width: 100%;
+    height: 11%;
+    background-color: var(--BackgroudColorVertical);
+    z-index: 1;
+    border: none;
+    display: flex;
+    flex-direction: row;
+    color: var(--ColorItems);
+    align-items: center;
+}
+
+
+.BarraNavegacionAdministradorContainer .HorizontalContainerBarAdministrador .MenuIconContainer{
+  height: 100%;
+  width: 6%;
+  min-width: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 36px;
+  position: absolute;
+  cursor: pointer;
+  display: none;
+  transition: 150ms;
+}
+
+.BarraNavegacionAdministradorContainer .HorizontalContainerBarAdministrador .MenuIconContainer:hover{
+  color: var(--ColorOutSessionHover);
+}
+
+
+.BarraNavegacionAdministradorContainer .VerticalContainerBarAdmin{
+    position: fixed;
+    left: 0;    
+    top: 0; 
+    width: 6%;
+    height: 100%;
+    background-color: var(--BackgroudColorVertical);
+    z-index: 0;
+    border: none;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.BarraNavegacionAdministradorContainer .OptionsContainer{
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    top: 11%;
+    left: 0;
+    z-index: 2;
+    box-sizing: border-box;
+}
+
+.BarraNavegacionAdministradorContainer .SessionOutContainer{
+    font-size: 36px;
+    position: absolute;
+    right: 1%;
+    cursor: pointer;
+}
+
+.BarraNavegacionAdministradorContainer .SessionOutContainer:hover{
+    color: var(--ColorOutSessionHover);
+    transition: 150ms;
+}
+
+
+.LogoutModalOverlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+  }
+
+  .LogoutModalContent {
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    max-width: 400px;
+    width: 100%;
+  }
+  
+  .LogoutModalContent h3 {
+    margin-bottom: 20px;
+  }
+  
+  .LogoutModalButtons {
+    display: flex;
+    justify-content: space-around;
+  }
+  
+  .LogoutButtonNo {
+    background-color: #1cb640; /* Verde */
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 150ms;
+  }
+
+  .LogoutButtonNo:hover{
+    background-color: #27c04b;
+  }
+  
+  .LogoutButtonYes {
+    background-color: #e02828; /* Rojo */
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor:pointer;
+    transition: 150ms;
+}
+
+.LogoutButtonYes:hover{
+  background-color:#ca3535;
+}
+
+.BarraNavegacionAdministradorContainer .VerticalContainerBarAdmin.show {
+  animation: openDespMenu 0.3s ease-out forwards;
+}
+
+.BarraNavegacionAdministradorContainer .VerticalContainerBarAdmin.hide {
+  animation: closeDespMenu 0.3s ease-out forwards;
+}
+
+@media (max-width:1130px) {
+  .BarraNavegacionAdministradorContainer .HorizontalContainerBarAdministrador .MenuIconContainer{
+    display: flex;
+  }
+  .BarraNavegacionAdministradorContainer .HorizontalContainerBarAdministrador{
+    z-index: 4;
+  }
+  .BarraNavegacionAdministradorContainer .VerticalContainerBarAdmin{
+    z-index: 3;
+    min-width: 72px;
+  }
+  .BarraNavegacionAdministradorContainer .OptionsContainer{
+    top: 72px;
+}
+}
+
+@media (max-height:576px) {
+  .BarraNavegacionAdministradorContainer .HorizontalContainerBarAdministrador{
+  min-height: 64px;
+}
+.BarraNavegacionAdministradorContainer .OptionsContainer{
+  top: 64px;
+}
+}
+
+
+@media (min-height:760px) {
+  .BarraNavegacionAdministradorContainer .HorizontalContainerBarAdministrador{
+    max-height: 84px;
+}
+.BarraNavegacionAdministradorContainer .OptionsContainer{
+  top: 84px;
+}
+}
+
+
+@media (max-height:728px) {
+  .BarraNavegacionAdministradorContainer .VerticalContainerBarAdmin {
+    position: fixed; 
+    top: 0; 
+    left: 0;
+    height: 100vh; 
+    overflow-y: auto; 
+  }
+
+  .BarraNavegacionAdministradorContainer .OptionsContainer {
+    position: relative; 
+    flex-grow: 1; 
+    overflow-y: auto; 
+    height: auto; 
+  }
+
+}
+
+
+
+@keyframes openDespMenu {
+  from {
+    max-width: 0;
+    opacity: 0;
+  }
+  to {
+    max-width: 500px;
+    opacity: 1;
+  }
+}
+
+@keyframes closeDespMenu {
+  from {
+    max-width: 500px;
+    opacity: 1;
+  }
+  to {
+    max-width: 0;
+    opacity: 0;
+  }
+}

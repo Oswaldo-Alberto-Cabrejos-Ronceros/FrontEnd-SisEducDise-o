@@ -1,0 +1,208 @@
+:root{
+  --ColorBtnPrin:#DC2626;
+  --ColorBtnPrinHover:#EF4444;
+  --ColorButton:#FEF2F2;
+  --ColorBtnSave:#65A30D;
+  --ColorBtnSaveHover:#84CC16;
+}
+Container {
+    display: flex;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding-top: 60px; /* Ajusta este valor para alinearlo con la barra roja */
+  }
+  
+  
+  .Menu {
+    position: fixed;
+    left: 130px;
+    top: 100px; /* Ajusta este valor al alto de la barra roja */
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    background-color: #ffffff;
+    height: calc(100vh - 70px); /* Ajusta la altura para no solapar la barra roja */
+    width: 200px; /* Anchura fija para el menú */
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+  }
+
+  
+  .Menu button {
+    font-size: 14px;
+    padding: 10px 20px;
+    border: none;
+    background-color: var(--ColorBtnPrin) ;
+    color: var(--ColorButton);
+    border-radius: 4px;
+    cursor: pointer;
+    width: 100%;
+    transition: 150ms;
+  }
+
+  .Menu button:hover{
+    background-color: var(--ColorBtnPrinHover);
+  }
+  
+  .InfoUserContainer {
+    flex: 1;
+    padding: 20px;
+    margin-left: 520px; /* Deja espacio a la izquierda para el menú */
+    max-width: 600px; /* Ancho máximo para centrar el formulario */
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #fff;
+    margin-top: 20px; /* Añade margen superior para separarlo del nav */
+  }
+  
+  h2 {
+    font-size: 22px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 5px;
+  }
+  
+  .InfoDescription {
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 20px;
+  }
+  
+  .UserAvatar {
+    display: block;
+    margin: 0 auto 20px;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+  }
+  
+  .InfoUserDetails {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+  
+  .InfoRow {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 0;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  .InfoRow label {
+    font-weight: bold;
+    color: #333;
+    flex: 1;
+  }
+  
+  .InfoRow p, .InfoRow input {
+    flex: 2;
+    color: #555;
+    text-align: right;
+    margin: 0;
+  }
+  
+  .InfoRow input {
+    padding: 5px;
+    font-size: 14px;
+  }
+  
+  .SaveButton {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    margin-top: 20px;
+    padding: 8px 16px;
+    border: none;
+    background-color:var(--ColorBtnSave);
+    color: var(--ColorButton);
+    border-radius: 4px;
+    cursor: pointer;
+    transition: 150ms;
+  }
+  .SaveButton:hover{
+    background-color: var(--ColorBtnSaveHover);
+  }
+
+  
+  /* Media Queries for Responsiveness */
+  
+  @media (max-width: 992px) {
+    .Container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    
+    .Menu {
+      position: relative;
+      top: 0;
+      left: 0;
+      width: 100%;
+      padding: 10px;
+      height: auto;
+      flex-direction: row;
+      justify-content: space-around;
+      box-shadow: none;
+      border-bottom: 1px solid #ddd;
+    }
+  
+    .InfoUserContainer {
+      margin-left: 0;
+      width: 100%;
+      padding: 20px;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .InfoRow {
+      flex-direction: column;
+      align-items: flex-start;
+      padding: 5px 0;
+    }
+  
+    .InfoRow p, .InfoRow input {
+      text-align: left;
+      width: 100%;
+    }
+  
+    .UserAvatar {
+      width: 80px;
+      height: 80px;
+    }
+    
+    .SaveButton {
+      width: 100%;
+    }
+  }
+  
+  @media (max-width: 576px) {
+    h2 {
+      font-size: 18px;
+    }
+  
+    .InfoDescription {
+      font-size: 12px;
+    }
+  
+    .Menu {
+      flex-direction: column;
+      align-items: center;
+    }
+  
+    .Menu button {
+      font-size: 12px;
+      padding: 8px 10px;
+    }
+  
+    .InfoUserContainer {
+      padding: 15px;
+    }
+  
+    .UserAvatar {
+      width: 60px;
+      height: 60px;
+    }
+  }
+  

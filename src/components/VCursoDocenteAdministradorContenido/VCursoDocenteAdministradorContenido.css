@@ -1,0 +1,31 @@
+.VCursoDocenteContenidoContainer{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    padding: 10px;
+    box-sizing: border-box;
+    align-items: center;
+    flex-direction: column;
+}
+
+.VCursoDocenteContenidoContainer .LinkVCursoDocenCont{
+    text-decoration: none;
+}
+
+
+.VCursoDocenteContenidoContainer .VCurDocenCamb{
+    width: 100%;
+    height: auto;
+    padding: 0;
+    margin: 0;
+}
+
+.VCursoDocenteContenidoContainer .VCursoDocenteContenidoTitle{
+    align-self:flex-start;
+    margin: 1%;
+    height: auto;
+}
+.VCursoDocenteContenidoContainer .VCursoDocenteContenidoTitle h3{
+    margin: 0;
+    padding: 0;
+}

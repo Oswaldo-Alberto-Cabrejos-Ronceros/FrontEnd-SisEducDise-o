@@ -1,0 +1,111 @@
+:root {
+    --BorderTableVerNotasDoc: #171717;
+    --BackgroudColorTableVerNotasDocTh: #ef4444;
+    --ColorTableVerNotasDocTh: #fef2f2;
+  }
+  
+  .TablaVerNotasDocenteAdministradorBimestralContainer {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    width: 100%;
+  }
+
+  .TableVerDocNotasBimestral{
+    width: 95%;
+  }
+
+  .TableVerDocNotasBimestral,
+  th,
+  td {
+    border: 1px solid var(--BorderTableVerNotasDoc);
+    border-collapse:collapse;
+  }
+  
+  .TableVerDocNotasBimestral tr td {
+    padding: 8px;
+    box-sizing: border-box;
+    text-align: left;
+    font-size: var(--PMdsize);
+  }
+  
+  .TableVerDocNotasBimestral tr th {
+    padding: 8px;
+    box-sizing: border-box;
+    font-size: var(--PMdsize);
+  }
+
+  
+  
+  .TableVerDocNotasBimestral tr .TdCenter {
+ text-align: center;
+  }
+  .TableVerDocNotasBimestral th {
+    background-color: var(--BackgroudColorTableVerNotasDocTh);
+    color: var(--ColorTableVerNotasDocTh);
+  }
+  .TableVerDocNotasBimestral td input {
+    padding: 4px;
+    box-sizing: border-box;
+    width: 100%;
+    text-align: center;
+  }
+  
+  .TablaNotasVerDocEmpty{
+    width: 100%;
+    height: 100%;
+    padding: 10px;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+
+  @media (max-width:996px) {
+    .TablaVerNotasDocenteAdministradorBimestralContainer{
+        flex-direction: column;
+        gap: 10px;
+        align-items: center;
+        justify-content: center;
+    }
+   }
+
+ 
+   @media (max-width:460px) {
+    .TableVerDocNotasBimestral tr th {
+      padding: 4px;
+      font-weight: normal;
+
+    }
+    .TableVerDocNotasBimestral tr td {
+      padding: 4px;
+    }
+  }
+
+  @media (max-width:382px) {
+    .TableVerDocNotasBimestral tr th {
+      font-size: var(--PSmsize);
+    }
+    .TableVerDocNotasBimestral tr td {
+      font-size: var(--PSmsize);
+    }
+  }
+
+  @media (max-width:382px) {
+    .TableVerDocNotasBimestral tr th {
+      font-size: var(--PXSmsixe);
+    }
+    .TableVerDocNotasBimestral tr td {
+      font-size: var(--PXSmsixe);
+    }
+  }
+
+  @media (max-width:318px) {
+    .TableVerDocNotasBimestral tr th {
+      padding: 2px;
+    }
+    .TableVerDocNotasBimestral tr td {
+      padding: 2px;
+    }
+  }

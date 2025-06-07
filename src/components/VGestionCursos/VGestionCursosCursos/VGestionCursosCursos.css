@@ -1,0 +1,101 @@
+/* Contenedor Principal */
+.VGestionCursosCursosContainer {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    padding: 20px;
+}
+
+/* Título */
+.VGestionCursosCursosContainer .VGestionCursosCursosContainerTitle {
+    align-self: flex-start;
+    margin-bottom: 20px;
+}
+
+.VGestionCursosCursosContainer .VGestionCursosCursosContainerTitle h3 {
+    margin: 0;
+    padding: 0;
+    font-size: 28px;
+}
+
+/* Barra de Búsqueda */
+.VGestionCursosCursosContainer .VGestionCursosCursosContainerSearch {
+    margin-bottom: 20px;
+}
+
+.VGestionCursosCursosContainer .VGestionCursosCursosContainerSearch .SearchComponentContainer {
+    width: 100%;
+    max-width: 350px;
+}
+
+/* Contenido principal */
+.VGestionCursosContent {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.VGestionCursosContent .FormularioAgregarEstudiante {
+    margin-bottom: 20px;
+}
+
+/* Tabla de cursos */
+.TablaGestionCursos {
+    width: 100%;
+    overflow-x: auto;
+    /* Para tablas anchas en pantallas pequeñas */
+}
+
+
+/* Botón Mostrar/Ocultar */
+.VGestionCursosCursosContainer .ButtonFormularioContent {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.VGestionCursosCursosContainer .ButtonFormularioContent .PrimaryButton {
+    width: 200px;
+}
+
+/* Media Queries */
+
+/* Pantallas medianas */
+@media (max-width: 768px) {
+    .VGestionCursosCursosContainer .VGestionCursosCursosContainerTitle h3 {
+        font-size: 24px;
+    }
+
+    .VGestionCursosCursosContainer .ButtonFormularioContent .PrimaryButton {
+        width: 180px;
+    }
+
+    .TablaGestionCursosContainer {
+        overflow-x: auto;
+    }
+}
+
+/* Pantallas pequeñas */
+@media (max-width: 480px) {
+    .VGestionCursosCursosContainer {
+        padding: 10px;
+    }
+
+    .VGestionCursosCursosContainer .VGestionCursosCursosContainerTitle h3 {
+        font-size: 20px;
+    }
+
+    .VGestionCursosCursosContainer .VGestionCursosCursosContainerSearch {
+        margin-bottom: 15px;
+    }
+
+    .VGestionCursosCursosContainer .ButtonFormularioContent .PrimaryButton {
+        width: 100%;
+    }
+
+    .VGestionCursosCursosContainer .TablaGestionCursosContainer {
+        margin: 15px 0;
+    }
+}

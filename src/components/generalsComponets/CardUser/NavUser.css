@@ -1,0 +1,73 @@
+:root{
+    --ColorItems:#FEF2F2;
+  }
+
+.NavUserContainer{
+    height: 100%;
+    width: auto;
+    position: absolute;
+    left: 1%;
+    top: 0;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: var(--ColorItems);
+}
+.ImgUser{
+    height: 75%;
+    box-sizing: border-box;
+    margin-right: 10px;
+}
+
+.ImgUser:hover{
+    border-radius: 75%;
+    border: 2px solid var(--ColorItems);
+    transition: 150ms;
+}
+.NavUserContainer .PLg{
+    align-self: center;
+}
+@media (max-width:1130px) {
+    .NavUserContainer{
+      left: 6%;
+    }
+  }
+  @media (max-width:780px) {
+    .NavUserContainer{
+      left: 8%;
+    }
+  }
+
+  @media (max-width:570px) {
+    .NavUserContainer .PLg{
+      font-size: 4vw;
+    }
+  }
+
+  @media (max-width:462px) {
+
+    .NavUserContainer .PLg{
+      font-size: 3.5vw;
+    }
+  }
+
+  @media (max-width:420px) {
+
+    .NavUserContainer .PLg{
+      font-size: 3.75vw;
+    }
+  }
+
+  @media (max-width:392px) {
+
+    .NavUserContainer .PLg{
+      font-size: 3.5vw;
+    }
+  }
+
+  @media (max-width:460px) {
+    .NavUserContainer{
+      left: 12%;
+    }
+  }

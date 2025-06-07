@@ -1,0 +1,47 @@
+:root{
+  --BackgroudColorVGestionEstudiante:#F4F4F5;
+  --ColorBorderFormHorarioDocente: #171717;
+}
+
+.CardFormularioHorarioDocenteContainer{
+  width: 100%;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  box-sizing: border-box;
+  padding: 10px;
+  box-sizing: border-box;
+  border: 1px solid var(--ColorBorderFormHorarioDocente);
+  border-radius: 8px;
+  box-shadow: 4px 4px 4px 0px rgba(0, 0, 0, 0.25);
+}
+.CardFormularioHorarioDocenteContainer .CardFormularioHorarioDocenteTitleContainer{
+  align-self:flex-start;
+  margin: 1%;
+  height: auto;
+}
+
+
+
+.CardFormularioHorarioDocenteContainer .CardFormularioHorarioDocenteTitleContainer h3{
+  margin: 0;
+  padding: 0;
+}
+
+.CardFormularioHorarioDocenteContainer .CardFormularioHorarioDocenteContent{
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: auto;
+  max-height: none;
+  min-height: 440px;
+  box-sizing: border-box;
+  align-self: flex-start;
+  margin-top: 20px;
+  box-sizing: border-box;
+  align-items: center;
+}
+
+
+

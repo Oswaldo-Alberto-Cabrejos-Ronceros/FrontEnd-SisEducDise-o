@@ -1,0 +1,33 @@
+
+.VHorarioEstudianteDocenteContainer{
+    padding: 2%;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: space-between;
+}
+
+
+.VHorarioEstudianteDocenteContainer .VHorarioEstudianteDocenteTitle{
+    width: 100%;
+    display: flex;
+    align-self:flex-start;
+    height: auto;
+}
+.VHorarioEstudianteDocenteContainer .VHorarioEstudianteDocenteTitle h3{
+    margin: 0;
+    padding: 0;
+    justify-self: start;
+}
+
+.VHorarioEstudianteDocenteContainer .HorarioContainer{
+    width: 100%;
+    height: auto;
+    margin: 0;
+    padding: 10px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-items: center;
+}
