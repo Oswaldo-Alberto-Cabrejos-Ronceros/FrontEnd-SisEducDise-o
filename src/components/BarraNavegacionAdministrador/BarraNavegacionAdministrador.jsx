@@ -50,18 +50,13 @@ function BarraNavegacionAdministrador() {
         <div className="MenuIconContainer" onClick={handleShowMenu}>
           <IoMenu />
         </div>
+
         <Link to="usuario">
           <NavUser
             nombre={"Admin"}
             imagen={"https://dashboard.rtta.rw/public/assets/img/avatar.png"}
           />
         </Link>
-        <div
-          className="SessionOutContainer"
-          onClick={() => setShowLogoutModal(true)}
-        >
-          <FaSignOutAlt />
-        </div>
       </div>
       {showMenu ? (
         <div
