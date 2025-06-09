@@ -3,7 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import "./BarraNavegacionEstudiante.css";
 import NavItem from "../generalsComponets/NavItem/NavItem";
 import { IoBookOutline } from "react-icons/io5";
-import { FaCalendarAlt } from "react-icons/fa";
+//import { FaCalendarAlt } from "react-icons/fa";
 import { GrNotes } from "react-icons/gr";
 import NavUser from "../generalsComponets/CardUser/NavUser";
 import { FaSignOutAlt } from "react-icons/fa";
@@ -71,13 +71,14 @@ function BarraNavegacionEstudiante({ nombre, apellido }) {
               to="cursos"
               onClick={window.innerWidth > 1130===true?(null):(setShowMenuFalse)}
             />
-            <NavItem
+            {/*            <NavItem
               id={"Horario"}
               titulo={"Horario"}
               icon={<FaCalendarAlt />}
               to="horario"
               onClick={window.innerWidth > 1130===true?(null):(setShowMenuFalse)}
-            />
+            />*/}
+
             <NavItem
               id={"Notas"}
               titulo={"Notas"}

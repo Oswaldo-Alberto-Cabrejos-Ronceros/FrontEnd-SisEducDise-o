@@ -1,6 +1,6 @@
 
 import "./App.css";
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import VInicioSesion from "./components/v-iniciosesion/VInicioSesion/VInicioSesion";
 import VEstudiante from "./components/VEstudiante/VEstudiante";
 import VDocente from "./components/VDocente/VDocente";

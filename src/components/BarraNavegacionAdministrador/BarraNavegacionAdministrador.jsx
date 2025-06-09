@@ -5,7 +5,7 @@ import NavItem from "../generalsComponets/NavItem/NavItem";
 import NavUser from "../generalsComponets/CardUser/NavUser";
 import { FaSignOutAlt } from "react-icons/fa";
 import { IoBookOutline } from "react-icons/io5";
-import { FaCalendarAlt } from "react-icons/fa";
+//import { FaCalendarAlt } from "react-icons/fa";
 import { GrNotes } from "react-icons/gr";
 import { FaRankingStar } from "react-icons/fa6";
 import { FiTrendingUp } from "react-icons/fi";
@@ -75,13 +75,14 @@ function BarraNavegacionAdministrador() {
               to="cursos"
               onClick={window.innerWidth > 1130===true?(null):(setShowMenuFalse)}
             />
-            <NavItem
+            {/*            <NavItem
               id={"Horario"}
               titulo={"Horario"}
               icon={<FaCalendarAlt />}
               to="horario"
               onClick={window.innerWidth > 1130===true?(null):(setShowMenuFalse)}
-            />
+            />*/}
+
             <NavItem
               id={"Notas"}
               titulo={"Notas"}
