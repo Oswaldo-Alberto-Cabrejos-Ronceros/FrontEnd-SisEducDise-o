@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import "./VHonorDocenteAdministradorUnidad.css";
 import SelectComponent from "../../generalsComponets/SelectComponent/SelectComponent";
 import CardHonor from "../../generalsComponets/CardHonor/CardHonor";

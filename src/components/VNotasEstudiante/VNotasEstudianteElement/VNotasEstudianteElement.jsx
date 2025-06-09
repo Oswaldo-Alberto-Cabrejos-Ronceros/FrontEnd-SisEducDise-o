@@ -1,9 +1,7 @@
-import React from "react";
 import "./VNotasEstudianteElement.css";
 import TablaNotasEstudiante from "../../generalsComponets/TablaNotasEstudiante/TablaNotasEstudiante";
 import { useLocation } from "react-router-dom";
 import { useParams } from "react-router-dom";
-import TablaNotasEstudianteCurso from "../../generalsComponets/TablaNotasEstudianteCurso/TablaNotasEstudianteCurso";
 
 function VNotasEstudianteElement() {
   const location = useLocation();

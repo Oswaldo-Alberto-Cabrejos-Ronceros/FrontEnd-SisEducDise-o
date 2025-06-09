@@ -1,14 +1,10 @@
-import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./AlertaCambioPassword.css";
+import PropTypes from "prop-types";
 
 function AlertaCambioPassword({ mostrar,rol }) {
     const navigate = useNavigate();
 
-    const [user, setUser] = useState({});
-    useEffect(() => {
-        const userData = JSON.parse(sessionStorage.getItem("userData"));
-        setUser(userData || {});},[]);
 
     if (!mostrar) return null; // No mostrar nada si no debe estar visible
 
@@ -41,6 +37,11 @@ function AlertaCambioPassword({ mostrar,rol }) {
             </button>
         </div>
     );
+}
+
+AlertaCambioPassword.propTypes={
+    mostrar:PropTypes.bool.isRequired,
+    rol:PropTypes.string.isRequired
 }
 
 export default AlertaCambioPassword;

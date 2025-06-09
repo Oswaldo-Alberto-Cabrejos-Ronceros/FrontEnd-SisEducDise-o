@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import "./BarraNavegacionDocente.css";
 import NavItem from "../generalsComponets/NavItem/NavItem";
@@ -10,6 +10,7 @@ import { FaSignOutAlt } from "react-icons/fa";
 import { FaRankingStar } from "react-icons/fa6";
 import { FiTrendingUp } from "react-icons/fi";
 import { IoMenu } from "react-icons/io5";
+import PropTypes from "prop-types";
 
 function BarraNavegacionDocente({ nombre, apellido }) {
   const [showLogoutModal, setShowLogoutModal] = useState(false); // Estado para controlar el modal
@@ -37,9 +38,9 @@ function BarraNavegacionDocente({ nombre, apellido }) {
     setShowMenu(!showMenu);
   };
 
-  const setShowMenuFalse = ()=>{
+  const setShowMenuFalse = () => {
     setShowMenu(false);
-  }
+  };
 
   return (
     <div className="BarraNavegacionDocenteContainer">
@@ -72,35 +73,45 @@ function BarraNavegacionDocente({ nombre, apellido }) {
               titulo={"Cursos"}
               icon={<IoBookOutline />}
               to="cursos"
-              onClick={window.innerWidth > 1130===true?(null):(setShowMenuFalse)}
+              onClick={
+                window.innerWidth > 1130 === true ? null : setShowMenuFalse
+              }
             />
             <NavItem
               id={"Horario"}
               titulo={"Horario"}
               icon={<FaCalendarAlt />}
               to="horario"
-              onClick={window.innerWidth > 1130===true?(null):(setShowMenuFalse)}
+              onClick={
+                window.innerWidth > 1130 === true ? null : setShowMenuFalse
+              }
             />
             <NavItem
               id={"Notas"}
               titulo={"Notas"}
               icon={<GrNotes />}
               to="notas"
-              onClick={window.innerWidth > 1130===true?(null):(setShowMenuFalse)}
+              onClick={
+                window.innerWidth > 1130 === true ? null : setShowMenuFalse
+              }
             />
             <NavItem
               id={"Honor"}
               titulo={"Honor"}
               icon={<FaRankingStar />}
               to="honor"
-              onClick={window.innerWidth > 1130===true?(null):(setShowMenuFalse)}
+              onClick={
+                window.innerWidth > 1130 === true ? null : setShowMenuFalse
+              }
             />
             <NavItem
               id={"Informes"}
               titulo={"Informes"}
               icon={<FiTrendingUp />}
               to="informes"
-              onClick={window.innerWidth > 1130===true?(null):(setShowMenuFalse)}
+              onClick={
+                window.innerWidth > 1130 === true ? null : setShowMenuFalse
+              }
             />
           </div>
         </div>
@@ -130,5 +141,10 @@ function BarraNavegacionDocente({ nombre, apellido }) {
     </div>
   );
 }
+
+BarraNavegacionDocente.propTypes = {
+  nombre: PropTypes.string.isRequired,
+  apellido: PropTypes.string.isRequired,
+};
 
 export default BarraNavegacionDocente;

@@ -1,4 +1,3 @@
-import React from "react";
 import "./VGestionCursos.css";
 import PrimaryButton from "../generalsComponets/PrimaryButton/PrimaryButton";
 import { Routes, Route, Link, Navigate} from 'react-router-dom';

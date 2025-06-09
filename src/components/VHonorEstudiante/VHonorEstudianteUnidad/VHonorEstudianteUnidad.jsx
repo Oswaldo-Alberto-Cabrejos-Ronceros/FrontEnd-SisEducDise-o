@@ -1,4 +1,4 @@
-import React,{useState,useEffect} from "react";
+import {useState,useEffect} from "react";
 import "./VHonorEstudianteUnidad.css";
 import CardHonor from "../../generalsComponets/CardHonor/CardHonor"
 import alumnoService from "../../../services/alumnoService";

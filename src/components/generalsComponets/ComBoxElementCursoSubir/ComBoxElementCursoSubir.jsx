@@ -1,10 +1,10 @@
-import React from "react";
 import { useState } from "react";
 import { FaFileUpload } from "react-icons/fa";
 import PrimaryButtonLarge from "../PrimaryButtonLarge/PrimaryButtonLarge";
 import "./ComBoxElementCursoSubir.css";
 import ConfirmationModal from "../../VGestionUsuarios/Modals/ConfirmacionModal";
 import contenidosService from "../../../services/contenidosService";
+import PropTypes from "prop-types";
 
 function ComBoxElementCursoSubir({ cursoinfo, unidad, onAgregarContenido }) {
   const [mostrarOtroComponente, setMostrarOtroComponente] = useState(false);
@@ -197,6 +197,16 @@ function ComBoxElementCursoSubir({ cursoinfo, unidad, onAgregarContenido }) {
       )}
     </div>
   );
+}
+
+ComBoxElementCursoSubir.propTypes={
+  cursoinfo:PropTypes.shape({
+    SubcursoId:PropTypes.number.isRequired,
+    Nivel:PropTypes.string.isRequired,
+    Grado:PropTypes.number.isRequired
+  }).isRequired,
+  unidad:PropTypes.number.isRequired,
+  onAgregarContenido:PropTypes.func.isRequired
 }
 
 export default ComBoxElementCursoSubir;

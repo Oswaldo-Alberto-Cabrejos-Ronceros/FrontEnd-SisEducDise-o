@@ -1,4 +1,3 @@
-import React from 'react'
 import './VInformesDocenteAdministrador.css'
 import { Routes, Route, Link, Navigate } from 'react-router-dom';
 import PrimaryButton from '../generalsComponets/PrimaryButton/PrimaryButton';

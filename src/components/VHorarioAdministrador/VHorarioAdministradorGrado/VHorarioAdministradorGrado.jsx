@@ -1,4 +1,4 @@
-import React, { useState,useEffect } from "react";
+import { useState,useEffect } from "react";
 import "./VHorarioAdministradorGrado.css";
 import SelectComponent from "../../generalsComponets/SelectComponent/SelectComponent";
 import CardHorario from "../../generalsComponets/CardHorario/CardHorario";
@@ -61,15 +61,6 @@ function VHorarioAdministradorGrado() {
     fetchHorarios();
   }, [nivel, grado,horarios]);
 
-  const getGradoOptions = () => {
-    if (nivel === "PRIMARIA") {
-      return [1, 2, 3, 4, 5, 6];
-    } else if (nivel === "SECUNDARIA") {
-      return [1, 2, 3, 4, 5];
-    } else {
-      return [];
-    }
-  };
 
 
   const optionsGradoPrimaria = [

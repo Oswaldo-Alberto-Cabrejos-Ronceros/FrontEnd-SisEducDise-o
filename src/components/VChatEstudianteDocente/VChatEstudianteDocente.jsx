@@ -1,4 +1,3 @@
-import React from 'react'
 import './VChatEstudianteDocente.css'
 
 function VChatEstudianteDocente() {

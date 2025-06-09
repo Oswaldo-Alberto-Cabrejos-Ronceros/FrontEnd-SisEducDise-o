@@ -1,6 +1,7 @@
-import React from "react";
 import "./VCursoEstudianteContenidoTareas.css";
 import ComBoxTareaXUnidadEstudiante from "../../../generalsComponets/ComBoxTareaXUnidadEstudiante/ComBoxTareaXUnidadEstudiante";
+import PropTypes from "prop-types";
+
 
 function VCursoEstudianteContenidoTareas({to, curso, tareas }) {
   let unidad = "Unidad ";
@@ -8,11 +9,11 @@ function VCursoEstudianteContenidoTareas({to, curso, tareas }) {
   let unidadString;
   return (
     <div className="VCursoEstudianteContenidoTareasContainer">
-      {tareas.map((tarea) => {
+      {tareas.map((tarea,index) => {
         unidadString = unidad + numerounidad;
         numerounidad++;
         return (
-          <ComBoxTareaXUnidadEstudiante
+          <ComBoxTareaXUnidadEstudiante key={index}
             unidad={unidadString}
             tareas={tarea}
             curso={curso}
@@ -22,6 +23,12 @@ function VCursoEstudianteContenidoTareas({to, curso, tareas }) {
       })}
     </div>
   );
+}
+
+VCursoEstudianteContenidoTareas.propTypes={
+  to:PropTypes.string.isRequired,
+  curso:PropTypes.object.isRequired,
+  tareas:PropTypes.array.isRequired
 }
 
 export default VCursoEstudianteContenidoTareas;

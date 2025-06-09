@@ -1,4 +1,3 @@
-import React from "react";
 import "./VAccesoDenegado.css";
 import PrimaryButton from "../generalsComponets/PrimaryButton/PrimaryButton";
 import { Link } from "react-router-dom";

@@ -1,9 +1,9 @@
-import React from "react";
 import "./VTareasAdministradorPorFecha.css";
 import ComBoxElementTareaAdmin from "../../generalsComponets/ComBoxElementTareaDocenteAdmin/ComBoxElementTareaDocenteAdmin";
 import SelectComponent from "../../generalsComponets/SelectComponent/SelectComponent";
+import PropTypes from "prop-types";
 
-function VTareasAdministradorPorFecha({to, tareasPorFecha, tareas }) {
+function VTareasAdministradorPorFecha({ to, tareasPorFecha, tareas }) {
   let optionsNivel = ["Primaria", "Secundaria"];
   let optionsGrado = [
     "1er Grado",
@@ -28,11 +28,22 @@ function VTareasAdministradorPorFecha({to, tareasPorFecha, tareas }) {
       </div>
       <div className="ComBoxElementTareaDocenteContainerVTareasAdministradorPorFecha">
         {tareas.map((tarea, index) => (
-          <ComBoxElementTareaAdmin key={index} tarea={tarea} to={to} curso={tareasPorFecha} />
+          <ComBoxElementTareaAdmin
+            key={index}
+            tarea={tarea}
+            to={to}
+            curso={tareasPorFecha}
+          />
         ))}
       </div>
     </div>
   );
 }
+
+VTareasAdministradorPorFecha.propTypes = {
+  to: PropTypes.string.isRequired,
+  tareasPorFecha: PropTypes.object.isRequired,
+  tareas: PropTypes.array.isRequired,
+};
 
 export default VTareasAdministradorPorFecha;

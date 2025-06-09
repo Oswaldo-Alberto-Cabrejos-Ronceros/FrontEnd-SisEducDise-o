@@ -1,5 +1,5 @@
-import React from "react";
 import "./CardCursoEstudiante.css";
+import PropTypes from "prop-types";
 
 function CardCursoEstudiante({ curso }) {
   return (
@@ -14,6 +14,14 @@ function CardCursoEstudiante({ curso }) {
       </div>
     </div>
   );
+}
+
+CardCursoEstudiante.propTypes={
+  curso:PropTypes.shape({
+    Nombre:PropTypes.string.isRequired,
+    Docente:PropTypes.string.isRequired,
+    Nivel:PropTypes.string.isRequired
+  }).isRequired
 }
 
 export default CardCursoEstudiante;

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import "./TablaGestionEstudiantes.css";
 import AlumnoService from "../../../../services/alumnoService";
 import PrimaryButton from "../../../generalsComponets/PrimaryButton/PrimaryButton";
@@ -6,6 +6,7 @@ import EditEstudianteModal from "../../Modals/EditEstudianteModal";
 import DeleteUserModal from "../../Modals/DeleteUserModal";
 import ConfirmationModal from "../../Modals/ConfirmacionModal";
 import PaginacionComponent from "../../../generalsComponets/PaginacionComponent/PaginacionComponent";
+import PropTypes from "prop-types";
 
 function TablaGestionEstudiantes({
   estudiantes,
@@ -148,6 +149,12 @@ function TablaGestionEstudiantes({
       />
     </div>
   );
+}
+
+TablaGestionEstudiantes.propTypes={
+  estudiantes:PropTypes.array.isRequired,
+  onStudentDeleted:PropTypes.func.isRequired,
+  onStudentUpdated:PropTypes.func.isRequired,
 }
 
 export default TablaGestionEstudiantes;

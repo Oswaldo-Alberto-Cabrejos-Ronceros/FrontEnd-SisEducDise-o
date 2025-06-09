@@ -1,4 +1,3 @@
-import React, {useState, useEffect} from 'react'
 import './VAdministrador.css'
 import {Route, Routes, Navigate } from "react-router-dom";
 import InfoUser from '../generalsComponets/InfoUser/InfoUser';
@@ -14,21 +13,6 @@ import VGestionUsuarios from '../VGestionUsuarios/VGestionUsuarios'
 
 
 function VAdministrador() {
-  const [userUser, setUser] = useState(null);
-  
-
-  useEffect(() => {
-    const userData = sessionStorage.getItem("userData");
-    if (userData) {
-      const parsedUser = JSON.parse(userData);
-      setUser(parsedUser  || {nombre:"Admin", apellido:"Admin"});
-    }
-  }, []);
-
-
-
-  
-
 
   return (
     <div className='VAdministradorMain'>

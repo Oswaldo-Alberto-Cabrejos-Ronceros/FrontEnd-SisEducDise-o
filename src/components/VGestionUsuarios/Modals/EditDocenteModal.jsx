@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import "./EditEstudianteModal.css";
 import InputComponent from "../../generalsComponets/InputComponent/InputComponent";
 import { LiaIdCardSolid } from "react-icons/lia";
@@ -7,6 +7,7 @@ import { FiSmartphone } from "react-icons/fi";
 import { GiDiploma } from "react-icons/gi"; // Icono para especialidad
 import ButtonSubmit from "../../generalsComponets/ButtonSubmit/ButtonSubtmit";
 import ConfirmationModal from "./ConfirmacionModal";
+import PropTypes from "prop-types";
 
 function EditDocenteModal({ show, profesor, onUpdate, onClose }) {
     const [formData, setFormData] = useState({
@@ -188,5 +189,12 @@ function EditDocenteModal({ show, profesor, onUpdate, onClose }) {
         </div>
     );
 }
+
+EditDocenteModal.propTypes = {
+  show: PropTypes.bool.isRequired,
+  profesor: PropTypes.object.isRequired,
+  onUpdate: PropTypes.func.isRequired,
+  onClose:PropTypes.func.isRequired
+};
 
 export default EditDocenteModal;

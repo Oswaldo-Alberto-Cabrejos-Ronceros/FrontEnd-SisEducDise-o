@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import AlumnoService from "../../../services/alumnoService";
 import "./VGestionEstudiante.css";
 import TablaGestionEstudiantes from "./TablaGestionEstudiantes/TablaGestionEstudiantes";

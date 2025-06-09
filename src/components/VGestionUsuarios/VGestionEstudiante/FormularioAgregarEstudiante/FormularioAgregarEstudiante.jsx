@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import "./FormularioAgregarEstudiante.css";
 import ButtonSubmit from "../../../generalsComponets/ButtonSubmit/ButtonSubtmit";
 import InputComponent from "../../../generalsComponets/InputComponent/InputComponent";
@@ -9,6 +9,7 @@ import SelectComponent from "../../../generalsComponets/SelectComponent/SelectCo
 import AlumnoService from "../../../../services/alumnoService"; // Importa el servicio
 import ConfirmationModal from "../../Modals/ConfirmacionModal"; // Importa el modal de confirmación
 import { FaBirthdayCake } from "react-icons/fa";
+import PropTypes from "prop-types";
 
 function FormularioAgregarEstudiante({ onStudentAdded }) {
   const [formData, setFormData] = useState({
@@ -221,6 +222,10 @@ function FormularioAgregarEstudiante({ onStudentAdded }) {
       </form>
     </div>
   );
+}
+
+FormularioAgregarEstudiante.propTypes={
+  onStudentAdded:PropTypes.func.isRequired
 }
 
 export default FormularioAgregarEstudiante;

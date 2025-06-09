@@ -1,4 +1,3 @@
-import React from 'react'
 import './VVerTareaGeneral.css'
 import { useLocation } from "react-router-dom";
 import CardTareaCurso from '../generalsComponets/CardTareaCurso/CardTareaCurso';

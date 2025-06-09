@@ -1,4 +1,4 @@
-import React, { useState,useEffect } from "react";
+import { useState,useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import "./BarraNavegacionEstudiante.css";
 import NavItem from "../generalsComponets/NavItem/NavItem";
@@ -9,8 +9,9 @@ import NavUser from "../generalsComponets/CardUser/NavUser";
 import { FaSignOutAlt } from "react-icons/fa";
 import { FaRankingStar } from "react-icons/fa6";
 import { IoMenu } from "react-icons/io5";
+import PropTypes from "prop-types";
 
-function barraNavegacionEstudiante({ nombre, apellido }) {
+function BarraNavegacionEstudiante({ nombre, apellido }) {
   const [showLogoutModal, setShowLogoutModal] = useState(false); // Estado para controlar el modal
   const [showMenu, setShowMenu] = useState(window.innerWidth > 1130); 
   const navigate = useNavigate();
@@ -120,4 +121,9 @@ function barraNavegacionEstudiante({ nombre, apellido }) {
   );
 }
 
-export default barraNavegacionEstudiante;
+BarraNavegacionEstudiante.propTypes={
+  nombre:PropTypes.string.isRequired,
+  apellido:PropTypes.string.isRequired
+}
+
+export default BarraNavegacionEstudiante;

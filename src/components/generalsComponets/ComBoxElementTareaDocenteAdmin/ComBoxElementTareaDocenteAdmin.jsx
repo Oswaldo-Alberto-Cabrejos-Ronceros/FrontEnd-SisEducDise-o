@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import "./ComBoxElementTareaDocenteAdmin.css";
 import { SlPencil } from "react-icons/sl";
 import { MdOutlineDeleteOutline } from "react-icons/md";
@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 import ModalDeleteContenido from "../ComBoxElementCursoDocenteAdministrador/ModalDeleteContenido/ModalDeleteContenido";
 import contenidosService from "../../../services/contenidosService";
 import ConfirmationModal from "../../VGestionUsuarios/Modals/ConfirmacionModal";
+import PropTypes from "prop-types";
 
 function ComBoxElementTareaDocenteAdmin({ curso, to, tarea, onDelete}) {
   const [showModal, setShowModal] = useState(false);
@@ -72,6 +73,13 @@ function ComBoxElementTareaDocenteAdmin({ curso, to, tarea, onDelete}) {
       />
     </>
   );
+}
+
+ComBoxElementTareaDocenteAdmin.propTypes={
+  curso:PropTypes.object.isRequired,
+  to:PropTypes.string.isRequired,
+  tarea:PropTypes.object.isRequired,
+  onDelete:PropTypes.func.isRequired
 }
 
 export default ComBoxElementTareaDocenteAdmin;

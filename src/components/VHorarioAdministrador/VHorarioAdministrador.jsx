@@ -1,4 +1,3 @@
-import React from 'react'
 import './VHorarioAdministrador.css'
 import PrimaryButton from '../generalsComponets/PrimaryButton/PrimaryButton';
 import VHorarioAdministradorGrado from './VHorarioAdministradorGrado/VHorarioAdministradorGrado';

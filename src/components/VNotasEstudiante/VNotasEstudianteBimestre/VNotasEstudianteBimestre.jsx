@@ -1,4 +1,3 @@
-import React from 'react'
 import './VNotasEstudianteBimestre.css'
 import ComponentNotasEstudianteElement from '../../generalsComponets/ComponentNotasEstudianteElement/ComponentNotasEstudianteElement'
 
@@ -7,8 +6,8 @@ function VNotasEstudianteBimestre() {
   return (
     <div className='VNotasEstudianteBimestreContainer'>
         {
-          bimestres.map((bimestre)=>(
-            <ComponentNotasEstudianteElement title={"Bimestre " + bimestre} tipo={"bimestre"} indicador={bimestre}/>
+          bimestres.map((bimestre,index)=>(
+            <ComponentNotasEstudianteElement key={index} title={"Bimestre " + bimestre} tipo={"bimestre"} indicador={bimestre}/>
           ))
         }
     </div>

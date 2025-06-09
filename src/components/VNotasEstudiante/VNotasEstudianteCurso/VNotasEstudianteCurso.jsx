@@ -1,14 +1,12 @@
-import React,{useState, useEffect} from "react";
+import {useState, useEffect} from "react";
 import './VNotasEstudianteCurso.css'
 import ComponentNotasEstudianteElement from "../../generalsComponets/ComponentNotasEstudianteElement/ComponentNotasEstudianteElement";
 import subcursoService from "../../../services/subcursoService";
 
 function VNotasEstudianteCurso() {
   const [cursos, setCursos] = useState([]);
-  const [userAlumno, setUserAlumno] = useState({});
   useEffect(() => {
     const userData = JSON.parse(sessionStorage.getItem("userData"));
-    setUserAlumno(userData || {});
 
     if (userData) {
       subcursoService
@@ -36,8 +34,8 @@ function VNotasEstudianteCurso() {
   return (
     <div className="VNotasEstudianteCursoContainer">
     {
-      cursos.map((curso)=>(
-        <ComponentNotasEstudianteElement title={curso.Nombre} tipo={"curso"} indicador={curso.Id}/>
+      cursos.map((curso,index)=>(
+        <ComponentNotasEstudianteElement key={index} title={curso.Nombre} tipo={"curso"} indicador={curso.Id}/>
       ))
     }
     </div>

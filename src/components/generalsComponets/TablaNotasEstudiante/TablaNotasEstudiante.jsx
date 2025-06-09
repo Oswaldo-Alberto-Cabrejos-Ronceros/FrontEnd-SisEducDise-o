@@ -1,7 +1,9 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import subcursoService from "../../../services/subcursoService";
 import NotasService from "../../../services/notasService";
 import "./TablaNotasEstudiante.css";
+import PropTypes from "prop-types";
+
 
 function TablaNotasEstudiante({ tipo, indicador }) {
   const mostrarNota = (nota) => {
@@ -612,6 +614,11 @@ function TablaNotasEstudiante({ tipo, indicador }) {
       )}
     </div>
   );
+}
+
+TablaNotasEstudiante.propTypes={
+  tipo:PropTypes.string.isRequired,
+  indicador:PropTypes.string.isRequired
 }
 
 export default TablaNotasEstudiante;

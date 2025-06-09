@@ -1,6 +1,6 @@
-import React from "react";
 import "./VTareasDocentePorFecha.css";
 import ComBoxElementTareaDocente from "../../generalsComponets/ComBoxElementTareaDocenteAdmin/ComBoxElementTareaDocenteAdmin";
+import PropTypes from "prop-types";
 
 function VTareasDocentePorFecha({ to, tareasPorFecha, tareas }) {
   return (
@@ -17,4 +17,9 @@ function VTareasDocentePorFecha({ to, tareasPorFecha, tareas }) {
   );
 }
 
+VTareasDocentePorFecha.propTypes={
+  to:PropTypes.string.isRequired,
+  tareasPorFecha:PropTypes.array.isRequired,
+  tareas:PropTypes.array.isRequired
+}
 export default VTareasDocentePorFecha;

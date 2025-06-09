@@ -1,5 +1,5 @@
-import React from "react";
 import "./DeleteUserModal.css";
+import PropTypes from "prop-types";
 
 function DeleteUserModal({ show, onConfirm, onCancel }) {
     if (!show) return null;
@@ -16,5 +16,11 @@ function DeleteUserModal({ show, onConfirm, onCancel }) {
         </div>
     );
 }
+
+DeleteUserModal.propTypes = {
+  show: PropTypes.bool.isRequired,
+  onConfirm: PropTypes.func.isRequired,
+  onCancel:PropTypes.func.isRequired
+};
 
 export default DeleteUserModal;

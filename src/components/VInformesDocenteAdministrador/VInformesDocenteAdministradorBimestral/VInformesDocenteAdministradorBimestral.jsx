@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import "./VInformesDocenteAdministradorBimestral.css";
 import SelectComponent from "../../generalsComponets/SelectComponent/SelectComponent";
 import CardInformeDocenteAdministrador from "../../generalsComponets/CardInformeDocenteAdministrador/CardInformeDocenteAdministrador";

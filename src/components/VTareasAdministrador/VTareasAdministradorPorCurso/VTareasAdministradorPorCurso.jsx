@@ -1,7 +1,7 @@
-import React from "react";
 import "./VTareasAdministradorPorCurso.css";
 import ComBoxTareaXUnidadAdmin from "../../generalsComponets/ComBoxTareaXUnidadDocenteAdmin/ComBoxTareaXUnidadDocenteAdmin";
 import SelectComponent from "../../generalsComponets/SelectComponent/SelectComponent";
+import PropTypes from "prop-types";
 
 function VTareasAdministradorPorCurso({ to, tareasCurso, tareas }) {
   let optionsNivel = ["Primaria", "Secundaria"];
@@ -30,11 +30,12 @@ function VTareasAdministradorPorCurso({ to, tareasCurso, tareas }) {
         </div>
       </div>
       <div className="VTareasAdministradorPorCursoContent">
-        {tareas.map((tarea) => {
+        {tareas.map((tarea, index) => {
           unidadString = unidad + numerounidad;
           numerounidad++;
           return (
             <ComBoxTareaXUnidadAdmin
+              key={index}
               unidad={unidadString}
               tareas={tarea}
               to={to}
@@ -46,5 +47,11 @@ function VTareasAdministradorPorCurso({ to, tareasCurso, tareas }) {
     </div>
   );
 }
+
+VTareasAdministradorPorCurso.propTypes = {
+  to: PropTypes.string.isRequired,
+  tareasCurso: PropTypes.object.isRequired,
+  tareas: PropTypes.array.isRequired,
+};
 
 export default VTareasAdministradorPorCurso;

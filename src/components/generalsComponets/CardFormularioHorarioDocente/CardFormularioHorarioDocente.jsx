@@ -1,10 +1,10 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import DocenteService from "../../../services/docenteService";
 import "./CardFormularioHorarioDocente.css";
 import TablaGestionHorariosDocentes from "../TablaGestionHorariosDocentes/TablaGestionHorariosDocentes";
 import SearchComponent from "../../generalsComponets/SearchComponent/SearchComponent";
 import SelectComponent from '../../generalsComponets/SelectComponent/SelectComponent';
-
+import PropTypes from "prop-types";
 
 function CardFormularioHorarioDocente({ onHorarioAgregado }) {
   const [docentes, setDocentes] = useState([]);
@@ -93,6 +93,10 @@ function CardFormularioHorarioDocente({ onHorarioAgregado }) {
       )}
     </div>
   );
+}
+
+CardFormularioHorarioDocente.propTypes={
+  onHorarioAgregado:PropTypes.func.isRequired
 }
 
 export default CardFormularioHorarioDocente;

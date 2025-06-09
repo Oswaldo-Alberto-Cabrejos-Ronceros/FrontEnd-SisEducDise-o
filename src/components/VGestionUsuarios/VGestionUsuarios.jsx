@@ -1,4 +1,3 @@
-import React from "react";
 import "./VGestionUsuarios.css";
 import PrimaryButton from "../generalsComponets/PrimaryButton/PrimaryButton";
 import VGestionEstudiante from "./VGestionEstudiante/VGestionEstudiante";

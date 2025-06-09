@@ -1,7 +1,8 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import "./TablaSubirNotasDocenteAdministrador.css";
 import ButtonSubmit from "../../../generalsComponets/ButtonSubmit/ButtonSubtmit";
 import NotasService from "../../../../services/notasService";
+import PropTypes from "prop-types";
 
 function TablaSubirNotasDocenteAdministrador({
   alumnos,
@@ -289,6 +290,14 @@ function TablaSubirNotasDocenteAdministrador({
       )}
     </div>
   );
+}
+
+TablaSubirNotasDocenteAdministrador.propTypes={
+  alumnos:PropTypes.array.isRequired,
+  competencias:PropTypes.array.isRequired,
+  subcursoId:PropTypes.number.isRequired,
+  unidad:PropTypes.number.isRequired,
+  onUnidadCompleta:PropTypes.func.isRequired
 }
 
 export default TablaSubirNotasDocenteAdministrador;

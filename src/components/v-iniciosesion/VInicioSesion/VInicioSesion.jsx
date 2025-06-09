@@ -1,11 +1,11 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import "./VInicioSesion.css";
 import { FaRegUser } from "react-icons/fa";
 import { IoMdEye, IoMdEyeOff } from "react-icons/io";
 import Logo from '../../../../public/logo.jpg'
-
+import PropTypes from "prop-types";
 
 function VInicioSesion({ onLoginSuccess }) {
   const [username, setUsername] = useState("");
@@ -127,6 +127,10 @@ function VInicioSesion({ onLoginSuccess }) {
       </div>
     </div>
   );
+}
+
+VInicioSesion.propTypes={
+  onLoginSuccess:PropTypes.func.isRequired
 }
 
 export default VInicioSesion;

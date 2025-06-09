@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import "./VGestionCursosSubCursos.css";
 import TablaGestionSubCursos from "./TablaGestionSubCursos/TablaGestionSubCursos";
 import FormularioAgregarSubCurso from "./FormularioAgregarSubCurso/FormularioAgregarSubCurso";
@@ -27,6 +27,7 @@ function VGestionCursosSubCursos() {
       const response = await SubcursoService.getAllSubCurso();
       setSubCursos(response.data);
     } catch (error) {
+      console.error(error)
       setError("Error al cargar subcursos. Inténtalo más tarde.");
     } finally {
       setLoading(false);

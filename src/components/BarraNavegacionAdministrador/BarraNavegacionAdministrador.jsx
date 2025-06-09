@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import "./BarraNavegacionAdministrador.css";
 import NavItem from "../generalsComponets/NavItem/NavItem";
@@ -13,7 +13,7 @@ import { TbUserEdit } from "react-icons/tb";
 import { GoPencil } from "react-icons/go";
 import { IoMenu } from "react-icons/io5";
 
-function BarraNavegacionAdministrador({ apellido, nombre }) {
+function BarraNavegacionAdministrador() {
   const [showLogoutModal, setShowLogoutModal] = useState(false); // Estado para controlar el modal
   const [showMenu, setShowMenu] = useState(window.innerWidth > 1130);
   const navigate = useNavigate();

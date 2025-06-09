@@ -1,5 +1,5 @@
-import React from 'react'
 import './ButtonSubtmit.css'
+import PropTypes from "prop-types";
 
 function ButtonSubtmit({nombre}) {
   return (
@@ -9,6 +9,10 @@ function ButtonSubtmit({nombre}) {
     </button>
   </div>
   )
+}
+
+ButtonSubtmit.propTypes={
+  nombre:PropTypes.string.isRequired
 }
 
 export default ButtonSubtmit
