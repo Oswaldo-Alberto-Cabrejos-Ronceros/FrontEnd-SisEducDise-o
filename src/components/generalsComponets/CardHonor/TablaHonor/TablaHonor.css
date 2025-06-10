@@ -1,5 +1,5 @@
 :root {
-    --BorderTableHonor: #171717;
+    --BorderTableHonor: #adadad;
     --BackgroudColorTableHonor: #ef4444;
     --ColorTableHonorTh: #fef2f2;
   }
@@ -10,6 +10,7 @@
   
   .TablaHonorContainer .TableHonor {
     width: 100%;
+
   }
   .TablaHonorContainer .TableHonor,
   th,
