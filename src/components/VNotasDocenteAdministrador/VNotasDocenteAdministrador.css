@@ -1,9 +1,8 @@
 
 .VNotasDocenteAdministradorContainer{
-    padding: 2%;
     display: flex;
     flex-wrap: wrap;
-    gap: 20px;
+    gap: 1rem;
     justify-content: space-between;
 }
 
@@ -17,7 +16,6 @@
 .VNotasDocenteAdministradorContainer .VNotasDocenteAdministradorTitle h3{
     margin: 0;
     padding: 0;
-    justify-self: start;
 }
 
 .VNotasDocenteAdministradorContainer .SelectNotasDocenteAdministradorContainer{

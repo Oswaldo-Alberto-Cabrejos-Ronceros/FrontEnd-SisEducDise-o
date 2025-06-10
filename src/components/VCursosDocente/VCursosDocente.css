@@ -1,26 +1,23 @@
 
 
 .CursosDoContainer{
-    padding: 2%;
     display: flex;
     flex-wrap: wrap;
-    gap: 20px;
+    gap: 1rem;
     justify-content: space-between;
 }
 
 .CursosDoContainer .VCursosDocenElementsContainer{
     width: 100%;
     height: auto;
-    padding: 2%;
     display: grid;
     grid-template-columns: repeat(4,1fr);
-    gap: 20px;
+    gap: 1rem;
 }
 
 .CursosDoContainer .VCursosDocenElementsContainer .VCursosDocenElementContent{
     display: flex;
     align-items: center;
-    justify-content: center;
 }
 
 

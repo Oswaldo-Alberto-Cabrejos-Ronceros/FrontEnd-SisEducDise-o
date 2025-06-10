@@ -3,7 +3,11 @@
     --BackgroudColorVertical:#DC2626;
     --ColorItems:#FEF2F2;
     --ColorOutSessionHover:#171717;
+    --BackgroundColor:#F9FAFB;
   }
+.BarraNavegacionDocenteContainer{
+  width: 100%;
+}
 
 .BarraNavegacionDocenteContainer .HorizontalContainerBarDocente{
     position: sticky;
@@ -24,54 +28,35 @@
     text-decoration: none;
 }
 
-.BarraNavegacionDocenteContainer .HorizontalContainerBarDocente .MenuIconContainer{
-  height: 100%;
-  width: 6%;
-  min-width: 50px;
+.BarraNavegacionDocenteContainer .HorizontalContainerBarDocente .MenuIconContainer,
+.BarraNavegacionDocenteContainer .VerticalContainerBarDocente .MenuIconContainer{
+  height: 4.5rem;
+  width: 4.5rem;
   display: flex;
   align-items: center;
   justify-content: center;
   font-size: 36px;
-  position: absolute;
   cursor: pointer;
-  display: none;
   transition: 150ms;
-}
-
-.BarraNavegacionDocenteContainer .HorizontalContainerBarDocente .MenuIconContainer:hover{
-  color: var(--ColorOutSessionHover);
+  color: var(--BackgroundColor);
+  background: var(--BackgroudColorVertical);
 }
 
 
 .BarraNavegacionDocenteContainer .VerticalContainerBarDocente{
-    position: sticky;
-    left: 0;    
-    top: 0; 
-    width: 4.5rem;
-    height: 100%;
-    background-color: var(--BackgroudColorVertical);
-    z-index:2;
-    border: none;
-    display: flex;
-    flex-direction: column;
-    overflow: hidden;
-}
-
-.BarraNavegacionDocenteContainer .OptionsContainer{
-    position: absolute;
-    width: 100%;
-    top: 11%;
+    position: fixed;
+    top: 0;
     left: 0;
-    z-index: 2;
-    box-sizing: border-box;
+    background: var(--BackgroudColorVertical);
+    display: flex;
+    align-items: center;
+    z-index:2;
+    flex-direction: column;
+    height: 100vh;
 }
 
-.BarraNavegacionDocenteContainer .SessionOutContainer{
-    font-size: 36px;
-    position: absolute;
-    right: 1%;
-    cursor: pointer;
-}
+
+
 
 .BarraNavegacionDocenteContainer .SessionOutContainer:hover{
     color: var(--ColorOutSessionHover);
