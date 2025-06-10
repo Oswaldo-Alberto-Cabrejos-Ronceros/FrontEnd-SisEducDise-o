@@ -1,4 +1,4 @@
-import React,{ useState, useEffect } from 'react'
+import { useState, useEffect } from 'react'
 import './VGestionCursosCursos.css'
 
 import TablaGestionCursos from './TablaGestionCursos/TablaGestionCursos'
@@ -29,6 +29,7 @@ function VGestionCursosCursos() {
         setCursos(response.data);
       } catch (error) {
         setError("Error al cargar cursos. Inténtalo más tarde.");
+        console.error(error)
       } finally {
         setLoading(false);
       }

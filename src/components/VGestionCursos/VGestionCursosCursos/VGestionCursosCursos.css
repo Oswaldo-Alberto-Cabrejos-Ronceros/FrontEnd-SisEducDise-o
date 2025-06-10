@@ -4,19 +4,15 @@
     display: flex;
     flex-direction: column;
     box-sizing: border-box;
-    padding: 20px;
 }
 
 /* Título */
 .VGestionCursosCursosContainer .VGestionCursosCursosContainerTitle {
     align-self: flex-start;
-    margin-bottom: 20px;
 }
 
 .VGestionCursosCursosContainer .VGestionCursosCursosContainerTitle h3 {
-    margin: 0;
-    padding: 0;
-    font-size: 28px;
+    margin: 1rem 0 1rem 0;
 }
 
 /* Barra de Búsqueda */

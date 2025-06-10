@@ -1,4 +1,3 @@
-import React from "react";
 import { useState } from "react";
 import { FaFileUpload } from "react-icons/fa";
 import PrimaryButtonLarge from "../PrimaryButtonLarge/PrimaryButtonLarge";

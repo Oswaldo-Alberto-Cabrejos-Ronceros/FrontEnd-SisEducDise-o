@@ -3,7 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import "./BarraNavegacionAdministrador.css";
 import NavItem from "../generalsComponets/NavItem/NavItem";
 import NavUser from "../generalsComponets/CardUser/NavUser";
-import { FaSignOutAlt } from "react-icons/fa";
+//import { FaSignOutAlt } from "react-icons/fa";
 import { IoBookOutline } from "react-icons/io5";
 //import { FaCalendarAlt } from "react-icons/fa";
 import { GrNotes } from "react-icons/gr";
@@ -47,7 +47,7 @@ function BarraNavegacionAdministrador() {
   return (
     <div className="BarraNavegacionAdministradorContainer">
       <div className="HorizontalContainerBarAdministrador">
-        <div className="MenuIconContainer" onClick={handleShowMenu}>
+                  <div className="MenuIconContainer" onClick={handleShowMenu}>
           <IoMenu />
         </div>
 
@@ -62,6 +62,9 @@ function BarraNavegacionAdministrador() {
         <div
           className={`VerticalContainerBarAdmin ${showMenu ? "show" : "hide"}`}
         >
+                  <div className="MenuIconContainer" onClick={handleShowMenu}>
+          <IoMenu />
+        </div>
           <div className="OptionsContainer">
             <NavItem
               id={"Cursos"}

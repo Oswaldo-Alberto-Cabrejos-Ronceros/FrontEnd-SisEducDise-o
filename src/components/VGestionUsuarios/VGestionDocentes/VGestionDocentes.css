@@ -9,22 +9,18 @@
     flex-direction: column;
     margin: 0;
     box-sizing: border-box;
-    padding: 20px;
     /* Agregado para mejor espaciado */
     background-color: var(--BackgroundColorVGestionEstudiante);
 }
 
 .VGestionDocentesContainer .TitleGestionDocentes{
     align-self: flex-start;
-    margin-bottom: 20px;;
 }
 
 
 .VGestionDocentesContainer .TitleGestionDocentes h3{
     margin: 0;
-    padding: 0;
-    font-size: 28px;
-    /* Tamaño de fuente base */
+    margin: 1rem 0 1rem 0;
 }
 
 /* Filtros y Búsqueda */

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import "./ComBoxCursoXUnidadEstudiante.css";
 import { IoIosArrowDown, IoIosArrowUp } from "react-icons/io";
 import ComBoxElementCurso from "../ComBoxElementCurso/ComBoxElementCurso";

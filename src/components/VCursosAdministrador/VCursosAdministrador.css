@@ -1,7 +1,6 @@
 
 .VCursosAdministradorContainer{
-  padding: 2%;
-  display: flex;
+ display: flex;
   flex-wrap: wrap;
   gap: 20px;
   justify-content: space-between;
@@ -10,7 +9,6 @@
 .VCursosAdministradorContainer .VCursosAdministradorElementsContainer{
   width: 100%;
   height: auto;
-  padding: 2%;
   display: grid;
   grid-template-columns: repeat(4,1fr);
   gap: 20px;
@@ -42,11 +40,7 @@
   gap: 20px;
 }
 
-.VCursosAdministradorContainer  .VCursosAdministradorElementsContainer .VCursosAdministradorElementContent{
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
+
 
 .VCursosAdministradorContainer .LinkCardsCursosAdministrador{
   text-decoration: none;

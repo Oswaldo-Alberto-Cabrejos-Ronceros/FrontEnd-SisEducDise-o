@@ -11,10 +11,9 @@
 /* Contenedor de contenido */
 .VAdministradorMain .containerCambAdministrador {
   flex-grow: 1;
-  padding-top: 90px; /* Ajusta el espacio superior */
-  padding-right: 6%;
-  padding-bottom: 5%;
-  padding-left: 6%;
+  padding-left: 6rem;
+  padding-right: 1.5rem;
+  padding-top: 1rem;
   width: 100%;
   height: auto;
   background-color: var(--BackgroundColor);

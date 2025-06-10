@@ -1,4 +1,4 @@
-import React , { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import DocenteService from '../../../services/docenteService'
 import TablaAsignacionSubCurso from "./TablaAsignacionSubCurso/TablaAsignacionSubCurso";
 import './VAsignacionSubCurso.css'
@@ -24,6 +24,7 @@ function VAsignacionSubCurso() {
       setDocentes(response.data);
     } catch (error) {
       setError("Error al cargar docentes. Inténtalo más tarde.");
+      console.error(error)
     } finally {
       setLoading(false);
     }

@@ -2,7 +2,6 @@
     width: 100%;
     min-height: 100%;
     display: flex;
-    padding: 10px;
     box-sizing: border-box;
     align-items: center;
     flex-direction: column;
@@ -14,19 +13,16 @@
 
 .VGestionCursosContainer .TitleGestionCursos{
     align-self:flex-start;
-    margin: 1%;
     height: auto;
+    padding-bottom: 1rem;
 }
 .VGestionCursosContainer .TitleGestionCursos h3{
     margin: 0;
-    padding: 0;
-    font-size: 28px;
 } 
 
 
 .VGestionCursosContainer .VGestionCursosButtonsContainer{
     align-self: start;
-    padding: 0px 10px 10px 10px;
     box-sizing: border-box;
     margin: 0;
     width: 100%;

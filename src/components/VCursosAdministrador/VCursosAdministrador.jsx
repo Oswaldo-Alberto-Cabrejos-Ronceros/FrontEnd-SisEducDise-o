@@ -1,15 +1,14 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import CardCursoDocente from "../generalsComponets/CardCursoDocente/CardCursoDocente";
 import "./VCursosAdministrador.css";
 import { Link } from "react-router-dom";
 import SelectComponent from "../generalsComponets/SelectComponent/SelectComponent";
 import subcursoService from "../../services/subcursoService";
 
-function VCursosAdministrador({}) {
+function VCursosAdministrador() {
   const [selectedNivel, setSelectedNivel] = useState("PRIMARIA");
   const [selectedGrado, setSelectedGrado] = useState(1);
   const [cursos, setCursos] = useState([]);
-  const [userDocente, setUserDocente] = useState({});
   const optionsNivel = [
     { label: "Primaria", value: "PRIMARIA" },
     { label: "Secundaria", value: "SECUNDARIA" },
@@ -32,7 +31,6 @@ function VCursosAdministrador({}) {
 
   useEffect(() => {
     const userData = JSON.parse(sessionStorage.getItem("userData"));
-    setUserDocente(userData || {});
 
     if (userData) {
       if (selectedNivel) {
@@ -72,7 +70,7 @@ function VCursosAdministrador({}) {
   return (
     <div className="VCursosAdministradorContainer">
       <div className="VCursosAdministradorTitleContainer">
-        <h3>Mis cursos</h3>
+        <h3 className="h2">Mis cursos</h3>
       </div>
       <div className="SelectCursosAdministradorGeneralContainer">
         <div className="SelectCursosAdministradorContainer">
@@ -102,9 +100,9 @@ function VCursosAdministrador({}) {
         </div>
       </div>
       <div className="VCursosAdministradorElementsContainer">
-        {cursos2.length===0?(<h2>Sin cursos asignados</h2>):(cursos2.map((curso) => {
+        {cursos2.length===0?(<h2>Sin cursos asignados</h2>):(cursos2.map((curso,index) => {
           return (
-            <div className="VCursosAdministradorElementContent">
+            <div className="VCursosAdministradorElementContent" key={index} >
               <Link
                 to="/administrador/curso"
                 state={{ curso }}
