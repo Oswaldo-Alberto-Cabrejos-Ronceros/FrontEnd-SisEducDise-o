@@ -34,7 +34,7 @@ function ComBoxCursoXUnidadDocente({
         console.error("Error al obtener los contenidos:", error);
         setContenidos([]);
       });
-  });
+  }, [curso.Nivel, curso.Grado, curso.SubcursoId, unidadNumero]);
   const agregarContenido = (nuevoContenido) => {
     setContenidos((prevContenidos) => [...prevContenidos, nuevoContenido]);
   };

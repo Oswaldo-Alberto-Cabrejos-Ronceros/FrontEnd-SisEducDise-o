@@ -3,7 +3,7 @@ import { FaFileUpload } from "react-icons/fa";
 import PrimaryButtonLarge from "../PrimaryButtonLarge/PrimaryButtonLarge";
 import "./ComBoxElementTareaSubir.css";
 
-function ComBoxElementTareaSubir({ cursoinfo }) {
+function ComBoxElementTareaSubir() {
   const [mostrarOtroComponente, setMostrarOtroComponente] = useState(false);
   const handleClick = () => {
     setMostrarOtroComponente(!mostrarOtroComponente);
@@ -67,5 +67,6 @@ function ComBoxElementTareaSubir({ cursoinfo }) {
     </div>
   );
 }
+
 
 export default ComBoxElementTareaSubir;

@@ -4,6 +4,7 @@ import { IoIosArrowDown, IoIosArrowUp } from "react-icons/io";
 import ComBoxElementCurso from "../ComBoxElementCurso/ComBoxElementCurso";
 import contenidosService from "../../../services/contenidosService";
 import ComBoxElementTarea from "../ComBoxElementTarea/ComBoxElementTarea";
+import PropTypes from "prop-types";
 
 function ComBoxCursoXUnidadEstudiante({
   to,
@@ -29,7 +30,7 @@ function ComBoxCursoXUnidadEstudiante({
         console.error("Error al obtener los contenidos:", error);
         setContenidos([]);
       });
-  }, []);
+  });
 
 
   return (
@@ -67,6 +68,15 @@ function ComBoxCursoXUnidadEstudiante({
       )}
     </div>
   );
+}
+
+ComBoxCursoXUnidadEstudiante.propTypes={
+    to:PropTypes.string.isRequired,
+  toTarea:PropTypes.string.isRequired,
+  curso:PropTypes.object.isRequired,
+  unidad:PropTypes.string.isRequired,
+  unidadNumero:PropTypes.number.isRequired,
+  grado:PropTypes.number.isRequired,
 }
 
 export default ComBoxCursoXUnidadEstudiante;

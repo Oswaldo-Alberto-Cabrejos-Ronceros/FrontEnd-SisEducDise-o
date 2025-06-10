@@ -1,6 +1,6 @@
 :root{
     --ColorBorderCBEC:#171717;
-    --ColorBackgroundCBEC:#FEF2F2;
+    --ColorBackgroundCBEC:white;
     --ColorBorderBoxHoverCBEC:#DC2626;
 }
 
@@ -12,7 +12,7 @@
 }
 
 .ComBoxElementTareaSubirContainer{
-    width: 94%;
+    width: 100%;
     height: 56px;
     flex-shrink: 0;
     border-radius: 8px;

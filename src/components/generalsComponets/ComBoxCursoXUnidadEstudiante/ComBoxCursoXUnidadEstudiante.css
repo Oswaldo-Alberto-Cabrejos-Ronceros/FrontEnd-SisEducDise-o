@@ -4,7 +4,7 @@
     --ColorBorderBoxHover:#DC2626;
 }
 .ComBoxGeneralContainer{
-    width: 94%;
+    width: 100%;
     height: auto;
     display: flex;
     flex-direction: column;
@@ -16,7 +16,7 @@
 }
 
 .ComBoxCursoXUnidadContainer{
-    width: 94%;
+    width: 100%;
     height: 56px;
     flex-shrink: 0;
     border-radius: 8px;

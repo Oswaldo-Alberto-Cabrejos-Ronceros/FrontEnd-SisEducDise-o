@@ -15,7 +15,7 @@ import { IoMenu } from "react-icons/io5";
 
 function BarraNavegacionAdministrador() {
   const [showLogoutModal, setShowLogoutModal] = useState(false); // Estado para controlar el modal
-  const [showMenu, setShowMenu] = useState(window.innerWidth > 1130);
+  const [showMenu, setShowMenu] = useState(window.innerWidth > 1083);
   const navigate = useNavigate();
 
   const handleLogoutConfirm = () => {
@@ -26,7 +26,7 @@ function BarraNavegacionAdministrador() {
 
   useEffect(() => {
     const handleResize = () => {
-      setShowMenu(window.innerWidth > 1130); // Mostrar menú automáticamente en pantallas grandes
+      setShowMenu(window.innerWidth > 1083); // Mostrar menú automáticamente en pantallas grandes
     };
 
     window.addEventListener("resize", handleResize);
@@ -62,7 +62,7 @@ function BarraNavegacionAdministrador() {
         <div
           className={`VerticalContainerBarAdmin ${showMenu ? "show" : "hide"}`}
         >
-                  <div className="MenuIconContainer" onClick={handleShowMenu}>
+                  <div className="MenuIconContainer">
           <IoMenu />
         </div>
           <div className="OptionsContainer">

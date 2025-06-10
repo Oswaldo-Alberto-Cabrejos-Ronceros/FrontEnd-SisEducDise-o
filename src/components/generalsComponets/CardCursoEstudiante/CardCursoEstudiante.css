@@ -4,6 +4,7 @@
   --BorderRadious: 12px;
   --ShadowHover: #dc262633;
   --Transition: 150ms;
+  --ColorGray: #ddd;
 }
 
 .CardContainer {
@@ -15,6 +16,7 @@
   flex-shrink: 0;
   border-radius: var(--BorderRadious);
   cursor: pointer;
+  border: solid 1px var(--ColorGray);
 }
 
 .ImgContainer {

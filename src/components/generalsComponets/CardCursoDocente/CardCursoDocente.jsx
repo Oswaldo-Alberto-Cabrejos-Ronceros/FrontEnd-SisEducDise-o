@@ -17,12 +17,7 @@ function CardCursoDocente({ curso }) {
 }
 
 CardCursoDocente.propTypes={
-curso:PropTypes.shape({
-  Nombre:PropTypes.string.isRequired,
-  Docente:PropTypes.string.isRequired,
-Nivel:PropTypes.string.isRequired,
-Grado:PropTypes.string.isRequired
-}).isRequired
+curso:PropTypes.object.isRequired
 }
 
 export default CardCursoDocente;
