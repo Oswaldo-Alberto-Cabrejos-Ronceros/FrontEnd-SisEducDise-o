@@ -1,5 +1,4 @@
 
-import React from 'react'
 import './SelectComponent.css'
 
 function SelectComponent({ name, options, value, onChange, disabledOptions = [] }) {

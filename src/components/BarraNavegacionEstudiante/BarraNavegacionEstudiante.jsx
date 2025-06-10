@@ -6,7 +6,7 @@ import { IoBookOutline } from "react-icons/io5";
 //import { FaCalendarAlt } from "react-icons/fa";
 import { GrNotes } from "react-icons/gr";
 import NavUser from "../generalsComponets/CardUser/NavUser";
-//import { FaSignOutAlt } from "react-icons/fa";
+import { FaSignOutAlt } from "react-icons/fa";
 import { FaRankingStar } from "react-icons/fa6";
 import { IoMenu } from "react-icons/io5";
 import PropTypes from "prop-types";
@@ -47,18 +47,20 @@ function BarraNavegacionEstudiante({ nombre, apellido }) {
         <div className="MenuIconContainer" onClick={handleShowMenu}>
           <IoMenu />
         </div>
-        <Link to="usuario">
-          <NavUser
-            nombre={apellido + ", " + nombre}
-            imagen={"https://dashboard.rtta.rw/public/assets/img/avatar.png"}
-          />
-        </Link>
-        {/*<div
-          className="SessionOutContainer"
-          onClick={() => setShowLogoutModal(true)}
-        >
-          <FaSignOutAlt />
-        </div> */}
+        <div className="MenuRightContainer">
+          <Link to="usuario">
+            <NavUser
+              nombre={apellido + ", " + nombre}
+              imagen={"https://dashboard.rtta.rw/public/assets/img/avatar.png"}
+            />
+          </Link>
+          <div
+            className="SessionOutContainer"
+            onClick={() => setShowLogoutModal(true)}
+          >
+            <FaSignOutAlt />
+          </div>
+        </div>
       </div>
       {showMenu ? (
         <div className={`VerticalContainer ${showMenu ? "show" : "hide"}`}>

@@ -3,7 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import "./BarraNavegacionAdministrador.css";
 import NavItem from "../generalsComponets/NavItem/NavItem";
 import NavUser from "../generalsComponets/CardUser/NavUser";
-//import { FaSignOutAlt } from "react-icons/fa";
+import { FaSignOutAlt } from "react-icons/fa";
 import { IoBookOutline } from "react-icons/io5";
 //import { FaCalendarAlt } from "react-icons/fa";
 import { GrNotes } from "react-icons/gr";
@@ -39,39 +39,48 @@ function BarraNavegacionAdministrador() {
     setShowMenu(!showMenu);
   };
 
-
-  const setShowMenuFalse = ()=>{
+  const setShowMenuFalse = () => {
     setShowMenu(false);
-  }
-  
+  };
+
   return (
     <div className="BarraNavegacionAdministradorContainer">
       <div className="HorizontalContainerBarAdministrador">
-                  <div className="MenuIconContainer" onClick={handleShowMenu}>
+        <div className="MenuIconContainer" onClick={handleShowMenu}>
           <IoMenu />
         </div>
-
+      <div className="MenuRightContainer">
         <Link to="usuario">
           <NavUser
             nombre={"Admin"}
             imagen={"https://dashboard.rtta.rw/public/assets/img/avatar.png"}
           />
         </Link>
+        <div
+          className="SessionOutContainer"
+          onClick={() => setShowLogoutModal(true)}
+        >
+          <FaSignOutAlt />
+        </div>
+      </div>
+
       </div>
       {showMenu ? (
         <div
           className={`VerticalContainerBarAdmin ${showMenu ? "show" : "hide"}`}
         >
-                  <div className="MenuIconContainer">
-          <IoMenu />
-        </div>
+          <div className="MenuIconContainer">
+            <IoMenu />
+          </div>
           <div className="OptionsContainer">
             <NavItem
               id={"Cursos"}
               titulo={"Cursos"}
               icon={<IoBookOutline />}
               to="cursos"
-              onClick={window.innerWidth > 1130===true?(null):(setShowMenuFalse)}
+              onClick={
+                window.innerWidth > 1130 === true ? null : setShowMenuFalse
+              }
             />
             {/*            <NavItem
               id={"Horario"}
@@ -86,35 +95,45 @@ function BarraNavegacionAdministrador() {
               titulo={"Notas"}
               icon={<GrNotes />}
               to="notas"
-              onClick={window.innerWidth > 1130===true?(null):(setShowMenuFalse)}
+              onClick={
+                window.innerWidth > 1130 === true ? null : setShowMenuFalse
+              }
             />
             <NavItem
               id={"Usuarios"}
               titulo={"Usuarios"}
               icon={<TbUserEdit />}
               to="gestionusuarios"
-              onClick={window.innerWidth > 1130===true?(null):(setShowMenuFalse)}
+              onClick={
+                window.innerWidth > 1130 === true ? null : setShowMenuFalse
+              }
             />
             <NavItem
               id={"GestionCursos"}
               titulo={"Gestión Cursos"}
               icon={<GoPencil />}
               to="gestioncursos"
-              onClick={window.innerWidth > 1130===true?(null):(setShowMenuFalse)}
+              onClick={
+                window.innerWidth > 1130 === true ? null : setShowMenuFalse
+              }
             />
             <NavItem
               id={"Honor"}
               titulo={"Honor"}
               icon={<FaRankingStar />}
               to="honor"
-              onClick={window.innerWidth > 1130===true?(null):(setShowMenuFalse)}
+              onClick={
+                window.innerWidth > 1130 === true ? null : setShowMenuFalse
+              }
             />
             <NavItem
               id={"Informes"}
               titulo={"Informes"}
               icon={<FiTrendingUp />}
               to="informes"
-              onClick={window.innerWidth > 1130===true?(null):(setShowMenuFalse)}
+              onClick={
+                window.innerWidth > 1130 === true ? null : setShowMenuFalse
+              }
             />
           </div>
         </div>

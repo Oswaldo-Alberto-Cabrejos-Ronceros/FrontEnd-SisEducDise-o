@@ -48,18 +48,21 @@ function BarraNavegacionDocente({ nombre, apellido }) {
         <div className="MenuIconContainer" onClick={handleShowMenu}>
           <IoMenu />
         </div>
-        <Link to="usuario">
+        <div className="MenuRightContainer">
+                  <Link to="usuario">
           <NavUser
             nombre={apellido + ", " + nombre}
             imagen={"https://dashboard.rtta.rw/public/assets/img/avatar.png"}
           />
         </Link>
-        {/*        <div
+             <div
           className="SessionOutContainer"
           onClick={() => setShowLogoutModal(true)}
         >
           <FaSignOutAlt />
-        </div> */}
+        </div> 
+        </div>
+
       </div>
       {showMenu ? (
         <div

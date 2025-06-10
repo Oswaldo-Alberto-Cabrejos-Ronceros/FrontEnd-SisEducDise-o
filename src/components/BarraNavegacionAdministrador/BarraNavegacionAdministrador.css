@@ -20,12 +20,17 @@
     justify-content: space-between;
     background-color: white;
      box-shadow: 0 4px 6px -2px rgba(0, 0, 0, 0.2);
+     padding-right: 1rem;
 }
 .BarraNavegacionAdministradorContainer .HorizontalContainerBarAdministrador a{
   text-decoration: none;
 }
 
-
+.BarraNavegacionAdministradorContainer .HorizontalContainerBarAdministrador .MenuRightContainer{
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+}
 .BarraNavegacionAdministradorContainer .VerticalContainerBarAdmin{
     position: sticky;
     left: 0;    
@@ -72,10 +77,11 @@
 
 
 .BarraNavegacionAdministradorContainer .SessionOutContainer{
-    font-size: 36px;
-    position: absolute;
-    right: 1%;
+    font-size: 2rem;
     cursor: pointer;
+    height: min-content;
+    display: flex;
+    align-items: center;
 }
 
 .BarraNavegacionAdministradorContainer .SessionOutContainer:hover{
