@@ -5,67 +5,71 @@
     --ColorOutSessionHover:#171717;
   }
 
-.HorizontalContainer{
-    position: absolute;
+  .BarraNavegacionEstudianteContainer{
+    width: 100%
+  }
+
+.BarraNavegacionEstudianteContainer .HorizontalContainer{
+    position: sticky;
     left: 0;    
     top: 0; 
     width: 100%;
-    height: 11%;
-    background-color: var(--BackgroudColorVertical);
+    height: 4.5rem;
     z-index: 1;
     border: none;
     display: flex;
-    flex-direction: row;
-    color: var(--ColorItems);
     align-items: center;
+    justify-content: space-between;
+    background-color: white;
+     box-shadow: 0 4px 6px -2px rgba(0, 0, 0, 0.2);
 }
 
-.HorizontalContainer .MenuIconContainer{
-  height: 100%;
-  width: 6%;
-  min-width: 50px;
+.BarraNavegacionEstudianteContainer .HorizontalContainer a{
+  text-decoration: none;
+}
+
+.BarraNavegacionEstudianteContainer .HorizontalContainer .MenuIconContainer, .VerticalContainer .MenuIconContainer{
+  height: 4.5rem;
+  width: 4.5rem;
   display: flex;
   align-items: center;
   justify-content: center;
   font-size: 36px;
-  position: absolute;
   cursor: pointer;
-  display: none;
   transition: 150ms;
+  color: var(--BackgroundColor);
+  background: var(--BackgroudColorVertical);
 }
 
-.HorizontalContainer .MenuIconContainer:hover{
-  color: var(--ColorOutSessionHover);
-}
 
 
-.VerticalContainer{
+.BarraNavegacionEstudianteContainer .VerticalContainer{
     position: fixed;
     left: 0;    
     top: 0; 
-    width: 6%;
-    height: 100%;
+    width: 4.5rem;
+    height: 100vh;
     background-color: var(--BackgroudColorVertical);
-    z-index: 0;
+    z-index:2;
     border: none;
     display: flex;
     flex-direction: column;
     overflow: hidden;
 }
 
-.SessionOutContainer{
+.BarraNavegacionEstudianteContainer .SessionOutContainer{
     font-size: 36px;
     position: absolute;
     right: 1%;
     cursor: pointer;
 }
 
-.SessionOutContainer:hover{
+.BarraNavegacionEstudianteContainer .SessionOutContainer:hover{
     color: var(--ColorOutSessionHover);
     transition: 150ms;
 }
 
-.LogoutModalOverlay {
+.BarraNavegacionEstudianteContainer .LogoutModalOverlay {
     position: fixed;
     top: 0;
     left: 0;
@@ -78,7 +82,7 @@
     z-index: 1000;
   }
 
-  .LogoutModalContent {
+.BarraNavegacionEstudianteContainer .LogoutModalContent {
     background: #fff;
     padding: 20px;
     border-radius: 8px;
@@ -88,16 +92,16 @@
     width: 100%;
   }
   
-  .LogoutModalContent h3 {
+ .BarraNavegacionEstudianteContainer .LogoutModalContent h3 {
     margin-bottom: 20px;
   }
   
-  .LogoutModalButtons {
+ .BarraNavegacionEstudianteContainer .LogoutModalButtons {
     display: flex;
     justify-content: space-around;
   }
   
-  .LogoutButtonNo {
+ .BarraNavegacionEstudianteContainer .LogoutButtonNo {
     background-color: #28a745; /* Verde */
     color: #fff;
     padding: 10px 20px;
@@ -106,7 +110,7 @@
     cursor: pointer;
   }
   
-  .LogoutButtonYes {
+ .BarraNavegacionEstudianteContainer .LogoutButtonYes {
     background-color: var(--BackgroudColorVertical); /* Rojo */
     color: #fff;
     padding: 10px 20px;
@@ -116,65 +120,23 @@
 }
 
 
-.VerticalContainer.show {
+.BarraNavegacionEstudianteContainer .VerticalContainer.show {
   animation: openDespMenu 0.3s ease-out forwards;
 }
 
-.VerticalContainer.hide {
+.BarraNavegacionEstudianteContainer .VerticalContainer.hide {
   animation: closeDespMenu 0.3s ease-out forwards;
 }
 
 @media (max-width:1130px) {
-  .HorizontalContainer .MenuIconContainer{
+  .BarraNavegacionEstudianteContainer .HorizontalContainer .MenuIconContainer{
     display: flex;
   }
-  .HorizontalContainer{
+  .BarraNavegacionEstudianteContainer .HorizontalContainer{
     z-index: 4;
   }
-  .VerticalContainer{
-    z-index: 3;
-    min-width: 72px;
-  }
-  .OptionsContainer{
-    top: 72px;
-}
 }
 
-@media (max-height:576px) {
-.HorizontalContainer{
-  min-height: 64px;
-}
-.OptionsContainer{
-  top: 64px;
-}
-}
-
-@media (min-height:760px) {
-  .HorizontalContainer{
-    max-height: 84px;
-}
-.OptionsContainer{
-  top: 84px;
-}
-}
-
-@media (max-height:432px) {
-  .VerticalContainer {
-    position: fixed; 
-    top: 0; 
-    left: 0;
-    height: 100vh; 
-    overflow-y: auto; 
-  }
-
-  .OptionsContainer {
-    position: relative; 
-    flex-grow: 1; 
-    overflow-y: auto; 
-    height: auto; 
-  }
-
-}
 
 @keyframes openDespMenu {
   from {
