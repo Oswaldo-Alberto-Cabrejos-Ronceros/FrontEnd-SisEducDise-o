@@ -12,7 +12,10 @@ import { FiTrendingUp } from "react-icons/fi";
 import { TbUserEdit } from "react-icons/tb";
 import { GoPencil } from "react-icons/go";
 import { IoMenu } from "react-icons/io5";
-import { Popover, Portal } from "@chakra-ui/react";
+import {  Menu, Portal, Box } from "@chakra-ui/react";
+import { FaRegUser } from "react-icons/fa";
+import { IoIosLogOut } from "react-icons/io";
+import { NavLink } from "react-router-dom";
 
 function BarraNavegacionAdministrador() {
   const [showLogoutModal, setShowLogoutModal] = useState(false); // Estado para controlar el modal
@@ -54,30 +57,37 @@ function BarraNavegacionAdministrador() {
           <IoMenu />
         </div>
         <div className="MenuRightContainer">
-          <Popover.Root
+          <Menu.Root
             positioning={{ placement: "bottom-end" }}
             open={open}
             onOpenChange={(e) => setOpen(e.open)}
           >
-            <Popover.Trigger>
+            <Menu.Trigger>
               <NavUser
                 nombre={"Admin"}
                 imagen={
                   "https://dashboard.rtta.rw/public/assets/img/avatar.png"
                 }
               />
-            </Popover.Trigger>
+            </Menu.Trigger>
             <Portal>
-              <Popover.Positioner>
-                <Popover.Content>
-                  <Popover.Arrow />
-                  <Popover.Body>
-
-                  </Popover.Body>
-                </Popover.Content>
-              </Popover.Positioner>
+              <Menu.Positioner>
+                <Menu.Content>
+                  {/*para perfil*/}
+                  <Menu.Item cursor="pointer" value="0" as={NavLink} to="/administrador/usuario">
+                    
+                    <Box flex="1"> Ver perfil</Box>
+                    <FaRegUser />
+                  </Menu.Item>
+                  {/*para cerrar sesion*/}
+                  <Menu.Item cursor="pointer" value="1" onClick={() => setShowLogoutModal(true)} >
+                    <Box flex="1"> Cerrar sesión</Box>
+                    <IoIosLogOut />
+                  </Menu.Item>
+                </Menu.Content>
+              </Menu.Positioner>
             </Portal>
-          </Popover.Root>
+          </Menu.Root>
 
           {/*        <div
           className="SessionOutContainer"
