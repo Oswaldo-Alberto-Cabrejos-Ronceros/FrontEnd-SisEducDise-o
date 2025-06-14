@@ -82,7 +82,7 @@ cursos.map((curso)=>(
             <Route path="notas/*" element={<VNotasDocente />} />
             <Route path="honor/*" element={<VHonorDocenteAdministrador />} />
             <Route path="curso/*" element={<VCursoDocenteContenido/>} />
-            <Route path="informes/*" element={<VInformesDocente />} />
+            <Route path="informes/*" element={<VInformesDocente pathBase="/docente/informes" />} />
             <Route path="usuario" element={<InfoUser/>} />
           </Routes>
         </div>

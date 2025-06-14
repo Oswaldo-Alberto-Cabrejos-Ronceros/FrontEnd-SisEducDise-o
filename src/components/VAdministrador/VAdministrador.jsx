@@ -27,7 +27,7 @@ function VAdministrador() {
             <Route path="gestioncursos/*" element={<VGestionCursos />} />
             <Route path="honor/*" element={<VHonorAdministrador/>} />
             <Route path="curso/*" element={<VCursoAdministradorContenido/>} />
-            <Route path="informes/*" element={<VInformesAdministrador/>} />
+            <Route path="informes/*" element={<VInformesAdministrador pathBase="/administrador/informes"/>} />
             <Route path="usuario" element={<InfoUser />} />
       </Routes>
       </div>

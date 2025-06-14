@@ -10,8 +10,9 @@ import VInformesDocenteAdministradorAuxiliar from "./VInformesDocenteAdministrad
 import VInformesDocenteAdministradorBimestral from "./VInformesDocenteAdministradorBimestral/VInformesDocenteAdministradorBimestral";
 import { Tabs } from "@chakra-ui/react";
 import { useState, useEffect } from "react";
+import PropTypes from "prop-types";
 
-function VInformesDocenteAdministrador() {
+function VInformesDocenteAdministrador({pathBase}) {
   //para indice activo
   //para saber la ubicacion de la ruta
   const location = useLocation();
@@ -19,12 +20,14 @@ function VInformesDocenteAdministrador() {
   const [activeIndex, setActiveIndex] = useState(0);
 
   useEffect(() => {
-    if (location.pathname === "/administrador/informes/auxiliar") {
+    if (location.pathname === `${pathBase}/auxiliar`) {
       setActiveIndex(0);
-    } else if (location.pathname === "/administrador/informes/bimestral") {
+    } else if (location.pathname === `${pathBase}/bimestral`) {
       setActiveIndex(1);
     }
-  }, [location.pathname]);
+  }, [location.pathname,pathBase]);
+
+
   return (
     <div className="VInformesDocenteAdministradorContainer">
       <div className="VInformesDocenteAdministradorTitleContainer">
@@ -40,14 +43,14 @@ function VInformesDocenteAdministrador() {
             <Tabs.Trigger
               as={NavLink}
               value={0}
-              to="/administrador/informes/auxiliar"
+              to={`${pathBase}/auxiliar`}
             >
               Auxiliar
             </Tabs.Trigger>
             <Tabs.Trigger
               as={NavLink}
               value={1}
-              to="/administrador/informes/bimestral"
+              to={`${pathBase}/bimestral`}
             >
               Bimestral
             </Tabs.Trigger>
@@ -69,6 +72,10 @@ function VInformesDocenteAdministrador() {
       </div>
     </div>
   );
+}
+
+VInformesDocenteAdministrador.propTypes={
+  pathBase:PropTypes.string.isRequired
 }
 
 export default VInformesDocenteAdministrador;
