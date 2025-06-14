@@ -1,9 +1,9 @@
 import { useState, useEffect } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import "./BarraNavegacionAdministrador.css";
 import NavItem from "../generalsComponets/NavItem/NavItem";
 import NavUser from "../generalsComponets/CardUser/NavUser";
-import { FaSignOutAlt } from "react-icons/fa";
+//import { FaSignOutAlt } from "react-icons/fa";
 import { IoBookOutline } from "react-icons/io5";
 //import { FaCalendarAlt } from "react-icons/fa";
 import { GrNotes } from "react-icons/gr";
@@ -12,6 +12,7 @@ import { FiTrendingUp } from "react-icons/fi";
 import { TbUserEdit } from "react-icons/tb";
 import { GoPencil } from "react-icons/go";
 import { IoMenu } from "react-icons/io5";
+import { Popover, Portal } from "@chakra-ui/react";
 
 function BarraNavegacionAdministrador() {
   const [showLogoutModal, setShowLogoutModal] = useState(false); // Estado para controlar el modal
@@ -43,27 +44,48 @@ function BarraNavegacionAdministrador() {
     setShowMenu(false);
   };
 
+  //for popover
+  const [open, setOpen] = useState(false);
+
   return (
     <div className="BarraNavegacionAdministradorContainer">
       <div className="HorizontalContainerBarAdministrador">
         <div className="MenuIconContainer" onClick={handleShowMenu}>
           <IoMenu />
         </div>
-      <div className="MenuRightContainer">
-        <Link to="/administrador/usuario">
-          <NavUser
-            nombre={"Admin"}
-            imagen={"https://dashboard.rtta.rw/public/assets/img/avatar.png"}
-          />
-        </Link>
-        <div
+        <div className="MenuRightContainer">
+          <Popover.Root
+            positioning={{ placement: "bottom-end" }}
+            open={open}
+            onOpenChange={(e) => setOpen(e.open)}
+          >
+            <Popover.Trigger>
+              <NavUser
+                nombre={"Admin"}
+                imagen={
+                  "https://dashboard.rtta.rw/public/assets/img/avatar.png"
+                }
+              />
+            </Popover.Trigger>
+            <Portal>
+              <Popover.Positioner>
+                <Popover.Content>
+                  <Popover.Arrow />
+                  <Popover.Body>
+
+                  </Popover.Body>
+                </Popover.Content>
+              </Popover.Positioner>
+            </Portal>
+          </Popover.Root>
+
+          {/*        <div
           className="SessionOutContainer"
           onClick={() => setShowLogoutModal(true)}
         >
           <FaSignOutAlt />
+        </div>*/}
         </div>
-      </div>
-
       </div>
       {showMenu ? (
         <div
