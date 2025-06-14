@@ -7,31 +7,11 @@
     flex-direction: column;
 }
 
-.VGestionCursosContainer .LinkGestionCursos{
-    text-decoration: none;
-}
 
-.VGestionCursosContainer .TitleGestionCursos{
-    align-self:flex-start;
-    height: auto;
-    padding-bottom: 1rem;
-}
-.VGestionCursosContainer .TitleGestionCursos h3{
-    margin: 0;
-} 
 
 
 .VGestionCursosContainer .VGestionCursosButtonsContainer{
     align-self: start;
-    box-sizing: border-box;
-    margin: 0;
-    width: 100%;
-    max-width: 450px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    flex-wrap: wrap; 
-    gap: 30px;
 }
 
 /* Contenedor del Contenido Cambiante */

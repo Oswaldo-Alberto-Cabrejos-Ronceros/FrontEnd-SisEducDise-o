@@ -26,7 +26,7 @@ export function useColorMode() {
   }
 }
 
-// eslint-disable-next-line react-refresh/only-export-components
+ 
 export function useColorModeValue(light, dark) {
   const { colorMode } = useColorMode()
   return colorMode === 'dark' ? dark : light
