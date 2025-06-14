@@ -48,7 +48,7 @@ function BarraNavegacionEstudiante({ nombre, apellido }) {
           <IoMenu />
         </div>
         <div className="MenuRightContainer">
-          <Link to="usuario">
+          <Link to="/estudiante/usuario">
             <NavUser
               nombre={apellido + ", " + nombre}
               imagen={"https://dashboard.rtta.rw/public/assets/img/avatar.png"}
@@ -72,7 +72,7 @@ function BarraNavegacionEstudiante({ nombre, apellido }) {
               id={"Cursos"}
               titulo={"Cursos"}
               icon={<IoBookOutline />}
-              to="cursos"
+              to="/estudiante/cursos"
               onClick={
                 window.innerWidth > 1130 === true ? null : setShowMenuFalse
               }
@@ -89,7 +89,7 @@ function BarraNavegacionEstudiante({ nombre, apellido }) {
               id={"Notas"}
               titulo={"Notas"}
               icon={<GrNotes />}
-              to="notas"
+              to="/estudiante/notas"
               onClick={
                 window.innerWidth > 1130 === true ? null : setShowMenuFalse
               }
@@ -98,7 +98,7 @@ function BarraNavegacionEstudiante({ nombre, apellido }) {
               id={"Honor"}
               titulo={"Honor"}
               icon={<FaRankingStar />}
-              to="honor"
+              to="/estudiante/honor"
               onClick={
                 window.innerWidth > 1130 === true ? null : setShowMenuFalse
               }

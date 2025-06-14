@@ -50,7 +50,7 @@ function BarraNavegacionAdministrador() {
           <IoMenu />
         </div>
       <div className="MenuRightContainer">
-        <Link to="usuario">
+        <Link to="/administrador/usuario">
           <NavUser
             nombre={"Admin"}
             imagen={"https://dashboard.rtta.rw/public/assets/img/avatar.png"}
@@ -77,7 +77,7 @@ function BarraNavegacionAdministrador() {
               id={"Cursos"}
               titulo={"Cursos"}
               icon={<IoBookOutline />}
-              to="cursos"
+              to="/administrador/cursos"
               onClick={
                 window.innerWidth > 1130 === true ? null : setShowMenuFalse
               }
@@ -94,7 +94,7 @@ function BarraNavegacionAdministrador() {
               id={"Notas"}
               titulo={"Notas"}
               icon={<GrNotes />}
-              to="notas"
+              to="/administrador/notas"
               onClick={
                 window.innerWidth > 1130 === true ? null : setShowMenuFalse
               }
@@ -103,7 +103,7 @@ function BarraNavegacionAdministrador() {
               id={"Usuarios"}
               titulo={"Usuarios"}
               icon={<TbUserEdit />}
-              to="gestionusuarios"
+              to="/administrador/gestionusuarios"
               onClick={
                 window.innerWidth > 1130 === true ? null : setShowMenuFalse
               }
@@ -112,7 +112,7 @@ function BarraNavegacionAdministrador() {
               id={"GestionCursos"}
               titulo={"Gestión Cursos"}
               icon={<GoPencil />}
-              to="gestioncursos"
+              to="/administrador/gestioncursos"
               onClick={
                 window.innerWidth > 1130 === true ? null : setShowMenuFalse
               }
@@ -121,7 +121,7 @@ function BarraNavegacionAdministrador() {
               id={"Honor"}
               titulo={"Honor"}
               icon={<FaRankingStar />}
-              to="honor"
+              to="/administrador/honor"
               onClick={
                 window.innerWidth > 1130 === true ? null : setShowMenuFalse
               }
@@ -130,7 +130,7 @@ function BarraNavegacionAdministrador() {
               id={"Informes"}
               titulo={"Informes"}
               icon={<FiTrendingUp />}
-              to="informes"
+              to="/administrador/informes"
               onClick={
                 window.innerWidth > 1130 === true ? null : setShowMenuFalse
               }
