@@ -1,16 +1,18 @@
 import { useState, useEffect } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate,NavLink } from "react-router-dom";
 import "./BarraNavegacionDocente.css";
 import NavItem from "../generalsComponets/NavItem/NavItem";
 import NavUser from "../generalsComponets/CardUser/NavUser";
 import { IoBookOutline } from "react-icons/io5";
 //import { FaCalendarAlt } from "react-icons/fa";
 import { GrNotes } from "react-icons/gr";
-import { FaSignOutAlt } from "react-icons/fa";
 import { FaRankingStar } from "react-icons/fa6";
 import { FiTrendingUp } from "react-icons/fi";
 import { IoMenu } from "react-icons/io5";
 import PropTypes from "prop-types";
+import {  Menu, Portal, Box } from "@chakra-ui/react";
+import { FaRegUser } from "react-icons/fa";
+import { IoIosLogOut } from "react-icons/io";
 
 function BarraNavegacionDocente({ nombre, apellido }) {
   const [showLogoutModal, setShowLogoutModal] = useState(false); // Estado para controlar el modal
@@ -49,18 +51,39 @@ function BarraNavegacionDocente({ nombre, apellido }) {
           <IoMenu />
         </div>
         <div className="MenuRightContainer">
-                  <Link to="/docente/usuario">
+          <Menu.Root positioning={{ placement: "bottom-end" }}>
+            <Menu.Trigger>
           <NavUser
             nombre={apellido + ", " + nombre}
             imagen={"https://dashboard.rtta.rw/public/assets/img/avatar.png"}
           />
-        </Link>
-             <div
-          className="SessionOutContainer"
-          onClick={() => setShowLogoutModal(true)}
-        >
-          <FaSignOutAlt />
-        </div> 
+            </Menu.Trigger>
+            <Portal>
+              <Menu.Positioner>
+                <Menu.Content>
+                  {/*para perfil*/}
+                  <Menu.Item
+                    cursor="pointer"
+                    value="0"
+                    as={NavLink}
+                    to="/docente/usuario"
+                  >
+                    <Box flex="1"> Ver perfil</Box>
+                    <FaRegUser />
+                  </Menu.Item>
+                  {/*para cerrar sesion*/}
+                  <Menu.Item
+                    cursor="pointer"
+                    value="1"
+                    onClick={() => setShowLogoutModal(true)}
+                  >
+                    <Box flex="1"> Cerrar sesión</Box>
+                    <IoIosLogOut />
+                  </Menu.Item>
+                </Menu.Content>
+              </Menu.Positioner>
+            </Portal>
+          </Menu.Root>
         </div>
 
       </div>

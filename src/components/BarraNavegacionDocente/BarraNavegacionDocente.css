@@ -60,20 +60,6 @@ padding-right: 1rem;
     height: 100vh;
 }
 
-
-.BarraNavegacionDocenteContainer .SessionOutContainer{
-      font-size: 2rem;
-    cursor: pointer;
-    height: min-content;
-    display: flex;
-    align-items: center;
-}
-
-.BarraNavegacionDocenteContainer .SessionOutContainer:hover{
-    color: var(--ColorOutSessionHover);
-    transition: 150ms;
-}
-
 .LogoutModalOverlay {
     position: fixed;
     top: 0;

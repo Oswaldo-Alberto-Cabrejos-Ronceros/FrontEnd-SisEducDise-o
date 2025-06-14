@@ -76,20 +76,6 @@
 }
 
 
-.BarraNavegacionAdministradorContainer .SessionOutContainer{
-    font-size: 2rem;
-    cursor: pointer;
-    height: min-content;
-    display: flex;
-    align-items: center;
-}
-
-.BarraNavegacionAdministradorContainer .SessionOutContainer:hover{
-    color: var(--ColorOutSessionHover);
-    transition: 150ms;
-}
-
-
 .LogoutModalOverlay {
     position: fixed;
     top: 0;

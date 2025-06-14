@@ -64,19 +64,6 @@
     overflow: hidden;
 }
 
-.BarraNavegacionEstudianteContainer .SessionOutContainer{
-    font-size: 2rem;
-    cursor: pointer;
-    height: min-content;
-    display: flex;
-    align-items: center;
-}
-
-.BarraNavegacionEstudianteContainer .SessionOutContainer:hover{
-    color: var(--ColorOutSessionHover);
-    transition: 150ms;
-}
-
 .BarraNavegacionEstudianteContainer .LogoutModalOverlay {
     position: fixed;
     top: 0;

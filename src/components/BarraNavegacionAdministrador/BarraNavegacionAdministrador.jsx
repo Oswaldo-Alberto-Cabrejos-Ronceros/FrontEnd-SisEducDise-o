@@ -1,9 +1,8 @@
 import { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate,NavLink } from "react-router-dom";
 import "./BarraNavegacionAdministrador.css";
 import NavItem from "../generalsComponets/NavItem/NavItem";
 import NavUser from "../generalsComponets/CardUser/NavUser";
-//import { FaSignOutAlt } from "react-icons/fa";
 import { IoBookOutline } from "react-icons/io5";
 //import { FaCalendarAlt } from "react-icons/fa";
 import { GrNotes } from "react-icons/gr";
@@ -12,10 +11,9 @@ import { FiTrendingUp } from "react-icons/fi";
 import { TbUserEdit } from "react-icons/tb";
 import { GoPencil } from "react-icons/go";
 import { IoMenu } from "react-icons/io5";
-import {  Menu, Portal, Box } from "@chakra-ui/react";
+import { Menu, Portal, Box } from "@chakra-ui/react";
 import { FaRegUser } from "react-icons/fa";
 import { IoIosLogOut } from "react-icons/io";
-import { NavLink } from "react-router-dom";
 
 function BarraNavegacionAdministrador() {
   const [showLogoutModal, setShowLogoutModal] = useState(false); // Estado para controlar el modal
@@ -47,9 +45,6 @@ function BarraNavegacionAdministrador() {
     setShowMenu(false);
   };
 
-  //for popover
-  const [open, setOpen] = useState(false);
-
   return (
     <div className="BarraNavegacionAdministradorContainer">
       <div className="HorizontalContainerBarAdministrador">
@@ -57,11 +52,7 @@ function BarraNavegacionAdministrador() {
           <IoMenu />
         </div>
         <div className="MenuRightContainer">
-          <Menu.Root
-            positioning={{ placement: "bottom-end" }}
-            open={open}
-            onOpenChange={(e) => setOpen(e.open)}
-          >
+          <Menu.Root positioning={{ placement: "bottom-end" }}>
             <Menu.Trigger>
               <NavUser
                 nombre={"Admin"}
@@ -74,13 +65,21 @@ function BarraNavegacionAdministrador() {
               <Menu.Positioner>
                 <Menu.Content>
                   {/*para perfil*/}
-                  <Menu.Item cursor="pointer" value="0" as={NavLink} to="/administrador/usuario">
-                    
+                  <Menu.Item
+                    cursor="pointer"
+                    value="0"
+                    as={NavLink}
+                    to="/administrador/usuario"
+                  >
                     <Box flex="1"> Ver perfil</Box>
                     <FaRegUser />
                   </Menu.Item>
                   {/*para cerrar sesion*/}
-                  <Menu.Item cursor="pointer" value="1" onClick={() => setShowLogoutModal(true)} >
+                  <Menu.Item
+                    cursor="pointer"
+                    value="1"
+                    onClick={() => setShowLogoutModal(true)}
+                  >
                     <Box flex="1"> Cerrar sesión</Box>
                     <IoIosLogOut />
                   </Menu.Item>
@@ -88,13 +87,6 @@ function BarraNavegacionAdministrador() {
               </Menu.Positioner>
             </Portal>
           </Menu.Root>
-
-          {/*        <div
-          className="SessionOutContainer"
-          onClick={() => setShowLogoutModal(true)}
-        >
-          <FaSignOutAlt />
-        </div>*/}
         </div>
       </div>
       {showMenu ? (
