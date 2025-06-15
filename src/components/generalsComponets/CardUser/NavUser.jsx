@@ -1,12 +1,14 @@
 import './NavUser.css'
 import PropTypes from "prop-types";
+import { Avatar } from '@chakra-ui/react';
 
-function NavUser({ nombre, imagen}) {
+function NavUser({ nombre}) {
   return (
     <div className='NavUserContainer'> 
-    <p className='PLg'>{nombre}</p>
-    <img className='ImgUser' src={imagen} alt="Imagen de Usuario" />
-        
+    <p className='PSm'>{nombre}</p>
+    <Avatar.Root variant='outline'>
+        <Avatar.Fallback name={nombre}></Avatar.Fallback>
+    </Avatar.Root>
     </div>
   )
 }
@@ -14,7 +16,6 @@ function NavUser({ nombre, imagen}) {
 
 NavUser.propTypes={
   nombre:PropTypes.string.isRequired,
-  imagen:PropTypes.string.isRequired
 }
 
 export default NavUser
