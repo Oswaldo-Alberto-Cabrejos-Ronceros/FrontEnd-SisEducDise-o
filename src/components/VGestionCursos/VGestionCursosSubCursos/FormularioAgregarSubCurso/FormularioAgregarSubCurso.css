@@ -4,9 +4,7 @@
 
 /* Estilos generales del contenedor */
 .FormularioAgregarSubCursoContainer {
-  padding: 10px;
   box-sizing: border-box;
-  margin: 0 auto;
   width: 100%;
   height: auto;
   display: flex;
@@ -20,20 +18,13 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 20px;
+  padding-top: 2rem;
   box-sizing: border-box;
-  border: 2px solid var(--ColorBorderFormSubCurso);
-  border-radius: 8px;
-  box-shadow: 4px 4px 4px 0px rgba(0, 0, 0, 0.25);
-  max-width: 600px;
   width: 100%;
 }
 
 .FormularioAgregarSubCursoContainer form h3 {
-  padding: 0;
-  margin-top: 10px;
-  margin-bottom: 20px;
-  font-size: 1.5rem; /* Tamaño de fuente base */
+ margin-bottom: 1.25rem;
 }
 
 /* Contenedor principal del contenido del formulario */
