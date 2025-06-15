@@ -1,5 +1,6 @@
-import React,{useState,useEffect} from "react";
+import {useState,useEffect} from "react";
 import "./TablaHonor.css";
+import PropTypes from "prop-types";
 
 function TablaHonor({estudiantesHonor}) {
   
@@ -51,6 +52,10 @@ function TablaHonor({estudiantesHonor}) {
       )}
     </div>
   );
+}
+
+TablaHonor.propTypes={
+estudiantesHonor:PropTypes.array.isRequired
 }
 
 export default TablaHonor;
