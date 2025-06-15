@@ -1,20 +1,22 @@
 import { useState } from "react";
 import "./TablaGestionSubCursos.css";
 import ConfirmationModal from "../../../VGestionUsuarios/Modals/ConfirmacionModal";
-import EditGestionCursosModal from "../../ModalsCurso/EditGestionCursosModal/EditGestionCursosModal";
+import EditGestionCursosForm from "../../ModalsCurso/EditGestionCursosForm/EditGestionCursosForm";
 import EliminarAsignacionModal from "../../ModalsCurso/EliminarAsignacionModal/EliminarAsignacionModal";
 import SubcursoService from "../../../../services/subcursoService";
 import PropTypes from "prop-types";
 import { IconButton, Flex } from "@chakra-ui/react";
 import { GoPencil } from "react-icons/go";
 import { MdDeleteOutline } from "react-icons/md";
+import { Portal, Dialog, CloseButton } from "@chakra-ui/react";
 
 function TablaGestionSubCursos({
   subcursos,
   onSubCursoUpdated,
   onSubCursoDeleted,
 }) {
-  const [showEditModal, setShowEditModal] = useState(false);
+  //for dialogs
+  const [showEditDialog, setShowEditDialog] = useState(false);
   const [showDeleteModal, setShowDeleteModal] = useState(false);
   const [selectedSubcurso, setSelectedSubcurso] = useState(null);
   const [confirmationMessage, setConfirmationMessage] = useState("");
@@ -22,7 +24,7 @@ function TablaGestionSubCursos({
 
   const handleEditClick = (subcurso) => {
     setSelectedSubcurso(subcurso);
-    setShowEditModal(true);
+    setShowEditDialog(true);
   };
 
   const handleDeleteClick = (subcursoId) => {
@@ -61,7 +63,7 @@ function TablaGestionSubCursos({
         showConfirmationMessage("Error al actualizar el subcurso");
       }
     } finally {
-      setShowEditModal(false);
+      setShowEditDialog(false);
     }
   };
 
@@ -128,12 +130,31 @@ function TablaGestionSubCursos({
         </table>
       )}
 
-      <EditGestionCursosModal
-        show={showEditModal}
-        curso={selectedSubcurso}
-        onUpdate={handleUpdate}
-        onClose={() => setShowEditModal(false)}
-      />
+      <Dialog.Root
+        placement="center"
+        motionPreset="scale"
+        open={showEditDialog}
+        onOpenChange={(e) => setShowEditDialog(e.open)}
+        size="sm"
+      >
+        <Portal>
+          <Dialog.Backdrop />
+          <Dialog.Positioner>
+            <Dialog.Content>
+              <Dialog.Body>
+                <EditGestionCursosForm
+                  curso={selectedSubcurso}
+                  onUpdate={handleUpdate}
+                  onClose={() => setShowEditDialog(false)}
+                />
+              </Dialog.Body>
+              <Dialog.CloseTrigger asChild>
+                <CloseButton size="sm" />
+              </Dialog.CloseTrigger>
+            </Dialog.Content>
+          </Dialog.Positioner>
+        </Portal>
+      </Dialog.Root>
 
       <EliminarAsignacionModal
         show={showDeleteModal}
