@@ -9,7 +9,7 @@ import ButtonSubmit from "../../generalsComponets/ButtonSubmit/ButtonSubtmit";
 import ConfirmationModal from "./ConfirmacionModal";
 import PropTypes from "prop-types";
 
-function EditEstudianteModal({ show, student, onUpdate, onClose }) {
+function EditEstudianteModal({ student, onUpdate, onClose }) {
   const [formData, setFormData] = useState({
     dni: "",
     nombre: "",
@@ -97,17 +97,9 @@ function EditEstudianteModal({ show, student, onUpdate, onClose }) {
     }
   };
 
-  if (!show) return null;
-
   return (
-    <div className="edit-modal-overlay">
       <div className="edit-modal-content">
-        <button onClick={onClose} className="edit-close-button">
-          ✕
-        </button>
-        <h4>Recuerde modificar estos datos SOLO en casos especiales</h4>
-        <br />
-
+        <h3>Recuerde modificar estos datos SOLO en casos especiales</h3>
         <ConfirmationModal
           show={showConfirmation}
           message={confirmationMessage}
@@ -200,12 +192,10 @@ function EditEstudianteModal({ show, student, onUpdate, onClose }) {
           </div>
         </form>
       </div>
-    </div>
   );
 }
 
 EditEstudianteModal.propTypes = {
-  show: PropTypes.bool.isRequired,
   student: PropTypes.object.isRequired,
   onUpdate: PropTypes.func.isRequired,
   onClose:PropTypes.func.isRequired

@@ -9,6 +9,7 @@ import PropTypes from "prop-types";
 import { IconButton, Flex } from "@chakra-ui/react";
 import { GoPencil } from "react-icons/go";
 import { MdDeleteOutline } from "react-icons/md";
+import { Portal, Dialog, CloseButton } from "@chakra-ui/react";
 
 function TablaGestionDocentes({
   docentes,
@@ -16,7 +17,7 @@ function TablaGestionDocentes({
   onDocenteUpdated,
 }) {
   const [showDeleteModal, setShowDeleteModal] = useState(false);
-  const [showEditModal, setShowEditModal] = useState(false);
+  const [showEditDialog, setShowEditDialog] = useState(false);
   const [selectedDocente, setSelectedDocente] = useState(null);
   const [confirmationMessage, setConfirmationMessage] = useState("");
   const [showConfirmation, setShowConfirmation] = useState(false);
@@ -38,7 +39,7 @@ function TablaGestionDocentes({
 
   const handleEditClick = (docente) => {
     setSelectedDocente(docente);
-    setShowEditModal(true);
+    setShowEditDialog(true);
   };
 
   const confirmDelete = async () => {
@@ -66,7 +67,7 @@ function TablaGestionDocentes({
       console.error("Error en la actualización:", error);
       showConfirmationMessage("El DNI proporcionado ya existe");
     } finally {
-      setShowEditModal(false);
+      setShowEditDialog(false);
     }
   };
 
@@ -114,7 +115,7 @@ function TablaGestionDocentes({
                   <td data-label="Celular">{docente.telefono}</td>
                   <td data-label="Nivel">{docente.nivel}</td>
                   <td data-label="Acciones">
-                                      <Flex gap='0.5rem'>
+                    <Flex gap="0.5rem">
                       <IconButton
                         variant="outline"
                         aria-label="Editar"
@@ -148,17 +149,36 @@ function TablaGestionDocentes({
         </div>
       )}
 
+      <Dialog.Root
+        placement="center"
+        motionPreset="scale"
+        open={showEditDialog}
+        onOpenChange={(e) => setShowEditDialog(e.open)}
+        size="lg"
+      >
+        <Portal>
+          <Dialog.Backdrop />
+          <Dialog.Positioner>
+            <Dialog.Content>
+              <Dialog.Body>
+                <EditDocenteModal
+                  profesor={selectedDocente}
+                  onUpdate={handleUpdate}
+                  onClose={() => setShowEditDialog(false)}
+                />
+              </Dialog.Body>
+              <Dialog.CloseTrigger asChild>
+                <CloseButton size="sm" />
+              </Dialog.CloseTrigger>
+            </Dialog.Content>
+          </Dialog.Positioner>
+        </Portal>
+      </Dialog.Root>
+
       <DeleteUserModal
         show={showDeleteModal}
         onConfirm={confirmDelete}
         onCancel={() => setShowDeleteModal(false)}
-      />
-
-      <EditDocenteModal
-        show={showEditModal}
-        profesor={selectedDocente}
-        onUpdate={handleUpdate}
-        onClose={() => setShowEditModal(false)}
       />
     </div>
   );
