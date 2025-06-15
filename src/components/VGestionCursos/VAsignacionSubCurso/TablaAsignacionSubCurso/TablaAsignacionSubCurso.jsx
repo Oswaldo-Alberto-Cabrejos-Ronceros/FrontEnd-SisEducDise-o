@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import AsignarDocenteModal from "../../ModalsCurso/AsignarDocenteModal/AsignarDocenteModal";
+import AsignarDocenteForm from "../../ModalsCurso/AsignarDocenteForm/AsignarDocenteForm";
 import EliminarAsignacionModal from "../../ModalsCurso/EliminarAsignacionModal/EliminarAsignacionModal";
 import SelectComponent from "../../../generalsComponets/SelectComponent/SelectComponent";
 import DocenteService from "../../../../services/docenteService";
@@ -8,13 +8,14 @@ import PropTypes from "prop-types";
 import { IconButton, Flex } from "@chakra-ui/react";
 import { MdOutlineAssignmentInd } from "react-icons/md";
 import { MdDeleteOutline } from "react-icons/md";
+import { Portal, Dialog, CloseButton } from "@chakra-ui/react";
 
 function TablaAsignacionSubCurso({
   docentes = [],
   onDocenteUpdated,
   onShowConfirmation,
 }) {
-  const [showEditModal, setShowEditModal] = useState(false);
+  const [showAsignarDialog, setShowAsignarDialog] = useState(false);
   const [showDeleteModal, setShowDeleteModal] = useState(false);
   const [selectedDocente, setSelectedDocente] = useState(null);
   const [selectedAsignacionId, setSelectedAsignacionId] = useState(null);
@@ -24,7 +25,7 @@ function TablaAsignacionSubCurso({
 
   const handleEditClick = (docente) => {
     setSelectedDocente(docente);
-    setShowEditModal(true);
+    setShowAsignarDialog(true);
   };
 
   const handleDeleteClick = (docenteId) => {
@@ -216,13 +217,32 @@ function TablaAsignacionSubCurso({
         </table>
       )}
 
-      <AsignarDocenteModal
-        show={showEditModal}
-        docente={selectedDocente}
-        onClose={() => setShowEditModal(false)}
-        onDocenteUpdated={onDocenteUpdated}
-        onShowConfirmation={onShowConfirmation}
-      />
+      <Dialog.Root
+        placement="center"
+        motionPreset="scale"
+        open={showAsignarDialog}
+        onOpenChange={(e) => setShowAsignarDialog(e.open)}
+        size="lg"
+      >
+        <Portal>
+          <Dialog.Backdrop />
+          <Dialog.Positioner>
+            <Dialog.Content>
+              <Dialog.Body>
+                <AsignarDocenteForm
+                  docente={selectedDocente}
+                  onClose={() => setShowAsignarDialog(false)}
+                  onDocenteUpdated={onDocenteUpdated}
+                  onShowConfirmation={onShowConfirmation}
+                />
+              </Dialog.Body>
+              <Dialog.CloseTrigger asChild>
+                <CloseButton size="sm" />
+              </Dialog.CloseTrigger>
+            </Dialog.Content>
+          </Dialog.Positioner>
+        </Portal>
+      </Dialog.Root>
 
       <EliminarAsignacionModal
         show={showDeleteModal}
