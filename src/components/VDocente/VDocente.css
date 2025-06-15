@@ -21,10 +21,9 @@
 
     
   /* Pantallas pequeñas: ajusta la posición del contenido */
-@media (max-width: 1130px) {
+@media (max-width: 1083px) {
 .VDocenteMain .containerCambDocente {
     z-index: 1;
-    min-height: calc(100% - 11%); /* Ajusta altura */
     padding-right: 2%;
     padding-left: 2%;
   }

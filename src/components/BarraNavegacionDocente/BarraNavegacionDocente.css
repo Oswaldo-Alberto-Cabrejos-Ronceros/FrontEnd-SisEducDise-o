@@ -118,41 +118,13 @@ padding-right: 1rem;
   animation: closeDespMenu 0.3s ease-out forwards;
 }
 
-@media (max-width:1130px) {
-  .BarraNavegacionDocenteContainer .HorizontalContainerBarDocente .MenuIconContainer{
-    display: flex;
-  }
-  .BarraNavegacionDocenteContainer .HorizontalContainerBarDocente{
-    z-index: 4;
-  }
+
+
+@media(max-width:1083px){
   .BarraNavegacionDocenteContainer .VerticalContainerBarDocente{
-    z-index: 3;
-    min-width: 72px;
+    display:none;
   }
-  .BarraNavegacionDocenteContainer .OptionsContainer{
-    top: 72px;
 }
-}
-
-@media (min-height:760px) {
-  .BarraNavegacionDocenteContainer .HorizontalContainerBarDocente{
-    max-height: 84px;
-}
-.BarraNavegacionDocenteContainer .OptionsContainer{
-  top:  84px;
-}
-}
-
-
-@media (max-height:576px) {
-  .BarraNavegacionDocenteContainer .HorizontalContainerBarDocente{
-  min-height: 64px;
-}
-.BarraNavegacionDocenteContainer .OptionsContainer{
-  top: 64px;
-}
-}
-
 
 @media (max-height:504px) {
   .BarraNavegacionDocenteContainer .VerticalContainerBarDocente {
