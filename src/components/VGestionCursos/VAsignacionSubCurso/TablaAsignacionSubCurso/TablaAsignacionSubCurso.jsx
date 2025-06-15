@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react";
 import AsignarDocenteForm from "../../ModalsCurso/AsignarDocenteForm/AsignarDocenteForm";
-import EliminarAsignacionModal from "../../ModalsCurso/EliminarAsignacionModal/EliminarAsignacionModal";
 import SelectComponent from "../../../generalsComponets/SelectComponent/SelectComponent";
 import DocenteService from "../../../../services/docenteService";
 import "./TablaAsignacionSubCurso.css";
@@ -9,6 +8,7 @@ import { IconButton, Flex } from "@chakra-ui/react";
 import { MdOutlineAssignmentInd } from "react-icons/md";
 import { MdDeleteOutline } from "react-icons/md";
 import { Portal, Dialog, CloseButton } from "@chakra-ui/react";
+import ConfirmCard from "../../../generalsComponets/ConfirmCard/ConfirmCard";
 
 function TablaAsignacionSubCurso({
   docentes = [],
@@ -16,7 +16,7 @@ function TablaAsignacionSubCurso({
   onShowConfirmation,
 }) {
   const [showAsignarDialog, setShowAsignarDialog] = useState(false);
-  const [showDeleteModal, setShowDeleteModal] = useState(false);
+  const [showDeleteDialog, setShowDeleteDialog] = useState(false);
   const [selectedDocente, setSelectedDocente] = useState(null);
   const [selectedAsignacionId, setSelectedAsignacionId] = useState(null);
   const [selectedSubcursoId, setSelectedSubcursoId] = useState({});
@@ -44,7 +44,7 @@ function TablaAsignacionSubCurso({
       setDeleteMessage(
         `¿Estás seguro de que deseas eliminar la asignación del subcurso "${asignacion.subcurso.nombre}"?`
       );
-      setShowDeleteModal(true);
+      setShowDeleteDialog(true);
     } else {
       onShowConfirmation("Por favor, selecciona un subcurso válido.");
     }
@@ -88,7 +88,7 @@ function TablaAsignacionSubCurso({
         error.response?.data || "Error al eliminar la asignación";
       onShowConfirmation(errorMessage.toString());
     } finally {
-      setShowDeleteModal(false);
+      setShowDeleteDialog(false);
     }
   };
 
@@ -244,12 +244,32 @@ function TablaAsignacionSubCurso({
         </Portal>
       </Dialog.Root>
 
-      <EliminarAsignacionModal
-        show={showDeleteModal}
-        message={deleteMessage} // Pasar el mensaje personalizado
-        onConfirm={confirmDelete}
-        onCancel={() => setShowDeleteModal(false)}
-      />
+      {/*dialogo de eliminacion*/}
+      <Dialog.Root
+        placement="center"
+        motionPreset="scale"
+        open={showDeleteDialog}
+        onOpenChange={(e) => setShowDeleteDialog(e.open)}
+        size="sm"
+      >
+        <Portal>
+          <Dialog.Backdrop />
+          <Dialog.Positioner>
+            <Dialog.Content>
+              <Dialog.Body>
+                <ConfirmCard
+                  title={deleteMessage}
+                  onConfirm={confirmDelete}
+                  onCancel={() => setShowDeleteDialog(false)}
+                ></ConfirmCard>
+              </Dialog.Body>
+              <Dialog.CloseTrigger asChild>
+                <CloseButton size="sm" />
+              </Dialog.CloseTrigger>
+            </Dialog.Content>
+          </Dialog.Positioner>
+        </Portal>
+      </Dialog.Root>
     </div>
   );
 }

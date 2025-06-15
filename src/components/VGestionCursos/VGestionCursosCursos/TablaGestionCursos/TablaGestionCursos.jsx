@@ -1,8 +1,7 @@
 import { useState } from "react";
 import "./TablaGestionCursos.css";
 import ConfirmationModal from "../../../VGestionUsuarios/Modals/ConfirmacionModal";
-import EditGestionCursosForm from "../../ModalsCurso/EditGestionCursosForm/EditGestionCursosForm";//
-import EliminarAsignacionModal from "../../ModalsCurso/EliminarAsignacionModal/EliminarAsignacionModal";
+import EditGestionCursosForm from "../../ModalsCurso/EditGestionCursosForm/EditGestionCursosForm"; //
 import CursoService from "../../../../services/cursosService";
 import SelectComponent from "../../../generalsComponets/SelectComponent/SelectComponent";
 import PropTypes from "prop-types";
@@ -10,11 +9,12 @@ import { IconButton, Flex } from "@chakra-ui/react";
 import { GoPencil } from "react-icons/go";
 import { MdDeleteOutline } from "react-icons/md";
 import { Portal, Dialog, CloseButton } from "@chakra-ui/react";
+import ConfirmCard from "../../../generalsComponets/ConfirmCard/ConfirmCard";
 
 function TablaGestionCursos({ cursos, onCourseUpdated, onCourseDeleted }) {
   //for dialogs
   const [showEditDialog, setShowEditDialog] = useState(false);
-  const [showDeleteModal, setShowDeleteModal] = useState(false);
+  const [showDeleteDialog, setShowDeleteDialog] = useState(false);
   const [selectedCurso, setSelectedCurso] = useState(null);
   const [confirmationMessage, setConfirmationMessage] = useState("");
   const [showConfirmation, setShowConfirmation] = useState(false);
@@ -27,7 +27,7 @@ function TablaGestionCursos({ cursos, onCourseUpdated, onCourseDeleted }) {
 
   const handleDeleteClick = (cursoId) => {
     setSelectedCurso(cursoId);
-    setShowDeleteModal(true);
+    setShowDeleteDialog(true);
   };
 
   const confirmDelete = async () => {
@@ -39,7 +39,7 @@ function TablaGestionCursos({ cursos, onCourseUpdated, onCourseDeleted }) {
       console.error("Error al eliminar el curso:", error);
       showConfirmationMessage("Error al eliminar el curso");
     } finally {
-      setShowDeleteModal(false);
+      setShowDeleteDialog(false);
     }
   };
 
@@ -166,11 +166,11 @@ function TablaGestionCursos({ cursos, onCourseUpdated, onCourseDeleted }) {
           <Dialog.Positioner>
             <Dialog.Content>
               <Dialog.Body>
-      <EditGestionCursosForm
-        curso={selectedCurso}
-        onUpdate={handleUpdate}
-        onClose={() => setShowEditDialog(false)}
-      />
+                <EditGestionCursosForm
+                  curso={selectedCurso}
+                  onUpdate={handleUpdate}
+                  onClose={() => setShowEditDialog(false)}
+                />
               </Dialog.Body>
               <Dialog.CloseTrigger asChild>
                 <CloseButton size="sm" />
@@ -180,15 +180,32 @@ function TablaGestionCursos({ cursos, onCourseUpdated, onCourseDeleted }) {
         </Portal>
       </Dialog.Root>
 
-
-
-
-      <EliminarAsignacionModal
-        show={showDeleteModal}
-        message={`¿Estás seguro de que deseas eliminar este curso ?`}
-        onConfirm={confirmDelete}
-        onCancel={() => setShowDeleteModal(false)}
-      />
+      {/*dialogo de eliminacion*/}
+      <Dialog.Root
+        placement="center"
+        motionPreset="scale"
+        open={showDeleteDialog}
+        onOpenChange={(e) => setShowDeleteDialog(e.open)}
+        size="sm"
+      >
+        <Portal>
+          <Dialog.Backdrop />
+          <Dialog.Positioner>
+            <Dialog.Content>
+              <Dialog.Body>
+                <ConfirmCard
+                  title={`¿Estás seguro de que deseas eliminar este curso?`}
+                  onConfirm={confirmDelete}
+                  onCancel={() => setShowDeleteDialog(false)}
+                ></ConfirmCard>
+              </Dialog.Body>
+              <Dialog.CloseTrigger asChild>
+                <CloseButton size="sm" />
+              </Dialog.CloseTrigger>
+            </Dialog.Content>
+          </Dialog.Positioner>
+        </Portal>
+      </Dialog.Root>
     </div>
   );
 }

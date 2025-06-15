@@ -2,7 +2,6 @@ import { useState } from "react";
 import "./TablaGestionEstudiantes.css";
 import AlumnoService from "../../../../services/alumnoService";
 import EditEstudianteModal from "../../Modals/EditEstudianteModal";
-import DeleteUserModal from "../../Modals/DeleteUserModal";
 import ConfirmationModal from "../../Modals/ConfirmacionModal";
 import PaginacionComponent from "../../../generalsComponets/PaginacionComponent/PaginacionComponent";
 import PropTypes from "prop-types";
@@ -10,13 +9,14 @@ import { IconButton, Flex } from "@chakra-ui/react";
 import { GoPencil } from "react-icons/go";
 import { MdDeleteOutline } from "react-icons/md";
 import { Portal, Dialog, CloseButton } from "@chakra-ui/react";
+import ConfirmCard from "../../../generalsComponets/ConfirmCard/ConfirmCard";
 
 function TablaGestionEstudiantes({
   estudiantes,
   onStudentDeleted,
   onStudentUpdated,
 }) {
-  const [showDeleteModal, setShowDeleteModal] = useState(false);
+  const [showDeleteDialog, setShowDeleteDialog] = useState(false);
   const [showEditDialog, setShowEditDialog] = useState(false);
   const [selectedStudent, setSelectedStudent] = useState(null);
   const [confirmationMessage, setConfirmationMessage] = useState("");
@@ -31,7 +31,7 @@ function TablaGestionEstudiantes({
 
   const handleDeleteClick = (estudianteId) => {
     setSelectedStudent(estudianteId);
-    setShowDeleteModal(true);
+    setShowDeleteDialog(true);
   };
 
   const handleEditClick = (estudiante) => {
@@ -48,7 +48,7 @@ function TablaGestionEstudiantes({
       console.error("Error al eliminar:", error); // Asegúrate de ver el error en consola
       showConfirmationMessage("Error al eliminar el alumno");
     } finally {
-      setShowDeleteModal(false);
+      setShowDeleteDialog(false);
     }
   };
 
@@ -175,11 +175,32 @@ function TablaGestionEstudiantes({
         </Portal>
       </Dialog.Root>
 
-      <DeleteUserModal
-        show={showDeleteModal}
-        onConfirm={confirmDelete}
-        onCancel={() => setShowDeleteModal(false)}
-      />
+      {/*dialogo de eliminacion*/}
+      <Dialog.Root
+        placement="center"
+        motionPreset="scale"
+        open={showDeleteDialog}
+        onOpenChange={(e) => setShowDeleteDialog(e.open)}
+        size="sm"
+      >
+        <Portal>
+          <Dialog.Backdrop />
+          <Dialog.Positioner>
+            <Dialog.Content>
+              <Dialog.Body>
+                <ConfirmCard
+                  title={`¿Seguro que quieres eliminar al estudiante seleccionado?`}
+                  onConfirm={confirmDelete}
+                  onCancel={() => setShowDeleteDialog(false)}
+                ></ConfirmCard>
+              </Dialog.Body>
+              <Dialog.CloseTrigger asChild>
+                <CloseButton size="sm" />
+              </Dialog.CloseTrigger>
+            </Dialog.Content>
+          </Dialog.Positioner>
+        </Portal>
+      </Dialog.Root>
     </div>
   );
 }
