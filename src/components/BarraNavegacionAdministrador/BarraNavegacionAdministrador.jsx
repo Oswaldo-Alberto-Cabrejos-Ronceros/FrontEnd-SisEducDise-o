@@ -16,6 +16,8 @@ import { FaRegUser } from "react-icons/fa";
 import { IoIosLogOut } from "react-icons/io";
 import { IconButton } from "@chakra-ui/react";
 import { IoMdArrowBack } from "react-icons/io";
+import { Dialog, CloseButton } from "@chakra-ui/react";
+import ConfirmCard from "../generalsComponets/ConfirmCard/ConfirmCard";
 
 function BarraNavegacionAdministrador() {
   const [showLogoutModal, setShowLogoutModal] = useState(false); // Estado para controlar el modal
@@ -211,25 +213,32 @@ function BarraNavegacionAdministrador() {
         </Drawer.Backdrop>
       </Drawer.Root>
 
-      {/* Modal de confirmación de cierre de sesión */}
-      {showLogoutModal && (
-        <div className="LogoutModalOverlay">
-          <div className="LogoutModalContent">
-            <h3>¿Estás seguro de cerrar la sesión?</h3>
-            <div className="LogoutModalButtons">
-              <button
-                onClick={() => setShowLogoutModal(false)}
-                className="LogoutButtonNo"
-              >
-                No
-              </button>
-              <button onClick={handleLogoutConfirm} className="LogoutButtonYes">
-                Sí
-              </button>
-            </div>
-          </div>
-        </div>
-      )}
+      {/*dialogo de cerrar sesion*/}
+      <Dialog.Root
+        placement="center"
+        motionPreset="scale"
+        open={showLogoutModal}
+        onOpenChange={(e) => setShowLogoutModal(e.open)}
+        size="sm"
+      >
+        <Portal>
+          <Dialog.Backdrop />
+          <Dialog.Positioner>
+            <Dialog.Content>
+              <Dialog.Body>
+                <ConfirmCard
+                  title={`¿Seguro que quieres cerrar sesión?`}
+                  onConfirm={handleLogoutConfirm}
+                  onCancel={() => setShowLogoutModal(false)}
+                ></ConfirmCard>
+              </Dialog.Body>
+              <Dialog.CloseTrigger asChild>
+                <CloseButton size="sm" />
+              </Dialog.CloseTrigger>
+            </Dialog.Content>
+          </Dialog.Positioner>
+        </Portal>
+      </Dialog.Root>
     </div>
   );
 }
