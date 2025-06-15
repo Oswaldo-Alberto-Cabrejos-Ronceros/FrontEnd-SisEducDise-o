@@ -5,10 +5,8 @@ import TablaGestionEstudiantes from "./TablaGestionEstudiantes/TablaGestionEstud
 import FormularioAgregarEstudiante from "./FormularioAgregarEstudiante/FormularioAgregarEstudiante";
 import SearchComponent from "../../generalsComponets/SearchComponent/SearchComponent";
 import SelectComponent from "../../generalsComponets/SelectComponent/SelectComponent";
-import { Button, Portal } from "@chakra-ui/react";
+import { Button, Portal, Dialog, CloseButton } from "@chakra-ui/react";
 import { RiUserAddLine } from "react-icons/ri";
-import { Dialog } from "@chakra-ui/react";
-import { CloseButton } from "@chakra-ui/react";
 
 function VGestionEstudiante() {
   const [estudiantes, setEstudiantes] = useState([]);
