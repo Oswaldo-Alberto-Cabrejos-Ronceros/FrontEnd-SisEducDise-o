@@ -20,6 +20,16 @@
   transition: 150ms;
 }
 
+.NavItemContainerHorizontal{
+  flex-wrap:initial;
+  width: 100%;
+  align-items: center;
+  justify-content: start;
+  gap: 2.5rem;
+  padding-left: 2rem;
+  padding-right: 2rem;
+}
+
 .IconContainer {
   font-size: 2rem;
 }
@@ -32,14 +42,8 @@
   background-color: var(--BackgroundColorActive);
   color: var(--BackgroudColor);
 }
-.PMd {
+
+.NavItemContainer .PMd {
   cursor: pointer;
 }
 
-@media (max-height: 728px) {
-  .NavItemContainer {
-    max-height: 108px;
-    display: flex;
-    flex-direction: column;
-  }
-}

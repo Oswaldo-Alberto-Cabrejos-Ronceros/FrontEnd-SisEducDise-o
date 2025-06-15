@@ -58,7 +58,7 @@
   gap: 5px;
 }
 
-.PMd {
+.CardContainer .PMd {
   align-self: flex-start;
   margin: 0;
 }

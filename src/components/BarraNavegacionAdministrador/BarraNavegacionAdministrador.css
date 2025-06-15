@@ -152,6 +152,11 @@
 }
 
 
+@media (max-width:1083px) {
+   .BarraNavegacionAdministradorContainer .VerticalContainerBarAdmin{
+    display: none;
+  }
+}
 
 
 
