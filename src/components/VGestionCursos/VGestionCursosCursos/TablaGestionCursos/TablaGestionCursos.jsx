@@ -1,11 +1,14 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import "./TablaGestionCursos.css";
-import PrimaryButton from "../../../generalsComponets/PrimaryButton/PrimaryButton";
 import ConfirmationModal from "../../../VGestionUsuarios/Modals/ConfirmacionModal";
 import EditGestionCursosModal from "../../ModalsCurso/EditGestionCursosModal/EditGestionCursosModal";
 import EliminarAsignacionModal from "../../ModalsCurso/EliminarAsignacionModal/EliminarAsignacionModal";
 import CursoService from "../../../../services/cursosService";
 import SelectComponent from "../../../generalsComponets/SelectComponent/SelectComponent";
+import PropTypes from "prop-types";
+import { IconButton, Flex } from "@chakra-ui/react";
+import { GoPencil } from "react-icons/go";
+import { MdDeleteOutline } from "react-icons/md";
 
 function TablaGestionCursos({ cursos, onCourseUpdated, onCourseDeleted }) {
   const [showEditModal, setShowEditModal] = useState(false);
@@ -40,18 +43,21 @@ function TablaGestionCursos({ cursos, onCourseUpdated, onCourseDeleted }) {
 
   const handleUpdate = async (updatedData) => {
     try {
-      const response = await CursoService.updateCurso(selectedCurso.cursoId, updatedData);
+      const response = await CursoService.updateCurso(
+        selectedCurso.cursoId,
+        updatedData
+      );
       onCourseUpdated(response.data); // Usa onCourseUpdated para actualizar el curso específico
       showConfirmationMessage("Curso actualizado correctamente");
     } catch (error) {
       console.error("Error en la actualización:", error);
-        if (error.response && error.response.status === 500) {
-            showConfirmationMessage(
-                `Ya existe un subcurso con el nombre "${updatedData.nombre}" , verifique el nivel"`
-            );
-        } else {
-            showConfirmationMessage("Error al actualizar el subcurso");
-        }
+      if (error.response && error.response.status === 500) {
+        showConfirmationMessage(
+          `Ya existe un subcurso con el nombre "${updatedData.nombre}" , verifique el nivel"`
+        );
+      } else {
+        showConfirmationMessage("Error al actualizar el subcurso");
+      }
     } finally {
       setShowEditModal(false);
     }
@@ -70,11 +76,12 @@ function TablaGestionCursos({ cursos, onCourseUpdated, onCourseDeleted }) {
     }));
   };
 
-
-
   return (
     <div className="TablaGestionCursosContainer">
-      <ConfirmationModal show={showConfirmation} message={confirmationMessage} />
+      <ConfirmationModal
+        show={showConfirmation}
+        message={confirmationMessage}
+      />
 
       {cursos.length === 0 ? (
         <div className="TablaGestionCursosVerDocEmpty">
@@ -88,13 +95,14 @@ function TablaGestionCursos({ cursos, onCourseUpdated, onCourseDeleted }) {
               <th>Descripción</th>
               <th>Nivel</th>
               <th>SubCursos</th>
-              <th>Modificar</th>
-              <th>Eliminar</th>
+              <th></th>
             </tr>
           </thead>
           <tbody>
             {cursos.map((curso) => (
-              <tr key={curso.cursoId}> {/* Clave única aquí */}
+              <tr key={curso.cursoId}>
+                {" "}
+                {/* Clave única aquí */}
                 <td data-label="Nombre">{curso.nombre}</td>
                 <td data-label="Descripcion">{curso.descripcion}</td>
                 <td data-label="Nivel">{curso.nivel}</td>
@@ -104,10 +112,10 @@ function TablaGestionCursos({ cursos, onCourseUpdated, onCourseDeleted }) {
                     options={
                       curso.subcursos && curso.subcursos.length > 0
                         ? curso.subcursos.map((subcurso) => ({
-                          label: subcurso.nombre,
-                          value: subcurso.subcursoId,
-                          key: subcurso.subcursoId, // Clave única aquí
-                        }))
+                            label: subcurso.nombre,
+                            value: subcurso.subcursoId,
+                            key: subcurso.subcursoId, // Clave única aquí
+                          }))
                         : [{ label: "Sin subcursos", value: "" }]
                     }
                     value={selectedSubcursos[curso.cursoId] || ""}
@@ -116,11 +124,27 @@ function TablaGestionCursos({ cursos, onCourseUpdated, onCourseDeleted }) {
                     }
                   />
                 </td>
-                <td data-label="Modificar">
-                  <PrimaryButton nombre="Editar" onClick={() => handleEditClick(curso)} />
-                </td>
-                <td data-label="Eliminar">
-                  <PrimaryButton nombre="Eliminar" onClick={() => handleDeleteClick(curso.cursoId)} />
+                <td data-label="Acciones">
+                  <Flex gap="0.5rem">
+                    <IconButton
+                      variant="outline"
+                      aria-label="Editar"
+                      rounded="full"
+                      colorPalette="yellow"
+                      onClick={() => handleEditClick(curso)}
+                    >
+                      <GoPencil />
+                    </IconButton>
+                    <IconButton
+                      variant="outline"
+                      aria-label="Eliminar"
+                      rounded="full"
+                      colorPalette="red"
+                      onClick={() => handleDeleteClick(curso.cursoId)}
+                    >
+                      <MdDeleteOutline />
+                    </IconButton>
+                  </Flex>
                 </td>
               </tr>
             ))}
@@ -142,9 +166,13 @@ function TablaGestionCursos({ cursos, onCourseUpdated, onCourseDeleted }) {
         onCancel={() => setShowDeleteModal(false)}
       />
     </div>
-
-
   );
 }
+
+TablaGestionCursos.propTypes = {
+  cursos: PropTypes.array.isRequired,
+  onCourseUpdated: PropTypes.func.isRequired,
+  onCourseDeleted: PropTypes.func.isRequired,
+};
 
 export default TablaGestionCursos;
