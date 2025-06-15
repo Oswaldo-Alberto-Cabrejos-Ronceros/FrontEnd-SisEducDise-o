@@ -1,12 +1,7 @@
-:root {
-  --ColorBorderFormEstudiante: #171717;
-}
-
 .FormularioAgregarEstudianteContainer {
   width: 100%;
   display: flex;
   justify-content: center;
-  padding: 20px;
   box-sizing: border-box;
 }
 
@@ -17,11 +12,8 @@
   flex-direction: column;
   align-items: stretch;
   justify-content: center;
-  padding: 20px;
+  padding-top: 2rem;
   box-sizing: border-box;
-  border: 1px solid var(--ColorBorderFormEstudiante);
-  border-radius: 8px;
-  box-shadow: 4px 4px 4px 0px rgba(0, 0, 0, 0.25);
 }
 
 .FormularioAgregarEstudianteContainer form .FormularioAgregarEstudianteContentPrin {
@@ -55,8 +47,9 @@
 
 .FormularioAgregarEstudianteContainer .butonSubmitEstudiantesContainer {
   padding-top: 20px;
-  padding-bottom: 10px;
   box-sizing: border-box;
+    display: flex;
+  justify-content: center; /* Centrar el botón */
 }
 
 .label-input-containe-estudiantes {
@@ -87,16 +80,6 @@
   margin-top: 3px;
   min-height: 0px;
   max-height: 0px;
-}
-
-.butonSubmitEstudiantesContainer {
-  padding-top: 20px;
-  display: flex;
-  justify-content: center; /* Centrar el botón */
-}
-
-.butonSubmitEstudiantesContainer .buttonSubmitEstudiantes {
-  width: 200px; /* Ancho fijo opcional */
 }
 
 /* Media Queries */

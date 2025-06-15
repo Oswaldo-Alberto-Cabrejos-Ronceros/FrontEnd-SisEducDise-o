@@ -111,7 +111,7 @@ function FormularioAgregarEstudiante({ onStudentAdded }) {
       <ConfirmationModal show={showConfirmation} message={confirmationMessage} />
   
       <form onSubmit={handleSubmit}>
-        <h3>Agregar Estudiante:</h3>
+        <h3>Agregar Estudiante</h3>
         <div className="FormularioAgregarEstudianteContentPrin">
           
           <div className="label-input-container-estudiantes">
