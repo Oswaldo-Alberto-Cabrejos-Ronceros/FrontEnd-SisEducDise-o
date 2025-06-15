@@ -1,5 +1,3 @@
-
-
 .VEstudianteMain{
   min-height: 100vh; /* Asegura que el contenedor mínimo ocupe toda la altura de la ventana */
   display: flex;
@@ -18,7 +16,7 @@
   }
 
   /* Pantallas pequeñas: ajusta la posición del contenido */
-  @media (max-width: 1130px) {
+  @media (max-width: 1083px) {
     .VEstudianteMain .containerCamb {
         z-index: 1;
     padding-right: 2%;

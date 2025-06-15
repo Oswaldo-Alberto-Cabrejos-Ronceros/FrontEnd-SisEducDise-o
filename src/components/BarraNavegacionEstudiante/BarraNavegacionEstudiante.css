@@ -123,15 +123,11 @@
   animation: closeDespMenu 0.3s ease-out forwards;
 }
 
-@media (max-width:1130px) {
-  .BarraNavegacionEstudianteContainer .HorizontalContainer .MenuIconContainer{
-    display: flex;
-  }
-  .BarraNavegacionEstudianteContainer .HorizontalContainer{
-    z-index: 4;
-  }
+@media (max-width:1083px) {
+   .BarraNavegacionEstudianteContainer .VerticalContainer{
+    display: none;
+   } 
 }
-
 
 @keyframes openDespMenu {
   from {

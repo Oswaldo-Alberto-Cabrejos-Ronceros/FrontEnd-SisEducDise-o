@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
 import "./BarraNavegacionEstudiante.css";
 import NavItem from "../generalsComponets/NavItem/NavItem";
@@ -9,13 +9,15 @@ import NavUser from "../generalsComponets/CardUser/NavUser";
 import { FaRankingStar } from "react-icons/fa6";
 import { IoMenu } from "react-icons/io5";
 import PropTypes from "prop-types";
-import { Menu, Portal, Box } from "@chakra-ui/react";
+import { Menu, Portal, Box, Drawer, Flex } from "@chakra-ui/react";
 import { FaRegUser } from "react-icons/fa";
 import { IoIosLogOut } from "react-icons/io";
+import { IconButton } from "@chakra-ui/react";
+import { IoMdArrowBack } from "react-icons/io";
 
 function BarraNavegacionEstudiante({ nombre, apellido }) {
   const [showLogoutModal, setShowLogoutModal] = useState(false); // Estado para controlar el modal
-  const [showMenu, setShowMenu] = useState(window.innerWidth > 1130);
+  const [openDrawer, setOpenDrawer] = useState(false);
   const navigate = useNavigate();
 
   const handleLogoutConfirm = () => {
@@ -24,29 +26,10 @@ function BarraNavegacionEstudiante({ nombre, apellido }) {
     navigate("/login");
   };
 
-  useEffect(() => {
-    const handleResize = () => {
-      setShowMenu(window.innerWidth > 1130); // Mostrar menú automáticamente en pantallas grandes
-    };
-
-    window.addEventListener("resize", handleResize);
-    return () => {
-      window.removeEventListener("resize", handleResize);
-    };
-  }, []);
-
-  const handleShowMenu = () => {
-    setShowMenu(!showMenu);
-  };
-
-  const setShowMenuFalse = () => {
-    setShowMenu(false);
-  };
-
   return (
     <div className="BarraNavegacionEstudianteContainer">
       <div className="HorizontalContainer">
-        <div className="MenuIconContainer" onClick={handleShowMenu}>
+        <div className="MenuIconContainer" onClick={() => setOpenDrawer(true)}>
           <IoMenu />
         </div>
         <div className="MenuRightContainer">
@@ -87,22 +70,21 @@ function BarraNavegacionEstudiante({ nombre, apellido }) {
           </Menu.Root>
         </div>
       </div>
-      {showMenu ? (
-        <div className={`VerticalContainer ${showMenu ? "show" : "hide"}`}>
-          <div className="OptionsContainer">
-            <div className="MenuIconContainer">
-              <IoMenu />
-            </div>
-            <NavItem
-              id={"Cursos"}
-              titulo={"Cursos"}
-              icon={<IoBookOutline />}
-              to="/estudiante/cursos"
-              onClick={
-                window.innerWidth > 1130 === true ? null : setShowMenuFalse
-              }
-            />
-            {/*            <NavItem
+      <div className="VerticalContainer">
+        <div className="OptionsContainer">
+          <div
+            className="MenuIconContainer"
+            onClick={() => setOpenDrawer(true)}
+          >
+            <IoMenu />
+          </div>
+          <NavItem
+            id={"Cursos"}
+            titulo={"Cursos"}
+            icon={<IoBookOutline />}
+            to="/estudiante/cursos"
+          />
+          {/*            <NavItem
               id={"Horario"}
               titulo={"Horario"}
               icon={<FaCalendarAlt />}
@@ -110,29 +92,88 @@ function BarraNavegacionEstudiante({ nombre, apellido }) {
               onClick={window.innerWidth > 1130===true?(null):(setShowMenuFalse)}
             />*/}
 
-            <NavItem
-              id={"Notas"}
-              titulo={"Notas"}
-              icon={<GrNotes />}
-              to="/estudiante/notas"
-              onClick={
-                window.innerWidth > 1130 === true ? null : setShowMenuFalse
-              }
-            />
-            <NavItem
-              id={"Honor"}
-              titulo={"Honor"}
-              icon={<FaRankingStar />}
-              to="/estudiante/honor"
-              onClick={
-                window.innerWidth > 1130 === true ? null : setShowMenuFalse
-              }
-            />
-          </div>
+          <NavItem
+            id={"Notas"}
+            titulo={"Notas"}
+            icon={<GrNotes />}
+            to="/estudiante/notas"
+          />
+          <NavItem
+            id={"Honor"}
+            titulo={"Honor"}
+            icon={<FaRankingStar />}
+            to="/estudiante/honor"
+          />
         </div>
-      ) : (
-        <></>
-      )}
+      </div>
+
+      {/*Drawer*/}
+      <Drawer.Root
+        open={openDrawer}
+        placement="start"
+        onOpenChange={(e) => setOpenDrawer(e.open)}
+      >
+        <Drawer.Backdrop>
+          <Drawer.Positioner>
+            <Drawer.Content bgColor={"red.600"}>
+              <Drawer.Body padding="0">
+                <Flex flexDirection={"column"}>
+                  <Flex
+                    paddingLeft={"1.5rem"}
+                    alignItems="center"
+                    height="4rem"
+                  >
+                    <IconButton
+                      aria-label="Ocultar Drawer"
+                      onClick={() => setOpenDrawer(false)}
+                      rounded="full"
+                      bg="red.500"
+                      size="lg"
+                    >
+                      <IoMdArrowBack />
+                    </IconButton>
+                  </Flex>
+                  <NavItem
+                    id={"Cursos"}
+                    titulo={"Cursos"}
+                    icon={<IoBookOutline />}
+                    to="/estudiante/cursos"
+                    onClick={() => setOpenDrawer(false)}
+                    horizontal
+                  />
+                  {/*            <NavItem
+              id={"Horario"}
+              titulo={"Horario"}
+              icon={<FaCalendarAlt />}
+              to="horario"
+                    onClick={
+                      ()=>setOpenDrawer(false)
+                    }
+                    horizontal
+            />*/}
+
+                  <NavItem
+                    id={"Notas"}
+                    titulo={"Notas"}
+                    icon={<GrNotes />}
+                    to="/estudiante/notas"
+                    onClick={() => setOpenDrawer(false)}
+                    horizontal
+                  />
+                  <NavItem
+                    id={"Honor"}
+                    titulo={"Honor"}
+                    icon={<FaRankingStar />}
+                    to="/estudiante/honor"
+                    onClick={() => setOpenDrawer(false)}
+                    horizontal
+                  />
+                </Flex>
+              </Drawer.Body>
+            </Drawer.Content>
+          </Drawer.Positioner>
+        </Drawer.Backdrop>
+      </Drawer.Root>
 
       {/* Modal de confirmación de cierre de sesión */}
       {showLogoutModal && (
