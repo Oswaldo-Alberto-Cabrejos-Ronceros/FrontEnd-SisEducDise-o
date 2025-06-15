@@ -1,11 +1,14 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import "./TablaGestionDocentes.css";
 import DocenteService from "../../../../services/docenteService";
-import PrimaryButton from "../../../generalsComponets/PrimaryButton/PrimaryButton";
 import EditDocenteModal from "../../Modals/EditDocenteModal";
 import DeleteUserModal from "../../Modals/DeleteUserModal";
 import ConfirmationModal from "../../Modals/ConfirmacionModal";
 import PaginacionComponent from "../../../generalsComponets/PaginacionComponent/PaginacionComponent";
+import PropTypes from "prop-types";
+import { IconButton, Flex } from "@chakra-ui/react";
+import { GoPencil } from "react-icons/go";
+import { MdDeleteOutline } from "react-icons/md";
 
 function TablaGestionDocentes({
   docentes,
@@ -73,7 +76,7 @@ function TablaGestionDocentes({
     setTimeout(() => setShowConfirmation(false), 1700);
   };
 
-  console.log(docentes)
+  console.log(docentes);
   return (
     <div className="TablaGestionDocentesContainer">
       <ConfirmationModal
@@ -87,52 +90,61 @@ function TablaGestionDocentes({
         </div>
       ) : (
         <div>
-        <table className="TableGestionDocentes">
-          <thead>
-            <tr>
-              <th>Dni</th>
-              <th>Nombres</th>
-              <th>Apellidos</th>
-              <th>Especialidad</th>
-              <th>Codigo</th>
-              <th>Celular</th>
-              <th>Nivel</th>
-              <th>Editar</th>
-              <th>Eliminar</th>
-            </tr>
-          </thead>
-          <tbody>
-            {currentItems.map((docente) => (
-              <tr key={docente.usuarioId}>
-                <td data-label="Dni">{docente.dni}</td>
-                <td data-label="Nombres">{docente.nombre}</td>
-                <td data-label="Apellidos">{docente.apellido}</td>
-                <td data-label="Especialidad">{docente.especialidad}</td>
-                <td data-label="Codigo">{docente.codigo}</td>
-                <td data-label="Celular">{docente.telefono}</td>
-                <td data-label="Nivel">{docente.nivel}</td>
-                <td data-label="Editar">
-                  <PrimaryButton
-                    onClick={() => handleEditClick(docente)}
-                    nombre="Editar"
-                  />
-                </td>
-                <td data-label="Eliminar">
-                  <PrimaryButton
-                    onClick={() => handleDeleteClick(docente.usuarioId)}
-                    nombre="Eliminar"
-                  />
-                </td>
+          <table className="TableGestionDocentes">
+            <thead>
+              <tr>
+                <th>Dni</th>
+                <th>Nombres</th>
+                <th>Apellidos</th>
+                <th>Especialidad</th>
+                <th>Codigo</th>
+                <th>Celular</th>
+                <th>Nivel</th>
+                <th></th>
               </tr>
-            ))}
-          </tbody>
-        </table>
-        <PaginacionComponent
-        totalItems={docentes.length}
-        itemsPerPage={itemsPerPage}
-        currentPage={currentPage}
-        onPageChange={handlePageChange}
-      />
+            </thead>
+            <tbody>
+              {currentItems.map((docente) => (
+                <tr key={docente.usuarioId}>
+                  <td data-label="Dni">{docente.dni}</td>
+                  <td data-label="Nombres">{docente.nombre}</td>
+                  <td data-label="Apellidos">{docente.apellido}</td>
+                  <td data-label="Especialidad">{docente.especialidad}</td>
+                  <td data-label="Codigo">{docente.codigo}</td>
+                  <td data-label="Celular">{docente.telefono}</td>
+                  <td data-label="Nivel">{docente.nivel}</td>
+                  <td data-label="Acciones">
+                                      <Flex gap='0.5rem'>
+                      <IconButton
+                        variant="outline"
+                        aria-label="Editar"
+                        rounded="full"
+                        colorPalette="yellow"
+                        onClick={() => handleEditClick(docente)}
+                      >
+                        <GoPencil />
+                      </IconButton>
+                      <IconButton
+                        variant="outline"
+                        aria-label="Eliminar"
+                        rounded="full"
+                        colorPalette="red"
+                        onClick={() => handleDeleteClick(docente.usuarioId)}
+                      >
+                        <MdDeleteOutline />
+                      </IconButton>
+                    </Flex>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+          <PaginacionComponent
+            totalItems={docentes.length}
+            itemsPerPage={itemsPerPage}
+            currentPage={currentPage}
+            onPageChange={handlePageChange}
+          />
         </div>
       )}
 
@@ -144,12 +156,18 @@ function TablaGestionDocentes({
 
       <EditDocenteModal
         show={showEditModal}
-        profesor={selectedDocente} 
+        profesor={selectedDocente}
         onUpdate={handleUpdate}
         onClose={() => setShowEditModal(false)}
       />
     </div>
   );
 }
+
+TablaGestionDocentes.propTypes = {
+  docentes: PropTypes.array.isRequired,
+  onDocenteDeleted: PropTypes.func.isRequired,
+  onDocenteUpdated: PropTypes.func.isRequired,
+};
 
 export default TablaGestionDocentes;

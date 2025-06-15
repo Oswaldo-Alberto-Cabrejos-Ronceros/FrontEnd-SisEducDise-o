@@ -1,12 +1,14 @@
 import { useState } from "react";
 import "./TablaGestionEstudiantes.css";
 import AlumnoService from "../../../../services/alumnoService";
-import PrimaryButton from "../../../generalsComponets/PrimaryButton/PrimaryButton";
 import EditEstudianteModal from "../../Modals/EditEstudianteModal";
 import DeleteUserModal from "../../Modals/DeleteUserModal";
 import ConfirmationModal from "../../Modals/ConfirmacionModal";
 import PaginacionComponent from "../../../generalsComponets/PaginacionComponent/PaginacionComponent";
 import PropTypes from "prop-types";
+import { IconButton, Flex } from "@chakra-ui/react";
+import { GoPencil } from "react-icons/go";
+import { MdDeleteOutline } from "react-icons/md";
 
 function TablaGestionEstudiantes({
   estudiantes,
@@ -25,7 +27,7 @@ function TablaGestionEstudiantes({
   const indexOfFirstItem = indexOfLastItem - itemsPerPage;
   const currentItems = estudiantes.slice(indexOfFirstItem, indexOfLastItem);
   const handlePageChange = (pageNumber) => setCurrentPage(pageNumber);
-  
+
   const handleDeleteClick = (estudianteId) => {
     setSelectedStudent(estudianteId);
     setShowDeleteModal(true);
@@ -95,8 +97,7 @@ function TablaGestionEstudiantes({
                 <th>Nivel</th>
                 <th>Grado - Seccion</th>
                 <th>FechaNac</th>
-                <th>Editar</th>
-                <th>Eliminar</th>
+                <th></th>
               </tr>
             </thead>
             <tbody>
@@ -109,18 +110,30 @@ function TablaGestionEstudiantes({
                   <td data-label="Celular">{estudiante.telefono}</td>
                   <td data-label="Nivel">{estudiante.nivel}</td>
                   <td data-label="Grado - Seccion">{`${estudiante.grado} - "${estudiante.seccion}"`}</td>
-                  <td data-label="Fecha de Nacimiento">{estudiante.fechaNacimiento}</td>
-                  <td data-label="Editar">
-                    <PrimaryButton
-                      onClick={() => handleEditClick(estudiante)}
-                      nombre="Editar"
-                    />
+                  <td data-label="Fecha de Nacimiento">
+                    {estudiante.fechaNacimiento}
                   </td>
-                  <td data-label="Eliminar">
-                    <PrimaryButton
-                      onClick={() => handleDeleteClick(estudiante.usuarioId)}
-                      nombre="Eliminar"
-                    />
+                  <td data-label="Acciones">
+                    <Flex gap='0.5rem'>
+                      <IconButton
+                        variant="outline"
+                        aria-label="Editar"
+                        rounded="full"
+                        colorPalette="yellow"
+                        onClick={() => handleEditClick(estudiante)}
+                      >
+                        <GoPencil />
+                      </IconButton>
+                      <IconButton
+                        variant="outline"
+                        aria-label="Eliminar"
+                        rounded="full"
+                        colorPalette="red"
+                        onClick={() => handleDeleteClick(estudiante.usuarioId)}
+                      >
+                        <MdDeleteOutline />
+                      </IconButton>
+                    </Flex>
                   </td>
                 </tr>
               ))}
@@ -151,10 +164,10 @@ function TablaGestionEstudiantes({
   );
 }
 
-TablaGestionEstudiantes.propTypes={
-  estudiantes:PropTypes.array.isRequired,
-  onStudentDeleted:PropTypes.func.isRequired,
-  onStudentUpdated:PropTypes.func.isRequired,
-}
+TablaGestionEstudiantes.propTypes = {
+  estudiantes: PropTypes.array.isRequired,
+  onStudentDeleted: PropTypes.func.isRequired,
+  onStudentUpdated: PropTypes.func.isRequired,
+};
 
 export default TablaGestionEstudiantes;
