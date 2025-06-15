@@ -1,136 +1,108 @@
-:root{
-    --BackgroudColorVGestionEstudiante:#F4F4F5;
+:root {
+  --BackgroudColorVGestionEstudiante: #f4f4f5;
 }
 
-.VGestionDocentesContainer{
-    width: 100%;
-    height: auto;
-    display: flex;
-    flex-direction: column;
-    margin: 0;
-    box-sizing: border-box;
-    /* Agregado para mejor espaciado */
-    background-color: var(--BackgroundColorVGestionEstudiante);
+.VGestionDocentesContainer {
+  width: 100%;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  box-sizing: border-box;
+  /* Agregado para mejor espaciado */
+  background-color: var(--BackgroundColorVGestionEstudiante);
 }
 
-.VGestionDocentesContainer .TitleGestionDocentes{
-    align-self: flex-start;
+.VGestionDocentesContainer .TitleGestionDocentes {
+  align-self: flex-start;
 }
 
-
-.VGestionDocentesContainer .TitleGestionDocentes h3{
-    margin: 0;
-    margin: 1rem 0 1rem 0;
+.VGestionDocentesContainer .TitleGestionDocentes h3 {
+  margin: 0;
+  margin: 1rem 0 1rem 0;
 }
 
 /* Filtros y Búsqueda */
 .FiltersAndSearch {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    gap: 20px;
-    margin-bottom: 50px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 20px;
+  margin-bottom: 50px;
 }
 
 .FilterGroup,
 .SearchGroup {
-    display: flex;
-    align-items: center;
+  display: flex;
+  align-items: center;
 }
 
 .FilterGroup label,
 .SearchGroup label {
-    margin-right: 5px;
-    font-weight: bold;
+  margin-right: 5px;
+  font-weight: bold;
 }
 
 .SelectComponentContainer select {
-    padding: 5px;
-    font-size: 14px;
+  padding: 5px;
+  font-size: 14px;
 }
 
 .SearchGroup {
-    flex-grow: 1;
-}
-
-/* Botón Mostrar/Ocultar */
-.ButtonFormularioContent {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    margin-bottom: 20px;
-    /* Espacio debajo del botón */
-}
-
-.ButtonFormularioContent .PrimaryButton {
-    width: 200px;
-    /* Tamaño fijo para el botón */
+  flex-grow: 1;
 }
 
 /* Contenido principal */
 .VGestionDocentesContent {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
 }
 
 .VGestionDocentesContent .FormularioAgregarDocentes {
-    margin-bottom: 20px;
+  margin-bottom: 20px;
 }
 
 /* Tabla de Docentes */
 .TablaGestionDocentes {
-    width: 100%;
-    overflow-x: auto;
-    /* Para tablas anchas en pantallas pequeñas */
+  width: 100%;
+  overflow-x: auto;
+  /* Para tablas anchas en pantallas pequeñas */
 }
 
 /* Pantallas medianas */
 @media (max-width: 960px) {
-    .VGestionDocentesContainer .TitleGestionDocentes h3 {
-        font-size: 24px;
-    }
+  .VGestionDocentesContainer .TitleGestionDocentes h3 {
+    font-size: 24px;
+  }
 
-    .FiltersAndSearch {
-        gap: 15px;
-    }
-
-    .ButtonFormularioContent .PrimaryButton {
-        width: 180px;
-    }
+  .FiltersAndSearch {
+    gap: 15px;
+  }
 }
 
 /* Pantallas pequeñas */
 @media (max-width: 600px) {
-    .VGestionDocentesContainer {
-        padding: 10px;
-    }
+  .VGestionDocentesContainer {
+    padding: 10px;
+  }
 
-    .VGestionDocentesContainer .TitleGestionDocentes h3 {
-        font-size: 20px;
-    }
+  .VGestionDocentesContainer .TitleGestionDocentes h3 {
+    font-size: 20px;
+  }
 
-    .FiltersAndSearch {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 10px;
-    }
+  .FiltersAndSearch {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
 
-    .FilterGroup,
-    .SearchGroup {
-        width: 100%;
-    }
+  .FilterGroup,
+  .SearchGroup {
+    width: 100%;
+  }
 
-    .ButtonFormularioContent {
-        margin-bottom: 15px;
-    }
-
-    .ButtonFormularioContent .PrimaryButton {
-        width: 100%;
-    }
-
-    .TablaGestionDocentes {
-        overflow-x: auto;
-    }
+  .TablaGestionDocentes {
+    overflow-x: auto;
+  }
 }
-

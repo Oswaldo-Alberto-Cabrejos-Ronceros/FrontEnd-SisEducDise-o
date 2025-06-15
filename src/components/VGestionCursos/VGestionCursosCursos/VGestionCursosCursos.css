@@ -8,7 +8,8 @@
 
 /* Título */
 .VGestionCursosCursosContainer .VGestionCursosCursosContainerTitle {
-    align-self: flex-start;
+    width:100%;
+    display: flex;
 }
 
 .VGestionCursosCursosContainer .VGestionCursosCursosContainerTitle h3 {
@@ -44,28 +45,12 @@
 }
 
 
-/* Botón Mostrar/Ocultar */
-.VGestionCursosCursosContainer .ButtonFormularioContent {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    margin-bottom: 20px;
-}
-
-.VGestionCursosCursosContainer .ButtonFormularioContent .PrimaryButton {
-    width: 200px;
-}
-
 /* Media Queries */
 
 /* Pantallas medianas */
 @media (max-width: 768px) {
     .VGestionCursosCursosContainer .VGestionCursosCursosContainerTitle h3 {
         font-size: 24px;
-    }
-
-    .VGestionCursosCursosContainer .ButtonFormularioContent .PrimaryButton {
-        width: 180px;
     }
 
     .TablaGestionCursosContainer {
@@ -85,10 +70,6 @@
 
     .VGestionCursosCursosContainer .VGestionCursosCursosContainerSearch {
         margin-bottom: 15px;
-    }
-
-    .VGestionCursosCursosContainer .ButtonFormularioContent .PrimaryButton {
-        width: 100%;
     }
 
     .VGestionCursosCursosContainer .TablaGestionCursosContainer {

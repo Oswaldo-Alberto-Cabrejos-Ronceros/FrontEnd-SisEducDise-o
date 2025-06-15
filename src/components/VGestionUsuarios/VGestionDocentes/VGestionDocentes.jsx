@@ -5,7 +5,6 @@ import TablaGestionDocentes from "./TablaGestionDocentes/TablaGestionDocentes";
 import FormularioAgregarDocente from "./FormularioAgregarDocente/FormularioAgregarDocente";
 import SearchComponent from "../../generalsComponets/SearchComponent/SearchComponent";
 import SelectComponent from "../../generalsComponets/SelectComponent/SelectComponent";
-import PrimaryButton from "../../generalsComponets/PrimaryButton/PrimaryButton";
 import { Button, Portal, Dialog, CloseButton } from "@chakra-ui/react";
 import { RiUserAddLine } from "react-icons/ri";
 
@@ -13,7 +12,6 @@ function VGestionDocentes() {
   const [docentes, setDocentes] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-  const [formularioIsVisible, setformularioIsVisible] = useState(false);
 
   // Estados para el nivel y el término de búsqueda
   const [nivel, setNivel] = useState("");
@@ -22,11 +20,6 @@ function VGestionDocentes() {
   //For dialog
 
   const [openDialogAddTeacher, setOpenDialogAddTeacher] = useState(false);
-
-  // Función para alternar la visibilidad
-  const toggleVisibility = () => {
-    setformularioIsVisible(!formularioIsVisible);
-  };
 
   useEffect(() => {
     fetchDocentes();
@@ -129,12 +122,6 @@ function VGestionDocentes() {
             onDocenteDeleted={handleDocenteDeleted}
             onDocenteUpdated={handleDocenteUpdated}
           />
-          <div className="ButtonFormularioContent">
-            <PrimaryButton
-              nombre={formularioIsVisible ? "Ocultar" : "Mostrar"}
-              onClick={toggleVisibility}
-            />
-          </div>
 
           <Dialog.Root
             placement="center"
