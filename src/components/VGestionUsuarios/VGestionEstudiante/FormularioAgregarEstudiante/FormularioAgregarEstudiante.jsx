@@ -19,21 +19,25 @@ function FormularioAgregarEstudiante({ onStudentAdded }) {
     telefono: "",
     grado: "1",
     nivel: "",
-    fechaNacimiento: ""
+    fechaNacimiento: "",
   });
 
   const [errorMessages, setErrorMessages] = useState({});
   const [confirmationMessage, setConfirmationMessage] = useState("");
   const [showConfirmation, setShowConfirmation] = useState(false);
 
-  const optionsNivel = [                { value: "SELECCIONAR", label: "Seleccionar Nivel" },
+  const optionsNivel = [
+    { value: "SELECCIONAR", label: "Seleccionar Nivel" },
     { value: "PRIMARIA", label: "Primaria" },
-    { value: "SECUNDARIA", label: "Secundaria" },];
+    { value: "SECUNDARIA", label: "Secundaria" },
+  ];
   const optionsGradoPrimaria = ["1", "2", "3", "4", "5", "6"];
   const optionsGradoSecundaria = ["1", "2", "3", "4", "5"];
 
   const getOptionsGrado = () => {
-    return formData.nivel === "PRIMARIA" ? optionsGradoPrimaria : optionsGradoSecundaria;
+    return formData.nivel === "PRIMARIA"
+      ? optionsGradoPrimaria
+      : optionsGradoSecundaria;
   };
 
   const handleChange = (e) => {
@@ -63,7 +67,7 @@ function FormularioAgregarEstudiante({ onStudentAdded }) {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    
+
     if (formData.nivel === "" || formData.nivel === "SELECCIONAR") {
       showErrorMessage("nivel", "Debe seleccionar un nivel");
       return;
@@ -96,10 +100,10 @@ function FormularioAgregarEstudiante({ onStudentAdded }) {
           telefono: "",
           grado: "",
           nivel: "",
-          fechaNacimiento: ""
+          fechaNacimiento: "",
         });
         onStudentAdded();
-      }, 1500); 
+      }, 1500);
     } catch (error) {
       console.error("Error al agregar estudiante:", error);
       showConfirmationMessage("El DNI ya existe ", 1500);
@@ -108,12 +112,14 @@ function FormularioAgregarEstudiante({ onStudentAdded }) {
 
   return (
     <div className="FormularioAgregarEstudianteContainer">
-      <ConfirmationModal show={showConfirmation} message={confirmationMessage} />
-  
+      <ConfirmationModal
+        show={showConfirmation}
+        message={confirmationMessage}
+      />
+
       <form onSubmit={handleSubmit}>
         <h3>Agregar Estudiante</h3>
         <div className="FormularioAgregarEstudianteContentPrin">
-          
           <div className="label-input-container-estudiantes">
             <div className="label-input-wrapper">
               <label htmlFor="dni">DNI:</label>
@@ -127,9 +133,11 @@ function FormularioAgregarEstudiante({ onStudentAdded }) {
                 maxLength="8"
               />
             </div>
-            {errorMessages.dni && <p className="error-message">{errorMessages.dni}</p>}
+            {errorMessages.dni && (
+              <p className="error-message">{errorMessages.dni}</p>
+            )}
           </div>
-  
+
           <div className="label-input-container-estudiantes">
             <div className="label-input-wrapper">
               <label htmlFor="apellido">Apellidos:</label>
@@ -142,9 +150,11 @@ function FormularioAgregarEstudiante({ onStudentAdded }) {
                 onChange={handleChange}
               />
             </div>
-            {errorMessages.apellido && <p className="error-message">{errorMessages.apellido}</p>}
+            {errorMessages.apellido && (
+              <p className="error-message">{errorMessages.apellido}</p>
+            )}
           </div>
-  
+
           <div className="label-input-container-estudiantes">
             <div className="label-input-wrapper">
               <label htmlFor="nombre">Nombres:</label>
@@ -157,9 +167,11 @@ function FormularioAgregarEstudiante({ onStudentAdded }) {
                 onChange={handleChange}
               />
             </div>
-            {errorMessages.nombre && <p className="error-message">{errorMessages.nombre}</p>}
+            {errorMessages.nombre && (
+              <p className="error-message">{errorMessages.nombre}</p>
+            )}
           </div>
-  
+
           <div className="label-input-container-estudiantes">
             <div className="label-input-wrapper">
               <label htmlFor="telefono">Celular:</label>
@@ -173,9 +185,23 @@ function FormularioAgregarEstudiante({ onStudentAdded }) {
                 maxLength="9"
               />
             </div>
-            {errorMessages.telefono && <p className="error-message">{errorMessages.telefono}</p>}
+            {errorMessages.telefono && (
+              <p className="error-message">{errorMessages.telefono}</p>
+            )}
           </div>
-  
+          <div className="label-input-container-estudiantes">
+            <div className="label-input-wrapper">
+              <label htmlFor="fechaNacimiento">Fecha de Nacimiento:</label>
+              <InputComponent
+                nombre="fechaNacimiento"
+                placeholder="Seleccione Fecha"
+                type="date"
+                value={formData.fechaNacimiento}
+                onChange={handleChange}
+                icon={<FaBirthdayCake />}
+              />
+            </div>
+          </div>
           <div className="label-input-container-estudiantes">
             <div className="label-input-wrapper">
               <label htmlFor="nivel">Nivel:</label>
@@ -186,9 +212,11 @@ function FormularioAgregarEstudiante({ onStudentAdded }) {
                 onChange={handleChange}
               />
             </div>
-            {errorMessages.nivel && <p className="error-message">{errorMessages.nivel}</p>}
+            {errorMessages.nivel && (
+              <p className="error-message">{errorMessages.nivel}</p>
+            )}
           </div>
-  
+
           <div className="label-input-container-estudiantes">
             <div className="label-input-wrapper">
               <label htmlFor="grado">Grado:</label>
@@ -200,22 +228,8 @@ function FormularioAgregarEstudiante({ onStudentAdded }) {
               />
             </div>
           </div>
-  
-          <div className="label-input-container-estudiantes">
-            <div className="label-input-wrapper">
-              <label htmlFor="fechaNacimiento">Fecha de Nacimiento:</label>
-              <InputComponent
-                nombre="fechaNacimiento"
-                placeholder="Seleccione Fecha"
-                type="date"
-                value={formData.fechaNacimiento}
-                onChange={handleChange}
-                icon={<FaBirthdayCake/>}
-              />
-            </div>
-          </div>
         </div>
-  
+
         <div className="butonSubmitEstudiantesContainer">
           <ButtonSubmit className="buttonSubmitEstudiantes" nombre="Agregar" />
         </div>
@@ -224,8 +238,8 @@ function FormularioAgregarEstudiante({ onStudentAdded }) {
   );
 }
 
-FormularioAgregarEstudiante.propTypes={
-  onStudentAdded:PropTypes.func.isRequired
-}
+FormularioAgregarEstudiante.propTypes = {
+  onStudentAdded: PropTypes.func.isRequired,
+};
 
 export default FormularioAgregarEstudiante;
