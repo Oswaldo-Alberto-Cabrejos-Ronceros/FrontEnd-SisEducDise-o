@@ -86,6 +86,9 @@ function TablaGestionSubCursos({
         </div>
       ) : (
         <table className="TableGestionSubCursos">
+                     <caption className="sr-only">
+              Tabla de gestion de subcursos
+            </caption>
           <thead>
             <tr>
               <th>Nombre</th>

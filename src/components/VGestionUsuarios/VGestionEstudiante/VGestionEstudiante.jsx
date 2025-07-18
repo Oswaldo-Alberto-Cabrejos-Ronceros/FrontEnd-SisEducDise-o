@@ -162,6 +162,7 @@ function VGestionEstudiante() {
           variant="outline"
           ml="auto"
           onClick={() => setOpenDialogAddStudent(true)}
+          aria-label="Agregar Estudiante"
         >
           Agregar <RiUserAddLine />
         </Button>

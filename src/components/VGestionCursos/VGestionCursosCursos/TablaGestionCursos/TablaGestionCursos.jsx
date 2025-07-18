@@ -91,6 +91,9 @@ function TablaGestionCursos({ cursos, onCourseUpdated, onCourseDeleted }) {
         </div>
       ) : (
         <table className="TableGestionCursos">
+                     <caption className="sr-only">
+              Tabla de gestion cursos
+            </caption>
           <thead>
             <tr>
               <th>Nombre</th>

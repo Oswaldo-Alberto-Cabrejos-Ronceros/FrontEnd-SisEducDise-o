@@ -106,6 +106,7 @@ function VGestionDocentes() {
           variant="outline"
           ml="auto"
           onClick={() => setOpenDialogAddTeacher(true)}
+          aria-label="Agregar Docente"
         >
           Agregar <RiUserAddLine />
         </Button>

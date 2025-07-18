@@ -138,6 +138,9 @@ function TablaAsignacionSubCurso({
         </div>
       ) : (
         <table className="TableGestionAsignacionSubCursos">
+          <caption className="sr-only">
+            Tabla de gestion de asignación de subcursos
+          </caption>
           <thead>
             <tr>
               <th>Nombres</th>

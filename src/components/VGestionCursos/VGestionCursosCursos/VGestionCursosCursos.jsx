@@ -62,6 +62,7 @@ function VGestionCursosCursos() {
           variant="outline"
           ml="auto"
           onClick={() => setOpenDialogAddCourse(true)}
+          aria-label="Agregar Subcursos"
         >
           Agregar <IoIosAddCircleOutline />
         </Button>

@@ -92,6 +92,7 @@ function TablaGestionDocentes({
       ) : (
         <div>
           <table className="TableGestionDocentes">
+            <caption className="sr-only">Tabla de gestion de docentes</caption>
             <thead>
               <tr>
                 <th>Dni</th>

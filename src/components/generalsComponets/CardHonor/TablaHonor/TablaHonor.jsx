@@ -29,6 +29,9 @@ function TablaHonor({estudiantesHonor}) {
       ) : (
         <div>
             <table className="TableHonor">
+                         <caption className="sr-only">
+              Tabla de honor
+            </caption>
                 <thead>
                     <tr>
                         <th>Mérito</th>
