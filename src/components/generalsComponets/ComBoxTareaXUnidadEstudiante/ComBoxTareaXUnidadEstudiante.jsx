@@ -1,8 +1,8 @@
-import React from "react";
 import "./ComBoxTareaXUnidadEstudiante.css";
 import { useState } from "react";
 import { IoIosArrowDown, IoIosArrowUp } from "react-icons/io";
 import ComBoxElementTarea from "../../generalsComponets/ComBoxElementTarea/ComBoxElementTarea";
+import PropTypes from "prop-types";
 
 function ComBoxTareaXUnidadEstudiante({ to, curso, unidad, tareas }) {
   const [mostrarOtroComponente, setMostrarOtroComponente] = useState(false);
@@ -18,13 +18,16 @@ function ComBoxTareaXUnidadEstudiante({ to, curso, unidad, tareas }) {
           {mostrarOtroComponente ? <IoIosArrowUp /> : <IoIosArrowDown />}
         </div>
       </div>
-      {
-      mostrarOtroComponente && (
+      {mostrarOtroComponente && (
         <div className="ComBoxGeneralElementTareaContainer">
           {tareas.map((tarea, index) => (
-            <ComBoxElementTarea key={index} tarea={tarea} to={to} curso={curso}  />
-          ))
-          }
+            <ComBoxElementTarea
+              key={index}
+              tarea={tarea}
+              to={to}
+              curso={curso}
+            />
+          ))}
         </div>
       )}
     </div>
@@ -32,3 +35,10 @@ function ComBoxTareaXUnidadEstudiante({ to, curso, unidad, tareas }) {
 }
 
 export default ComBoxTareaXUnidadEstudiante;
+
+ComBoxTareaXUnidadEstudiante.propTypes = {
+  to: PropTypes.string.isRequired,
+  curso: PropTypes.object.isRequired,
+  unidad: PropTypes.string.isRequired,
+  tareas: PropTypes.array.isRequired,
+};

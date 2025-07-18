@@ -37,9 +37,9 @@
 }
 
 
-.ArrowContainer{
+.ComBoxGeneralContainer .ArrowContainer{
     color: var(--ColorBorderCB);
-    font-size: 34px;
+    font-size: 1.5rem;
     display: flex;
 }
 

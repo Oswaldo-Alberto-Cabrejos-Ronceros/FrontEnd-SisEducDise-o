@@ -77,13 +77,13 @@ function BarraNavegacionAdministrador() {
         <div
           className="VerticalContainerBarAdmin"
         >
-          <div
+          <button type="button" aria-label="Abri menu desplegable"
             className="MenuIconContainer"
             onClick={() => setOpenDrawer(true)}
           >
             <IoMenu />
-          </div>
-          <div className="OptionsContainer">
+          </button>
+          <nav className="OptionsContainer">
             <NavItem
               id={"Cursos"}
               titulo={"Cursos"}
@@ -127,7 +127,7 @@ function BarraNavegacionAdministrador() {
               icon={<FiTrendingUp />}
               to="/administrador/informes"
             />
-          </div>
+          </nav>
         </div>
      
 

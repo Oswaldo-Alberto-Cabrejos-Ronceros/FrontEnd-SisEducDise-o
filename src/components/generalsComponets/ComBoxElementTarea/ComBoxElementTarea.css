@@ -32,7 +32,7 @@
 
 .ComBoxElementTareaContainer .IconContainer{
     color: var(--ColorBorderCBEC);
-    font-size: 34px;
+    font-size: 1.5rem;
     display: flex;
 }
 
