@@ -2,6 +2,7 @@
     --BorderTableHonor: #adadad;
     --BackgroudColorTableHonor: #ef4444;
     --ColorTableHonorTh: #fef2f2;
+    --BackgroundColorTable:white;
   }
 
   .TablaHonorContainer{
@@ -10,6 +11,7 @@
   
   .TablaHonorContainer .TableHonor {
     width: 100%;
+    background-color: var(--BackgroundColorTable);
 
   }
   .TablaHonorContainer .TableHonor,

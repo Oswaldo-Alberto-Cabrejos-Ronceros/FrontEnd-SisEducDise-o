@@ -23,6 +23,7 @@ function VGestionDocentes() {
 
   useEffect(() => {
     fetchDocentes();
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [nivel, searchTerm]);
 
   const fetchDocentes = async () => {

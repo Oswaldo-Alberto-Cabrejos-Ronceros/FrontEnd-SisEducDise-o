@@ -88,33 +88,50 @@ function TablaGestionEstudiantes({
       ) : (
         <div>
           <table className="TableGestionEstudiante">
+            <caption className="sr-only">
+              Tabla de gestion de estudiantes
+            </caption>
             <thead>
               <tr>
-                <th>Dni</th>
-                <th>Nombres</th>
-                <th>Apellidos</th>
-                <th>Codigo</th>
-                <th>Celular</th>
-                <th>Nivel</th>
-                <th>Grado - Seccion</th>
-                <th>FechaNac</th>
-                <th></th>
+                <th id="Dni">Dni</th>
+                <th id="Nombres">Nombres</th>
+                <th id="Apellidos">Apellidos</th>
+                <th id="Codigo">Código</th>
+                <th id="Celular">Celular</th>
+                <th id="Nivel">Nivel</th>
+                <th id="GradoSeccion">Grado - Sección</th>
+                <th id="FechaNac">Fecha de Nacimiento</th>
+                <th id="Acciones">Acciones</th>
               </tr>
             </thead>
             <tbody>
               {currentItems.map((estudiante) => (
                 <tr key={estudiante.usuarioId}>
-                  <td data-label="Dni">{estudiante.dni}</td>
-                  <td data-label="Nombres">{estudiante.nombre}</td>
-                  <td data-label="Apellidos">{estudiante.apellido}</td>
-                  <td data-label="Codigo">{estudiante.codigo}</td>
-                  <td data-label="Celular">{estudiante.telefono}</td>
-                  <td data-label="Nivel">{estudiante.nivel}</td>
-                  <td data-label="Grado - Seccion">{`${estudiante.grado} - "${estudiante.seccion}"`}</td>
-                  <td data-label="Fecha de Nacimiento">
+                  <td headers="Dni" data-label="Dni">
+                    {estudiante.dni}
+                  </td>
+                  <td headers="Nombres" data-label="Nombres">
+                    {estudiante.nombre}
+                  </td>
+                  <td headers="Apellidos" data-label="Apellidos">
+                    {estudiante.apellido}
+                  </td>
+                  <td headers="Codigo" data-label="Codigo">
+                    {estudiante.codigo}
+                  </td>
+                  <td headers="Celular" data-label="Celular">
+                    {estudiante.telefono}
+                  </td>
+                  <td headers="Nivel" data-label="Nivel">
+                    {estudiante.nivel}
+                  </td>
+                  <td headers="GradoSeccion" data-label="Grado - Seccion">
+                    {`${estudiante.grado} - "${estudiante.seccion}"`}
+                  </td>
+                  <td headers="FechaNac" data-label="Fecha de Nacimiento">
                     {estudiante.fechaNacimiento}
                   </td>
-                  <td data-label="Acciones">
+                  <td headers="Acciones" data-label="Acciones">
                     <Flex gap="0.5rem">
                       <IconButton
                         variant="outline"

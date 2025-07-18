@@ -10,14 +10,15 @@ import VCursoAdministradorContenido from '../VCursoDocenteAdministradorContenido
 import VHorarioAdministrador from '../VHorarioAdministrador/VHorarioAdministrador'
 import VGestionCursos from '../VGestionCursos/VGestionCursos';
 import VGestionUsuarios from '../VGestionUsuarios/VGestionUsuarios'
-
+import { ScrollAndFocusToMain } from '../ScrollAndFocusToMain/ScrollAndFocusToMain';
 
 function VAdministrador() {
 
   return (
     <div className='VAdministradorMain'>
+      <ScrollAndFocusToMain/>
       <BarraNavegacionAdministrador/>
-      <div className='containerCambAdministrador'>
+      <main className='containerCambAdministrador' tabIndex="-1" id="main-content">
       <Routes>
       <Route index element={<Navigate to="cursos" />} />
             <Route path="cursos/*" element={<VCursosAdministrador />} />
@@ -30,7 +31,7 @@ function VAdministrador() {
             <Route path="informes/*" element={<VInformesAdministrador pathBase="/administrador/informes"/>} />
             <Route path="usuario" element={<InfoUser />} />
       </Routes>
-      </div>
+      </main>
     </div>
 
   )

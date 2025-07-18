@@ -35,12 +35,12 @@ function ComBoxCursoXUnidadEstudiante({
 
   return (
     <div className="ComBoxGeneralContainer">
-      <div className="ComBoxCursoXUnidadContainer" onClick={handleClick}>
+      <button className="ComBoxCursoXUnidadContainer" onClick={handleClick}>
         <p className="PLg">{unidad}</p>
         <div className="ArrowContainer">
           {mostrarOtroComponente ? <IoIosArrowUp /> : <IoIosArrowDown />}
         </div>
-      </div>
+      </button>
       {mostrarOtroComponente && (
         <div className="ComBoxElementContainer">
           {contenidos.length === 0 ? (

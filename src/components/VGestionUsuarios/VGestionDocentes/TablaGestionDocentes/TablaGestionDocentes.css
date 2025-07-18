@@ -3,7 +3,7 @@
     --BackgroudColorTableGestionDocentes: #ef4444;
     --ColorTableGestionDocentesDocTh: #fef2f2;
     --BorderDocentesSeparation: #cccccc; 
-
+--BackgroundColorTable:white;
 
     /* Tamaños base de fuentes */
   --PMdsize: 16px;
@@ -26,6 +26,7 @@
   width: auto;
   border-collapse: collapse;
   margin: 0 auto;
+  background-color: var(--BackgroundColorTable);
 }
 
 .TableGestionDocentes th,

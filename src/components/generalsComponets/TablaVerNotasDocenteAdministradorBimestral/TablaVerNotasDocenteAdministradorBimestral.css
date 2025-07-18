@@ -2,6 +2,7 @@
     --BorderTableVerNotasDoc: #adadad;
     --BackgroudColorTableVerNotasDocTh: #ef4444;
     --ColorTableVerNotasDocTh: #fef2f2;
+    --BackgroundColorTable:white;
   }
   
   .TablaVerNotasDocenteAdministradorBimestralContainer {
@@ -13,6 +14,7 @@
 
   .TableVerDocNotasBimestral{
     width: 95%;
+    background-color: var(--BackgroundColorTable);
   }
 
   .TableVerDocNotasBimestral,
