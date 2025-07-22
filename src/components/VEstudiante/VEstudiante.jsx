@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import "./VEstudiante.css";
 import { Routes, Route, Navigate } from "react-router-dom";
 import subcursoService from "../../services/subcursoService";
@@ -9,13 +9,11 @@ import VCursosEstudiante from "../VCursosEstudiante/VCursosEstudiante";
 import VCursosEstudianteContenido from "../VCursosEstudiante/VCursoEstudianteContenido/VCursoEstudianteContenido";
 import VHorarioEstudiante from "../VHorarioEstudianteDocente/VHorarioEstudianteDocente";
 import VNotasEstudiante from "../VNotasEstudiante/VNotasEstudiante";
-import ChatBot from '../generalsComponets/CardChat/CardChat'
 
 function VEstudiante() {
   const [cursos, setCursos] = useState([]);
   const [userAlumno, setUserAlumno] = useState({});
-  const [componentToShow, setComponentToShow] = useState("Cursos");
-
+  
   useEffect(() => {
     const userData = JSON.parse(sessionStorage.getItem("userData"));
     setUserAlumno(userData || {});
@@ -42,13 +40,11 @@ function VEstudiante() {
     }
   }, []);
 
-  const handleOptionSelect = (option) => {
-    setComponentToShow(option);
-  };
+
 
   return (
       <div className="VEstudianteMain">
-        <BarraNavegacion onOptionSelect={handleOptionSelect} nombre={userAlumno.nombre} apellido={userAlumno.apellido}/>
+        <BarraNavegacion  nombre={userAlumno.nombre} apellido={userAlumno.apellido}/>
         <div className="containerCamb">
           <Routes>
           <Route index element={<Navigate to="cursos" />} />
@@ -72,7 +68,7 @@ function VEstudiante() {
             
           </Routes>
         </div>
-        <ChatBot/>
+
       </div>
   );
 }

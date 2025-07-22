@@ -1,16 +1,14 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import "./VCursosDocente.css";
 import CardCursoDocente from "../generalsComponets/CardCursoDocente/CardCursoDocente";
 import { Link } from "react-router-dom";
 import subcursoService from "../../services/subcursoService";
 import SelectComponent from "../generalsComponets/SelectComponent/SelectComponent";
 
-function VCursosDocente({}) {
+function VCursosDocente() {
   const [cursos, setCursos] = useState([]);
   const [selectedGrado, setSelectedGrado] = useState(1);
   const [userDocente, setUserDocente] = useState({});
-  const [componentToShow, setComponentToShow] = useState("Cursos");
-
   const optionsGradoPrimaria = [
     { label: "1er Grado", value: 1 },
     { label: "2do Grado", value: 2 },
@@ -37,7 +35,6 @@ function VCursosDocente({}) {
       subcursoService
         .listarSubcursosPorUsuario(userData.usuarioId, userData.rol)
         .then((response) => {
-          let grado = 0;
           setCursos(
             response.data.map((curso) => {
               const profesorAsignado =
@@ -83,8 +80,8 @@ function VCursosDocente({}) {
         </div>
       </div>
       <div className="VCursosDocenElementsContainer"> 
-      {cursos.length===0?(<h2>Sin cursos asignados</h2>):(cursos2.map((curso) => (
-        <div className="VCursosDocenElementContent">
+      {cursos.length===0?(<h2>Sin cursos asignados</h2>):(cursos2.map((curso,index) => (
+        <div className="VCursosDocenElementContent" key={index}>
           <Link
             to="/docente/curso"
             state={{ curso }}

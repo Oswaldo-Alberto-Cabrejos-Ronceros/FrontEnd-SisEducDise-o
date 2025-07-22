@@ -1,6 +1,6 @@
-import React from "react";
 import "./VTareasEstudiantePorFecha.css";
 import ComBoxElementTarea from "../../generalsComponets/ComBoxElementTarea/ComBoxElementTarea";
+import PropTypes from "prop-types";
 
 function VTareasEstudiantePorFecha({to, tareasPorFecha, tareas }) {
   return (
@@ -16,5 +16,9 @@ function VTareasEstudiantePorFecha({to, tareasPorFecha, tareas }) {
     </div>
   );
 }
-
+VTareasEstudiantePorFecha.propTypes = {
+  to: PropTypes.string.isRequired,
+  tareasPorFecha: PropTypes.object.isRequired,
+  tareas: PropTypes.arrayOf(PropTypes.object).isRequired,
+};
 export default VTareasEstudiantePorFecha;

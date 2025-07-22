@@ -1,4 +1,3 @@
-import React from 'react'
 import './TablaNotasEstudianteCurso.css'
 
 function TablaNotasEstudianteCurso() {

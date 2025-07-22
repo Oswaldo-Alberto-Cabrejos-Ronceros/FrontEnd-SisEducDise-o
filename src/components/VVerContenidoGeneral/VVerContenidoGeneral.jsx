@@ -1,4 +1,3 @@
-import React from 'react'
 import './VVerContenidoGeneral.css'
 import { useLocation } from "react-router-dom";
 import CardContenidoCurso from '../generalsComponets/CardContenidoCurso/CardContenidoCurso'

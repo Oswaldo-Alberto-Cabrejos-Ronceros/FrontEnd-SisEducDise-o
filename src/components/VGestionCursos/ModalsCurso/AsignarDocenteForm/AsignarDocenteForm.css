@@ -1,0 +1,72 @@
+.AsignarDocenteModalContent {
+  background: white;
+  border-radius: 0.5rem;
+  width: 100%;
+  max-width: 42.5rem;
+  position: relative;
+  box-sizing: border-box;
+}
+
+.AsignarDocenteModalContent h3 {
+  text-align: center;
+  margin-top: 1.25rem;
+  margin-bottom: 1.25rem;
+}
+.AsignarDocenteModalFormSecondaryContainer {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.25rem;
+  /* Añade espacio entre columnas */
+}
+
+.AsignarDocenteModalFormLabelInputContainer {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 5px;
+  width: 100%;
+}
+
+.AsignarDocenteModalFormLabelInputContainer label {
+  margin-bottom: 5px;
+  font-weight: bold;
+  text-align: left;
+}
+
+.AsignarDocenteModalErrorMessage {
+  color: red;
+  font-size: 0.85rem;
+  margin-top: 1px;
+  text-align: left;
+}
+
+.AsignarDocenteModalButtonContainer {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.AsignarDocenteModalButtonSave {
+  width: 100%;
+  max-width: 200px;
+  padding: 10px;
+}
+
+/* Media Query para pantallas pequeñas */
+@media (max-width: 480px) {
+  .AsignarDocenteModalContent {
+    min-width: 300px;
+  }
+
+  .AsignarDocenteModalFormSecondaryContainer {
+    grid-template-columns: 1fr;
+  }
+
+  .AsignarDocenteModalFormLabelInputContainer label {
+    font-size: 0.9rem;
+  }
+
+  .AsignarDocenteModalButtonSave {
+    padding: 8px;
+    font-size: 0.9rem;
+  }
+}

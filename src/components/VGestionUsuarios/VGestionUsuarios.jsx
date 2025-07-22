@@ -1,30 +1,64 @@
-import React from "react";
 import "./VGestionUsuarios.css";
-import PrimaryButton from "../generalsComponets/PrimaryButton/PrimaryButton";
 import VGestionEstudiante from "./VGestionEstudiante/VGestionEstudiante";
 import VGestionDocentes from "./VGestionDocentes/VGestionDocentes";
-import { Routes, Route, Link } from 'react-router-dom';
-
+import {
+  Routes,
+  Route,
+  NavLink,
+  useLocation,
+  Navigate,
+} from "react-router-dom";
+import { Tabs } from "@chakra-ui/react";
+import { useState } from "react";
+import { useEffect } from "react";
 function VGestionUsuarios() {
+  //para indice activo
+  //para saber la ubicacion de la ruta
+  const location = useLocation();
+
+  const [activeIndex, setActiveIndex] = useState(0);
+
+  useEffect(() => {
+    if (location.pathname === "/administrador/gestionusuarios/estudiantes") {
+      setActiveIndex(0);
+    } else if (
+      location.pathname === "/administrador/gestionusuarios/docentes"
+    ) {
+      setActiveIndex(1);
+    }
+  }, [location.pathname]);
 
   return (
     <div className="VGestionUsuariosContainer">
-      <div className="TitleGestionUsuarios">
-        <h3>Gestión de Usuarios</h3>
-      </div>
       <div className="VGestionUsuariosButtonsContainer">
-        <Link className="LinkVGestionUsuarios" to={"estudiantes"}>
-        <PrimaryButton nombre={"Estudiantes"} />
-        </Link>
-        <Link className="LinkVGestionUsuarios" to={"docentes"}>
-        <PrimaryButton  nombre={"Docentes"} />
-        </Link>
+        <Tabs.Root
+          defaultValue={0}
+          index={activeIndex}
+          onChange={(index) => setActiveIndex(index)}
+        >
+          <Tabs.List>
+            <Tabs.Trigger
+              as={NavLink}
+              value={0}
+              to="/administrador/gestionusuarios/estudiantes"
+            >
+              Estudiantes
+            </Tabs.Trigger>
+            <Tabs.Trigger
+              as={NavLink}
+              value={1}
+              to="/administrador/gestionusuarios/docentes"
+            >
+              Docentes
+            </Tabs.Trigger>
+          </Tabs.List>
+        </Tabs.Root>
       </div>
       <div className="CambGestionUsuarios">
         <Routes>
-          <Route index element={<VGestionEstudiante />}/>
-          <Route path="estudiantes" element={<VGestionEstudiante />}/>
-          <Route path="docentes" element={<VGestionDocentes />}/>
+          <Route index element={<Navigate to="estudiantes" replace />} />
+          <Route path="estudiantes" element={<VGestionEstudiante />} />
+          <Route path="docentes" element={<VGestionDocentes />} />
         </Routes>
       </div>
     </div>

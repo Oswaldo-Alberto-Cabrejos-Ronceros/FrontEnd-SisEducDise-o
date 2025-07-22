@@ -1,9 +1,10 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import "./ComBoxCursoXUnidadEstudiante.css";
 import { IoIosArrowDown, IoIosArrowUp } from "react-icons/io";
 import ComBoxElementCurso from "../ComBoxElementCurso/ComBoxElementCurso";
 import contenidosService from "../../../services/contenidosService";
 import ComBoxElementTarea from "../ComBoxElementTarea/ComBoxElementTarea";
+import PropTypes from "prop-types";
 
 function ComBoxCursoXUnidadEstudiante({
   to,
@@ -29,17 +30,17 @@ function ComBoxCursoXUnidadEstudiante({
         console.error("Error al obtener los contenidos:", error);
         setContenidos([]);
       });
-  }, []);
+  });
 
 
   return (
     <div className="ComBoxGeneralContainer">
-      <div className="ComBoxCursoXUnidadContainer" onClick={handleClick}>
+      <button className="ComBoxCursoXUnidadContainer" onClick={handleClick}>
         <p className="PLg">{unidad}</p>
         <div className="ArrowContainer">
           {mostrarOtroComponente ? <IoIosArrowUp /> : <IoIosArrowDown />}
         </div>
-      </div>
+      </button>
       {mostrarOtroComponente && (
         <div className="ComBoxElementContainer">
           {contenidos.length === 0 ? (
@@ -67,6 +68,15 @@ function ComBoxCursoXUnidadEstudiante({
       )}
     </div>
   );
+}
+
+ComBoxCursoXUnidadEstudiante.propTypes={
+    to:PropTypes.string.isRequired,
+  toTarea:PropTypes.string.isRequired,
+  curso:PropTypes.object.isRequired,
+  unidad:PropTypes.string.isRequired,
+  unidadNumero:PropTypes.number.isRequired,
+  grado:PropTypes.number.isRequired,
 }
 
 export default ComBoxCursoXUnidadEstudiante;

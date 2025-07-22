@@ -1,10 +1,10 @@
-
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import "./TablaGestionHorariosDocentes.css";
 import HorarioService from "../../../services/horarioService";
 import PrimaryButton from "../PrimaryButton/PrimaryButton";
 import SubirHorarioDocenteModal from "./SubirHorarioDocenteModal/SubirHorarioDocenteModal";
 import PaginacionComponent from "../PaginacionComponent/PaginacionComponent";
+import PropTypes from "prop-types";
 
 function TablaGestionHorariosDocentes({ docentes,onHorarioAgregado }) {
   const [showAddModal, setShowAddModal] = useState(false);
@@ -29,6 +29,7 @@ function TablaGestionHorariosDocentes({ docentes,onHorarioAgregado }) {
           const response = await HorarioService.obtenerHorarioProfesor(docente.usuarioId);
           resultados[docente.usuarioId] = response.data ? "Existente" : "No existente";
         } catch (error) {
+          console.error(error)
           resultados[docente.usuarioId] = "No existente";
         }
       }
@@ -97,6 +98,11 @@ function TablaGestionHorariosDocentes({ docentes,onHorarioAgregado }) {
       />
     </div>
   );
+}
+
+TablaGestionHorariosDocentes.propTypes={
+  docentes:PropTypes.array.isRequired,
+  onHorarioAgregado:PropTypes.func.isRequired
 }
 
 export default TablaGestionHorariosDocentes;

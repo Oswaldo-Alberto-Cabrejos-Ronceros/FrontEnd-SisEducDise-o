@@ -1,13 +1,14 @@
-import React, { useState, useEffect } from "react";
-import "./EditGestionCursosModal.css";
+import { useState, useEffect } from "react";
+import "./EditGestionCursosForm.css";
 import InputComponent from "../../../generalsComponets/InputComponent/InputComponent";
 import TextAreaComponent from "../../../generalsComponets/TextAreaComponent/TextAreaComponent";
 import ButtonSubmit from "../../../generalsComponets/ButtonSubmit/ButtonSubtmit";
 import { RiBook2Line } from "react-icons/ri";
 import { HiOutlinePencilAlt } from "react-icons/hi";
 import ConfirmationModal from "../../../VGestionUsuarios/Modals/ConfirmacionModal";
+import PropTypes from "prop-types";
 
-function EditGestionCursosModal({ show, curso, onUpdate, onClose }) {
+function EditGestionCursosForm({curso, onUpdate, onClose }) {
     const [nombre, setNombre] = useState(curso?.nombre || "");
     const [descripcion, setDescripcion] = useState(curso?.descripcion || "");
     const [errorMessages, setErrorMessages] = useState({});
@@ -55,13 +56,10 @@ function EditGestionCursosModal({ show, curso, onUpdate, onClose }) {
         setTimeout(() => setShowConfirmation(false), duration);
     };
 
-    if (!show) return null;
-
     return (
-        <div className="editGestionCursos-modal-overlay">
+
             <div className="editGestionCursos-modal-content">
-                <button onClick={onClose} className="editGestionCursos-close-button">✕</button>
-                <h4>Editar Curso</h4>
+                <h3 className="h3">Editar Curso</h3>
 
                 <ConfirmationModal show={showConfirmation} message={confirmationMessage} />
 
@@ -104,8 +102,14 @@ function EditGestionCursosModal({ show, curso, onUpdate, onClose }) {
                     </div>
                 </form>
             </div>
-        </div>
+
     );
 }
 
-export default EditGestionCursosModal;
+EditGestionCursosForm.propTypes={
+    curso:PropTypes.object.isRequired,
+    onUpdate:PropTypes.func.isRequired,
+    onClose:PropTypes.func.isRequired
+}
+
+export default EditGestionCursosForm;

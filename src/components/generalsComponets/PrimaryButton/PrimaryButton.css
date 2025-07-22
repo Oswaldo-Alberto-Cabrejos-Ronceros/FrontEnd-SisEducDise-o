@@ -23,8 +23,8 @@
     background-color: var(--ColorBtnPrin);
     color: var(--ColorButton);
     cursor: pointer;
-    border: 1px solid var(--ColorBorderButton);
-}
+    border: none;
+}   
 .BtnPrimaryContent:hover{
     background-color: var(--ColorBtnPrinHover);
     transition: 150ms;

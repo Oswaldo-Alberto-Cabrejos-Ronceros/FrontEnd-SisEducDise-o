@@ -1,4 +1,4 @@
-import React,{useState,useEffect} from "react";
+import {useState,useEffect} from "react";
 import "./VHonorEstudianteUnidad.css";
 import CardHonor from "../../generalsComponets/CardHonor/CardHonor"
 import alumnoService from "../../../services/alumnoService";
@@ -28,9 +28,6 @@ function VHonorEstudianteUnidad() {
   let info=[userAlumno.grado,userAlumno.seccion, userAlumno.nivel]
   return (
     <div className="VHonorEstudianteUnidadContainer">
-      <div className="TitleHonorEstudianteUnidadContainer">
-        <h3>General</h3>
-      </div>
       <div className="VHonorEstudianteUnidadContent">
         <CardHonor info={info} estudiantesHonor={alumnos}/>
       </div>

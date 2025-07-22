@@ -1,4 +1,3 @@
-import React from "react";
 import "./VTareasEstudiante.css";
 import { Link, Routes, Route, Navigate } from "react-router-dom";
 import PrimaryButton from "../generalsComponets/PrimaryButton/PrimaryButton";

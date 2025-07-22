@@ -1,7 +1,8 @@
-import React,{useState,useEffect} from "react";
+import {useState,useEffect} from "react";
 import './VHorarioEstudianteDocente.css'
 import CardHorario from "../generalsComponets/CardHorario/CardHorario";
 import horarioService from "../../services/horarioService";
+import PropTypes from "prop-types";
 
 function VHorarioEstudianteDocente({grado_Apellidos, nivel_Nombres}) {
   const [userUsuario, setUserUsuario] = useState({});
@@ -44,6 +45,11 @@ function VHorarioEstudianteDocente({grado_Apellidos, nivel_Nombres}) {
       </div>
     </div>
   );
+}
+
+VHorarioEstudianteDocente.propTypes={
+  grado_Apellidos:PropTypes.string.isRequired,
+  nivel_Nombres:PropTypes.string.isRequired
 }
 
 export default VHorarioEstudianteDocente;

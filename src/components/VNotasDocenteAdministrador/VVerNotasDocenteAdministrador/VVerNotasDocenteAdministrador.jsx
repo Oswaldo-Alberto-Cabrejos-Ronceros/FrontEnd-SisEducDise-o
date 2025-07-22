@@ -1,4 +1,3 @@
-import React from 'react'
 import './VVerNotasDocenteAdministrador.css'
 import TablaVerNotasDocente from '../../generalsComponets/TablaVerNotasDocenteAdministrador/TablaVerNotasDocenteAdministrador';
 import { useLocation } from "react-router-dom";

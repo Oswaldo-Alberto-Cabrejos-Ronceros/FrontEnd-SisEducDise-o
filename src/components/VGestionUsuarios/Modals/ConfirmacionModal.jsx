@@ -1,6 +1,6 @@
 // ConfirmationModal.js
-import React from "react";
 import "./ConfirmacionModal.css";
+import PropTypes from "prop-types";
 
 function ConfirmationModal({ show, message }) {
     if (!show || !message) return null;
@@ -12,6 +12,11 @@ function ConfirmationModal({ show, message }) {
             </div>
         </div>
     );
+}
+
+ConfirmationModal.propTypes={
+    show:PropTypes.bool.isRequired,
+    message:PropTypes.string.isRequired
 }
 
 export default ConfirmationModal;

@@ -1,7 +1,8 @@
-import React from "react";
+
 import "./ComBoxElementTarea.css";
 import { SlPencil } from "react-icons/sl";
 import { Link } from "react-router-dom";
+import PropTypes from "prop-types";
 
 function ComBoxElementTarea({curso, to, tarea}) {
 
@@ -15,6 +16,10 @@ function ComBoxElementTarea({curso, to, tarea}) {
     </div>
     </Link>
   );
+}
+
+ComBoxElementTarea.propTypes={
+  curso:PropTypes.object.isRequired, to:PropTypes.string.isRequired, tarea:PropTypes.object.isRequired
 }
 
 export default ComBoxElementTarea;

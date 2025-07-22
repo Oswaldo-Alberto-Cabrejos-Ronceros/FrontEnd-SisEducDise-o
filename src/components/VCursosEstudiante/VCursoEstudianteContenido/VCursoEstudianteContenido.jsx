@@ -1,11 +1,11 @@
-import React from "react";
 import "./VCursoEstudianteContenido.css";
 import { useLocation } from "react-router-dom";
-import { Routes, Route, Link, Navigate } from "react-router-dom";
+import { Routes, Route, Navigate } from "react-router-dom";
 import VCursoEstudianteContenidoContenido from "./VCursoEstudianteContenidoContenido/VCursoEstudianteContenidoContenido";
 import VCursoEstudianteContenidoTareas from "./VCursoEstudianteContenidoTareas/VCursoEstudianteContenidoTareas";
 import VVerContenidoGeneral from "../../VVerContenidoGeneral/VVerContenidoGeneral";
 import VVerTareaGeneral from "../../VVerTareaGeneral/VVerTareaGeneral";
+import PropTypes from "prop-types";
 
 function VCursoEstudianteContenido({grado}) {
   const location = useLocation();
@@ -56,6 +56,10 @@ function VCursoEstudianteContenido({grado}) {
       </div>
     </div>
   );
+}
+
+VCursoEstudianteContenido.propTypes={
+  grado:PropTypes.array
 }
 
 export default VCursoEstudianteContenido;

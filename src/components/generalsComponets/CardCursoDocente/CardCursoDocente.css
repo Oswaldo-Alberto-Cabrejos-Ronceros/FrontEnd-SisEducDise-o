@@ -5,6 +5,7 @@
     --BorderRadiousDocente:12px;
     --ShadowHover:#dc262633;
     --Transition: 150ms;
+    --ColorGray:#ddd;
 }
 
 .CardDocenteContainer{
@@ -16,6 +17,7 @@
     flex-shrink: 0;
     border-radius: var(--BorderRadiousDocente);
     cursor: pointer;
+    border:solid 1px var(--ColorGray)
 }
 
 .ImgDocenteContainer{

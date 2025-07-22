@@ -1,14 +1,7 @@
-:root {
-  --ColorBorderFormCurso: #171717;
-}
-
 /* Estilos generales del contenedor */
 .FormularioAgregarCursoContainer {
-  padding: 10px;
   box-sizing: border-box;
-  margin: 0 auto;
   width: 100%;
-  max-width: 600px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -19,27 +12,21 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 20px;
   box-sizing: border-box;
   width: 100%;
-  border: 2px solid var(--ColorBorderFormCurso);
-  border-radius: 8px;
-  box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
+  padding-top: 2rem;
 }
 
 /* Título del formulario */
 .FormularioAgregarCursoContainer form h3 {
-  padding: 0;
-  margin-top: 10px;
-  margin-bottom: 20px;
-  font-size: 1.5rem; /* Tamaño de fuente base */
+  margin-bottom: 1.25rem;
 }
 
 /* Contenedor principal del contenido del formulario */
 .formularioAgregarCursoContentPrin {
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 1.25rem;
   width: 100%;
 }
 
@@ -72,7 +59,9 @@
 }
 
 /* Estilos para inputs, textarea y select */
-input, textarea, select {
+input,
+textarea,
+select {
   width: 100%;
   padding: 8px;
   box-sizing: border-box;
@@ -81,7 +70,7 @@ input, textarea, select {
 
 /* Contenedor del botón de envío */
 .buttonSubmitCursoContainer {
-  padding-top: 20px;
+  padding-top: 1.25rem;
   box-sizing: border-box;
   display: flex;
   align-items: center;
@@ -90,10 +79,6 @@ input, textarea, select {
 
 /* Media Queries para pantallas medianas */
 @media (max-width: 768px) {
-  .FormularioAgregarCursoContainer form h3 {
-    font-size: 1.3rem;
-  }
-
   .label-input-row {
     grid-template-columns: 1fr; /* Cambia a una columna */
   }
@@ -102,10 +87,11 @@ input, textarea, select {
     width: 100%;
   }
 
-  input, textarea, select {
+  input,
+  textarea,
+  select {
     font-size: 0.95rem;
   }
-
 }
 
 /* Media Queries para pantallas pequeñas */
@@ -127,7 +113,9 @@ input, textarea, select {
     gap: 15px;
   }
 
-  input, textarea, select {
+  input,
+  textarea,
+  select {
     font-size: 0.9rem;
     padding: 6px;
   }

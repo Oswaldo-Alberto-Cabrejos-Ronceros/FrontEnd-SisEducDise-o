@@ -1,6 +1,6 @@
-import React from "react";
 import "./VTareasEstudiantePorCurso.css";
 import ComBoxTareaXUnidadEstudiante from "../../generalsComponets/ComBoxTareaXUnidadEstudiante/ComBoxTareaXUnidadEstudiante";
+import PropTypes from "prop-types";
 
 function VTareasEstudiantePorCurso({to, tareasCurso, tareas }) {
   let unidad = "Unidad ";
@@ -12,11 +12,11 @@ function VTareasEstudiantePorCurso({to, tareasCurso, tareas }) {
         <h3>Por curso</h3>
       </div>
       <div className="VTareasEstudiantePorCursoContent">
-        {tareas.map((tarea) => {
+        {tareas.map((tarea,index) => {
           unidadString = unidad + numerounidad;
           numerounidad++;
           return (
-            <ComBoxTareaXUnidadEstudiante
+            <ComBoxTareaXUnidadEstudiante key={index}
               unidad={unidadString}
               tareas={tarea}
               to={to}
@@ -27,6 +27,12 @@ function VTareasEstudiantePorCurso({to, tareasCurso, tareas }) {
       </div>
     </div>
   );
+}
+
+VTareasEstudiantePorCurso.propTypes={
+  to:PropTypes.string.isRequired,
+  tareasCurso:PropTypes.array.isRequired,
+  tareas:PropTypes.array.isRequired
 }
 
 export default VTareasEstudiantePorCurso;

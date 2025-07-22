@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import "./FormularioAgregarCurso.css";
 import InputComponent from "../../../generalsComponets/InputComponent/InputComponent";
 import { RiBook2Line } from "react-icons/ri";
@@ -8,6 +8,7 @@ import SelectComponent from "../../../generalsComponets/SelectComponent/SelectCo
 import ButtonSubtmit from "../../../generalsComponets/ButtonSubmit/ButtonSubtmit";
 import CursoService from "../../../../services/cursosService";
 import ConfirmationModal from "../../../VGestionUsuarios/Modals/ConfirmacionModal";
+import PropTypes from "prop-types";
 
 function FormularioAgregarCurso({ onCourseAdded }) {
   const [formData, setFormData] = useState({
@@ -147,5 +148,7 @@ function FormularioAgregarCurso({ onCourseAdded }) {
     </div>
   );
 }
-
+FormularioAgregarCurso.propTypes={
+  onCourseAdded:PropTypes.func.isRequired
+}
 export default FormularioAgregarCurso;

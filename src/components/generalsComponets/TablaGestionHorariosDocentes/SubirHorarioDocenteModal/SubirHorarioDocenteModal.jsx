@@ -1,11 +1,12 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import HorarioService from "../../../../services/horarioService";
 import InputComponent from "../../InputComponent/InputComponent";
 import PrimaryButton from "../../PrimaryButton/PrimaryButton";
 import ButtonSubtmit from "../../ButtonSubmit/ButtonSubtmit";
 import './SubirHorarioDocenteModal.css'
+import PropTypes from "prop-types";
 
-function SubirHorarioDocenteModal({ show, docente, onClose }) {
+function SubirHorarioDocenteModal({ show, docente, onClose,onHorarioAgregado }) {
   const [archivo, setArchivo] = useState(null);
   const [mensaje, setMensaje] = useState("");
 
@@ -29,6 +30,7 @@ function SubirHorarioDocenteModal({ show, docente, onClose }) {
       }
 
     } catch (error) {
+      console.error(error)
       setMensaje("Error al subir el horario.");
     }
   };
@@ -48,6 +50,17 @@ function SubirHorarioDocenteModal({ show, docente, onClose }) {
       </div>
     </div>
   );
+}
+
+SubirHorarioDocenteModal.propTypes={
+  show:PropTypes.bool.isRequired,
+  docente:PropTypes.shape({
+    usuarioId:PropTypes.number.isRequired,
+    nombre:PropTypes.string.isRequired,
+    apellido:PropTypes.string.isRequired
+  }).isRequired,
+  onClose:PropTypes.func.isRequired,
+  onHorarioAgregado:PropTypes.func
 }
 
 export default SubirHorarioDocenteModal;

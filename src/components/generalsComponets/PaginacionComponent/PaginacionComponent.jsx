@@ -1,6 +1,6 @@
-
-import React,{useState} from 'react'
+import {useState} from 'react'
 import './PaginacionComponent.css'
+import PropTypes from "prop-types";
 
 function PaginacionComponent({totalItems, itemsPerPage, currentPage, onPageChange}) {
     const totalPages = Math.ceil(totalItems / itemsPerPage);
@@ -58,3 +58,9 @@ function PaginacionComponent({totalItems, itemsPerPage, currentPage, onPageChang
 export default PaginacionComponent
 
 
+PaginacionComponent.propTypes={
+  totalItems:PropTypes.number.isRequired,
+  itemsPerPage:PropTypes.number.isRequired,
+  currentPage:PropTypes.number.isRequired,
+  onPageChange:PropTypes.func.isRequired
+}

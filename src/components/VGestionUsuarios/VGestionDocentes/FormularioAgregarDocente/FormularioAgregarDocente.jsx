@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import DocenteService from "../../../../services/docenteService";
 import "./FormularioAgregarDocente.css";
 import ButtonSubmit from "../../../generalsComponets/ButtonSubmit/ButtonSubtmit";
@@ -9,6 +9,7 @@ import { TbUserEdit } from "react-icons/tb";
 import { FiSmartphone } from "react-icons/fi";
 import { GiDiploma } from "react-icons/gi";
 import ConfirmationModal from "../../Modals/ConfirmacionModal";
+import PropTypes from "prop-types";
 
 function FormularioAgregarDocente({ onDocenteAdded }) {
   const [formData, setFormData] = useState({
@@ -204,6 +205,10 @@ function FormularioAgregarDocente({ onDocenteAdded }) {
       </form>
     </div>
   );
+}
+
+FormularioAgregarDocente.propTypes={
+  onDocenteAdded:PropTypes.func.isRequired
 }
 
 export default FormularioAgregarDocente;

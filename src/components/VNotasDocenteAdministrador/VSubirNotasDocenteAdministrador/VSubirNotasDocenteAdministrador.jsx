@@ -1,22 +1,14 @@
-import React, { useEffect, useState } from "react";
+/* eslint-disable no-unused-vars */
+import {useState } from "react";
 import "./VSubirNotasDocenteAdministrador.css";
 import TablaSubirNotasDocenteAdministrador from "./TablaSubirNotasDocenteAdministrador/TablaSubirNotasDocenteAdministrador";
 import SelectComponent from "../../generalsComponets/SelectComponent/SelectComponent";
-
+import PropTypes from "prop-types";
 
 function VSubirNotasDocenteAdministrador({ curso, alumnos }) {
-  const [userDocente, setUserDocente] = useState({});
   const [selectedUnidad, setSelectedUnidad] = useState(1);
   const [unidadesDesbloqueadas, setUnidadesDesbloqueadas] = useState([true, ...Array(7).fill(false)]);
   
-
-
-  useEffect(() => {
-    const userData = JSON.parse(sessionStorage.getItem("userData"));
-    setUserDocente(userData || {});
-  }, []);
-
- 
   // Maneja cuando una unidad es completada
   const handleUnidadCompleta = () => {
     setUnidadesDesbloqueadas((prev) => {
@@ -59,7 +51,6 @@ function VSubirNotasDocenteAdministrador({ curso, alumnos }) {
             options={unidades}
             value={selectedUnidad}
             onChange={(e) => setSelectedUnidad(Number(e.target.value))}
-            /*disabledOptions={unidades.map((_, index) => !unidadesDesbloqueadas[index])}*/
           />
           </div>
         </div>
@@ -81,6 +72,10 @@ function VSubirNotasDocenteAdministrador({ curso, alumnos }) {
   );
 }
 
+VSubirNotasDocenteAdministrador.propTypes={
+  curso:PropTypes.object.isRequired,
+  alumnos:PropTypes.array.isRequired
+}
 export default VSubirNotasDocenteAdministrador;
 
 

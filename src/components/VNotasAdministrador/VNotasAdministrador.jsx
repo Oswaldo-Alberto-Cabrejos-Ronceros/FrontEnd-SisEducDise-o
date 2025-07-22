@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import "./VNotasAdministrador.css";
 import SelectComponent from "../generalsComponets/SelectComponent/SelectComponent";
 import VSubirNotasDocenteAdministrador from "../VNotasDocenteAdministrador/VSubirNotasDocenteAdministrador/VSubirNotasDocenteAdministrador";
@@ -13,7 +13,6 @@ function VNotasAdministrador() {
   const [selectedCursoId, setSelectedCursoId] = useState(null);
   const [alumnos, setAlumnos] = useState([]);
   const [cursos, setCursos] = useState([]);
-  const [userDocente, setUserDocente] = useState({});
   const optionsNivel = [    { label: "Primaria", value: "PRIMARIA" },
     { label: "Secundaria", value: "SECUNDARIA" },];
   const optionsGradoPrimaria = [

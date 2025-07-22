@@ -1,9 +1,9 @@
-import React from "react";
 import "./CardInformeDocenteAdministrador.css";
 import TablaVerNotasDocenteAdministrador from "../TablaVerNotasDocenteAdministrador/TablaVerNotasDocenteAdministrador";
 import PrimaryButton from "../PrimaryButton/PrimaryButton";
 import InformesSevice from "../../../services/informesSevice";
 import TablaVerNotasDocenteAdministradorBimestral from "../TablaVerNotasDocenteAdministradorBimestral/TablaVerNotasDocenteAdministradorBimestral";
+import PropTypes from "prop-types";
 
 function CardInformeDocenteAdministrador({
   info,
@@ -126,6 +126,19 @@ function CardInformeDocenteAdministrador({
       </div>
     </div>
   );
+}
+
+CardInformeDocenteAdministrador.propTypes={
+    info:PropTypes.string.isRequired,
+  estudiantes:PropTypes.array.isRequired,
+  notas:PropTypes.array.isRequired,
+  competencias:PropTypes.array.isRequired,
+  nivel:PropTypes.string.isRequired,
+  grado:PropTypes.number.isRequired,
+  subcursoId:PropTypes.number.isRequired,
+  unidad:PropTypes.number.isRequired,
+  bimestral:PropTypes.bool.isRequired,
+  bimestre:PropTypes.number.isRequired,
 }
 
 export default CardInformeDocenteAdministrador;

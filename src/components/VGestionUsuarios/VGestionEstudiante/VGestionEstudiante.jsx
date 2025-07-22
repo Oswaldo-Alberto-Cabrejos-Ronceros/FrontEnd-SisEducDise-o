@@ -1,16 +1,16 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import AlumnoService from "../../../services/alumnoService";
 import "./VGestionEstudiante.css";
 import TablaGestionEstudiantes from "./TablaGestionEstudiantes/TablaGestionEstudiantes";
 import FormularioAgregarEstudiante from "./FormularioAgregarEstudiante/FormularioAgregarEstudiante";
 import SearchComponent from "../../generalsComponets/SearchComponent/SearchComponent";
 import SelectComponent from "../../generalsComponets/SelectComponent/SelectComponent";
-import PrimaryButton from "../../generalsComponets/PrimaryButton/PrimaryButton";
+import { Button, Portal, Dialog, CloseButton } from "@chakra-ui/react";
+import { RiUserAddLine } from "react-icons/ri";
 
 function VGestionEstudiante() {
   const [estudiantes, setEstudiantes] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [formularioIsVisible, setFormularioIsVisible] = useState(false);
   const [error, setError] = useState(null);
 
   // Estados para los filtros
@@ -21,9 +21,9 @@ function VGestionEstudiante() {
   // Estado para el término de búsqueda
   const [searchTerm, setSearchTerm] = useState("");
 
-  const toggleVisibility = () => {
-    setFormularioIsVisible(!formularioIsVisible);
-  };
+  //For dialog
+
+  const [openDialogAddStudent, setOpenDialogAddStudent] = useState(false);
 
   // Cargar estudiantes al montar el componente y cuando los filtros o el término de búsqueda cambian
   useEffect(() => {
@@ -102,13 +102,13 @@ function VGestionEstudiante() {
       <div className="FiltersAndSearch">
         {/* Componente de búsqueda */}
         <div className="FilterGroup">
-        <div className="SearchGroup">
-          <SearchComponent
-            nombre={"Cursos"}
-            placeholder={"Buscar DNI"}
-            onSearch={setSearchTerm}
-          />
-        </div>
+          <div className="SearchGroup">
+            <SearchComponent
+              nombre={"Cursos"}
+              placeholder={"Buscar DNI"}
+              onSearch={setSearchTerm}
+            />
+          </div>
         </div>
         <div className="FilterGroup">
           <label htmlFor="nivel-select">Nivel:</label>
@@ -155,6 +155,17 @@ function VGestionEstudiante() {
             ]}
           />
         </div>
+        {/*boton agregar estudiante*/}
+        <Button
+          colorPalette="red"
+          rounded="lg"
+          variant="outline"
+          ml="auto"
+          onClick={() => setOpenDialogAddStudent(true)}
+          aria-label="Agregar Estudiante"
+        >
+          Agregar <RiUserAddLine />
+        </Button>
       </div>
 
       {/* Mostrar mensaje de error si existe */}
@@ -164,7 +175,6 @@ function VGestionEstudiante() {
       {loading ? (
         <div>Cargando estudiantes...</div>
       ) : (
-        
         /* Tabla de estudiantes */
         <div className="VGestionEstudiantesContent">
           <TablaGestionEstudiantes
@@ -172,15 +182,29 @@ function VGestionEstudiante() {
             onStudentDeleted={handleStudentDeleted}
             onStudentUpdated={handleStudentUpdated}
           />
-          <div className="ButtonFormularioContent">
-            <PrimaryButton
-              nombre={formularioIsVisible ? "Ocultar" : "Mostrar"}
-              onClick={toggleVisibility}
-            />
-          </div>
-          {formularioIsVisible && (
-            <FormularioAgregarEstudiante onStudentAdded={handleStudentAdded} />
-          )}
+          <Dialog.Root
+            placement="center"
+            motionPreset="scale"
+            open={openDialogAddStudent}
+            onOpenChange={(e) => setOpenDialogAddStudent(e.open)}
+            size="xl"
+          >
+            <Portal>
+              <Dialog.Backdrop />
+              <Dialog.Positioner>
+                <Dialog.Content>
+                  <Dialog.Body>
+                    <FormularioAgregarEstudiante
+                      onStudentAdded={handleStudentAdded}
+                    />
+                  </Dialog.Body>
+                  <Dialog.CloseTrigger asChild>
+                    <CloseButton size="sm" />
+                  </Dialog.CloseTrigger>
+                </Dialog.Content>
+              </Dialog.Positioner>
+            </Portal>
+          </Dialog.Root>
         </div>
       )}
     </div>

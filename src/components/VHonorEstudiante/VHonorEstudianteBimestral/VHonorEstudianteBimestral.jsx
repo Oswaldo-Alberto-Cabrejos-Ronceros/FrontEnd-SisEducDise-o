@@ -1,7 +1,7 @@
-import React from 'react'
 import './VHonerEstudianteBimestral.css'
 import SelectComponent from '../../generalsComponets/SelectComponent/SelectComponent';
 import CardHonor from '../../generalsComponets/CardHonor/CardHonor'
+import PropTypes from "prop-types";
 
 function VHonorEstudianteBimestral({info, estudiantesHonor}) {
     let optionsBimestre = [
@@ -24,5 +24,8 @@ function VHonorEstudianteBimestral({info, estudiantesHonor}) {
     </div>
   )
 }
-
+VHonorEstudianteBimestral.propTypes={
+  info:PropTypes.object.isRequired,
+  estudiantesHonor:PropTypes.array.isRequired
+}
 export default VHonorEstudianteBimestral

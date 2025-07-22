@@ -1,4 +1,3 @@
-import React from "react";
 import "./VHonorEstudiante.css";
 import VHonorEstudianteUnidad from "./VHonorEstudianteUnidad/VHonorEstudianteUnidad";
 import {Routes, Route} from "react-router-dom";

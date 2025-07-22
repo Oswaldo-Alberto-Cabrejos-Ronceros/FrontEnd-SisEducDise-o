@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import "./VDocente.css";
 import { Route, Routes, Navigate } from "react-router-dom";
 import BarraNavegacionDocente from "../BarraNavegacionDocente/BarraNavegacionDocente";
@@ -16,7 +16,6 @@ import Chatbot from "../generalsComponets/CardChat/CardChat";
 function VDocente() {
   const [cursos, setCursos] = useState([]);
   const [userDocente, setUserDocente] = useState({});
-  const [componentToShow, setComponentToShow] = useState("Cursos");
 
   useEffect(() => {
     const userData = JSON.parse(sessionStorage.getItem("userData"));
@@ -26,7 +25,6 @@ function VDocente() {
       subcursoService
         .listarSubcursosPorUsuario(userData.usuarioId, userData.rol)
         .then((response) => {
-          let grado=0;
           setCursos(
             response.data.map((curso) => {
               const profesorAsignado = curso.asignacionesProfesor[0]?.profesor || {};
@@ -84,7 +82,7 @@ cursos.map((curso)=>(
             <Route path="notas/*" element={<VNotasDocente />} />
             <Route path="honor/*" element={<VHonorDocenteAdministrador />} />
             <Route path="curso/*" element={<VCursoDocenteContenido/>} />
-            <Route path="informes/*" element={<VInformesDocente />} />
+            <Route path="informes/*" element={<VInformesDocente pathBase="/docente/informes" />} />
             <Route path="usuario" element={<InfoUser/>} />
           </Routes>
         </div>

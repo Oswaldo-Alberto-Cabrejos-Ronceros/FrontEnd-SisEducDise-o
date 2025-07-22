@@ -1,4 +1,3 @@
-import React from "react";
 import "./VNotasDocenteAdministrador.css";
 import VNotasDocenteAdministradorCursos from "./VNotasDocenteAdministradorCursos/VNotasDocenteAdministradorCursos";
 

@@ -1,9 +1,9 @@
-import React from 'react'
 import './ComBoxTareaXUnidadDocenteAdmin.css'
 import { useState } from "react";
 import { IoIosArrowDown,IoIosArrowUp } from "react-icons/io";
 import ComBoxElementTareaDocenteAdmin from '../ComBoxElementTareaDocenteAdmin/ComBoxElementTareaDocenteAdmin';
 import ComBoxElementTareaSubir from '../ComBoxElementTareaSubir/ComBoxElementTareaSubir';
+import PropTypes from "prop-types";
 
 function ComBoxTareaXUnidadDocenteAdmin({to, curso, unidad,tareas}) {
   const [mostrarOtroComponente, setMostrarOtroComponente] = useState(false);
@@ -29,6 +29,13 @@ function ComBoxTareaXUnidadDocenteAdmin({to, curso, unidad,tareas}) {
       )}
     </div>
   )
+}
+
+ComBoxTareaXUnidadDocenteAdmin.propTypes={
+  to:PropTypes.string.isRequired,
+  curso:PropTypes.object.isRequired,
+  unidad:PropTypes.string.isRequired,
+  tareas:PropTypes.array.isRequired
 }
 
 export default ComBoxTareaXUnidadDocenteAdmin

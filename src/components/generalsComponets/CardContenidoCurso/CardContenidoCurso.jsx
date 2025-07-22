@@ -1,6 +1,6 @@
-import React from "react";
 import "./CardContenidoCurso.css";
 import PrimaryButtonLarge from "../PrimaryButtonLarge/PrimaryButtonLarge";
+import PropTypes from "prop-types";
 
 function CardContenidoCurso({ contenido }) {
   const handleAbrirEnlace = () => {
@@ -19,6 +19,14 @@ function CardContenidoCurso({ contenido }) {
       </div>
     </div>
   );
+}
+
+CardContenidoCurso.propTypes={
+  contenido:PropTypes.shape({
+    urlArchivo:PropTypes.string.isRequired,
+    nombreContenido:PropTypes.string.isRequired,
+    descripcion:PropTypes.string.isRequired
+  }).isRequired
 }
 
 export default CardContenidoCurso;

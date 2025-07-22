@@ -1,5 +1,6 @@
-import React,{useState, useEffect} from "react";
+import {useState, useEffect} from "react";
 import "./TablaVerNotasDocenteAdministrador.css";
+import PropTypes from "prop-types";
 
 function TablaVerNotasDocenteAdministrador({
   estudiantes,
@@ -66,5 +67,12 @@ function TablaVerNotasDocenteAdministrador({
     </div>
   );
 }
+
+TablaVerNotasDocenteAdministrador.propTypes={
+  estudiantes:PropTypes.array,
+  notas:PropTypes.array,
+  competencias:PropTypes.array
+}
+
 
 export default TablaVerNotasDocenteAdministrador;
