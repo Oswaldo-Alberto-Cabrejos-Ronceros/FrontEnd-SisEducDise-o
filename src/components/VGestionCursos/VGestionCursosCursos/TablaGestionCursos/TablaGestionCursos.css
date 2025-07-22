@@ -1,11 +1,12 @@
 :root {
-  --BorderTableGestionCursos: #171717;
+  --BorderTableGestionCursos: #adadad;
   --BackgroudColorTableGestionCursos: #ef4444;
   --ColorTableGestionCursosDocTh: #fef2f2;
   --BorderCursoSeparation: #cccccc; /* Nuevo para separar las tarjetas */
   --PMdsize: 16px;
   --HeaderFontSize: 1rem;
   --BodyFontSize: 0.9rem;
+    --BackgroundColorTable:white;
 }
 
 /* Contenedor principal */
@@ -23,6 +24,7 @@
   width: auto;
   border-collapse: collapse;
   margin: 0 auto;
+  background-color: var(--BackgroundColorTable);
 }
 
 .TableGestionCursos th,

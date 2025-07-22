@@ -1,12 +1,13 @@
 :root{
     --Color-Border-Select: #171717;
     --Color-Border-Hover-Select: #DC2626;
+    --Background-Color-Select:white;
 }
 
 .SelectComponentContainer {
-    background-color: transparent;
+    background-color: var(--Background-Color-Select);
     width: 100%;
-    max-width: 200px; /* Ancho máximo para pantallas grandes */
+    max-width: 25rem; /* Ancho máximo para pantallas grandes */
     padding: 0;
     margin: 0;
     border-radius: 8px;

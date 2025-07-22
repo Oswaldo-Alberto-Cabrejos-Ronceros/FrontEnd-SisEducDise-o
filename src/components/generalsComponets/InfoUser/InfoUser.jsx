@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import  { useEffect, useState } from "react";
 import './InfoUser.css'
 import AdminService from "../../../services/adminService";
 import AlumnoService from "../../../services/alumnoService";
@@ -80,6 +80,7 @@ function InfoUser() {
         })
         .catch((error) => {
           setModalMessage("Error al actualizar la información. Intenta nuevamente.");
+          console.error(error)
           setShowModal(true);
           setTimeout(() => setShowModal(false), 1500); 
         });
@@ -144,7 +145,7 @@ function InfoUser() {
                   </div>
                   <div className="InfoRow">
                     <FaGraduationCap /> <label>Grado y Seccion:</label>
-                    <p>{user.grado} Grado - "{user.seccion}"</p>
+                    <p>{user.grado} Grado - {user.seccion}</p>
                   </div>
                 </>
               )}

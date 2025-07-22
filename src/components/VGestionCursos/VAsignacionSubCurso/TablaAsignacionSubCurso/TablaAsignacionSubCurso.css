@@ -1,11 +1,12 @@
 :root {
-    --BorderTablaAsignacionSubCurso: #171717;
+    --BorderTablaAsignacionSubCurso: #adadad;
     --BackgroudColorTablaAsignacionSubCurso: #ef4444;
     --ColorTablaAsignacionSubCurso: #fef2f2;
     --BorderAsignacionSubCursoSeparation: #cccccc;
     --PMdsize: 16px;
     --HeaderFontSize: 1rem;
     --BodyFontSize: 0.9rem;
+    --BackgroundColorTable:white;
   }
   
   /* Contenedor principal */
@@ -22,6 +23,7 @@
   width: auto;
   border-collapse: collapse;
   margin: 0 auto;
+  background-color: var(--BackgroundColorTable);
 }
 
 .TableGestionAsignacionSubCursos th,

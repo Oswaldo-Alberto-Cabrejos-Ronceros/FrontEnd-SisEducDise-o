@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import {useState } from "react";
 import "./VSubirNotasDocenteAdministrador.css";
 import TablaSubirNotasDocenteAdministrador from "./TablaSubirNotasDocenteAdministrador/TablaSubirNotasDocenteAdministrador";
@@ -50,7 +51,6 @@ function VSubirNotasDocenteAdministrador({ curso, alumnos }) {
             options={unidades}
             value={selectedUnidad}
             onChange={(e) => setSelectedUnidad(Number(e.target.value))}
-            disabledOptions={unidades.map((_, index) => !unidadesDesbloqueadas[index])}
           />
           </div>
         </div>

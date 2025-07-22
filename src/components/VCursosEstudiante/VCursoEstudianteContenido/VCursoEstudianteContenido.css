@@ -2,7 +2,6 @@
     width: 100%;
     height: 100%;
     display: flex;
-    padding: 10px;
     box-sizing: border-box;
     align-items: center;
     flex-direction: column;
@@ -21,8 +20,8 @@
 
 .VCursoEstudianteDetalleTitle{
     align-self:flex-start;
-    margin: 1%;
     height: auto;
+    padding-bottom: 1rem;
 }
 .VCursoEstudianteDetalleTitle h3{
     margin: 0;

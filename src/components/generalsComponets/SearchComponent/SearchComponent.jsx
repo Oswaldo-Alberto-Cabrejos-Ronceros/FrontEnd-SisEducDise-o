@@ -1,15 +1,16 @@
-import React, { useState } from 'react';
-import './SearchComponent.css'
+import { useState } from "react";
+import "./SearchComponent.css";
 import { IoSearch } from "react-icons/io5";
+import PropTypes from "prop-types";
 
 function SearchComponent({ nombre, placeholder, onSearch }) {
-  const [inputValue, setInputValue] = useState('');
+  const [inputValue, setInputValue] = useState("");
 
   const handleChange = (e) => {
     let value = e.target.value;
 
     // Eliminar cualquier carácter que no sea un dígito
-    value = value.replace(/\D/g, '');
+    value = value.replace(/\D/g, "");
 
     // Limitar a 8 caracteres
     if (value.length > 8) {
@@ -21,8 +22,8 @@ function SearchComponent({ nombre, placeholder, onSearch }) {
   };
 
   return (
-    <div className='SearchComponentContainer'>
-      <div className='IconSearchContainer'>
+    <div className="SearchComponentContainer">
+      <div className="IconSearchContainer">
         <IoSearch />
       </div>
       <input
@@ -41,3 +42,9 @@ function SearchComponent({ nombre, placeholder, onSearch }) {
 }
 
 export default SearchComponent;
+
+SearchComponent.propTypes = {
+  nombre: PropTypes.string.isRequired,
+  placeholder: PropTypes.string.isRequired,
+  onSearch: PropTypes.func.isRequired,
+};

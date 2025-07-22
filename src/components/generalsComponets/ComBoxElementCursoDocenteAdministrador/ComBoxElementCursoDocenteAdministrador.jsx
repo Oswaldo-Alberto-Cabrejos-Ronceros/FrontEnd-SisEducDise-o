@@ -1,13 +1,18 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import "./ComBoxElementCursoDocenteAdministrador.css";
 import { IoDocumentTextOutline } from "react-icons/io5";
 import { MdOutlineDeleteOutline } from "react-icons/md";
 import { Link } from "react-router-dom";
 import ModalDeleteContenido from "./ModalDeleteContenido/ModalDeleteContenido";
 import contenidosService from "../../../services/contenidosService";
-import ConfirmationModal from "../../VGestionUsuarios/Modals/ConfirmacionModal";
+import PropTypes from "prop-types";
 
-function ComBoxElementCursoDocenteAdministrador({ curso, to, contenido, onDelete}) {
+function ComBoxElementCursoDocenteAdministrador({
+  curso,
+  to,
+  contenido,
+  onDelete,
+}) {
   const [showModal, setShowModal] = useState(false);
   const [confirmationMessage, setConfirmationMessage] = useState("");
   const [showConfirmation, setShowConfirmation] = useState(false);
@@ -29,7 +34,7 @@ function ComBoxElementCursoDocenteAdministrador({ curso, to, contenido, onDelete
       .eliminarContenido(contenido.id)
       .then(() => {
         showConfirmationMessage("Contenido eliminado con éxito");
-        onDelete(contenido.id)
+        onDelete(contenido.id);
         setShowModal(false);
       })
       .catch((error) => {
@@ -69,5 +74,12 @@ function ComBoxElementCursoDocenteAdministrador({ curso, to, contenido, onDelete
     </>
   );
 }
+
+ComBoxElementCursoDocenteAdministrador.propTypes = {
+  curso: PropTypes.object.isRequired,
+  to: PropTypes.string.isRequired,
+  contenido: PropTypes.object.isRequired,
+  onDelete: PropTypes.func.isRequired,
+};
 
 export default ComBoxElementCursoDocenteAdministrador;

@@ -2,7 +2,7 @@ import "./CardCursoDocente.css";
 import PropTypes from "prop-types";
 function CardCursoDocente({ curso }) {
   return (
-    <div className="CardDocenteContainer">
+    <button type="button" className="CardDocenteContainer">
       <div className="ImgDocenteContainer"></div>
       <div className="ContentContainerDocente">
         <p className="PLg">{curso.Nombre}</p>
@@ -12,17 +12,12 @@ function CardCursoDocente({ curso }) {
           <p className="PMd Nivel">{curso.Grado}°</p>
         </div>
       </div>
-    </div>
+    </button>
   );
 }
 
 CardCursoDocente.propTypes={
-curso:PropTypes.shape({
-  Nombre:PropTypes.string.isRequired,
-  Docente:PropTypes.string.isRequired,
-Nivel:PropTypes.string.isRequired,
-Grado:PropTypes.string.isRequired
-}).isRequired
+curso:PropTypes.object.isRequired
 }
 
 export default CardCursoDocente;

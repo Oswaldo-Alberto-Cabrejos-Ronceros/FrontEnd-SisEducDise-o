@@ -9,8 +9,8 @@
 
 .VHonorEstudianteBimestralContainer .TitleHonorEstudianteBimestralContainer{
     height: auto;
-    margin: 1%;
     align-self: flex-start;
+    padding-bottom: 1rem;
 }
 
 .VHonorEstudianteBimestralContainer .TitleHonorEstudianteBimestralContainer h3{
@@ -20,7 +20,6 @@
 
 .VHonorEstudianteBimestralContainer .SelectBimestralHonorEstudianteContainer{
     height: auto;
-    margin-left: 1%;
     align-self: flex-start;
 }
 
@@ -30,5 +29,4 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    margin:10px;
 }

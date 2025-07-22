@@ -1,5 +1,6 @@
-import React,{useState,useEffect} from "react";
+import {useState,useEffect} from "react";
 import "./TablaHonor.css";
+import PropTypes from "prop-types";
 
 function TablaHonor({estudiantesHonor}) {
   
@@ -28,6 +29,9 @@ function TablaHonor({estudiantesHonor}) {
       ) : (
         <div>
             <table className="TableHonor">
+                         <caption className="sr-only">
+              Tabla de honor
+            </caption>
                 <thead>
                     <tr>
                         <th>Mérito</th>
@@ -51,6 +55,10 @@ function TablaHonor({estudiantesHonor}) {
       )}
     </div>
   );
+}
+
+TablaHonor.propTypes={
+estudiantesHonor:PropTypes.array.isRequired
 }
 
 export default TablaHonor;

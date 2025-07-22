@@ -5,7 +5,6 @@
     flex-direction: column;
     margin: 0;
     box-sizing: border-box;
-    padding: 2%;
     flex-wrap: wrap;
     gap: 20px;
     justify-content: space-between;

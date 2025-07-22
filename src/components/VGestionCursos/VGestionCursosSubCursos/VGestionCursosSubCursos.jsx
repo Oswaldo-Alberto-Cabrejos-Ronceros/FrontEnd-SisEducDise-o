@@ -3,18 +3,17 @@ import "./VGestionCursosSubCursos.css";
 import TablaGestionSubCursos from "./TablaGestionSubCursos/TablaGestionSubCursos";
 import FormularioAgregarSubCurso from "./FormularioAgregarSubCurso/FormularioAgregarSubCurso";
 import SubcursoService from "../../../services/subcursoService";
-import PrimaryButton from "../../generalsComponets/PrimaryButton/PrimaryButton";
+import { Button, Portal, Dialog, CloseButton } from "@chakra-ui/react";
+import { IoIosAddCircleOutline } from "react-icons/io";
+
 
 function VGestionCursosSubCursos() {
   const [subcursos, setSubCursos] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-  const [formularioIsVisible, setformularioIsVisible] = useState(false);
+    //For dialog
 
-  // Función para alternar la visibilidad
-  const toggleVisibility = () => {
-    setformularioIsVisible(!formularioIsVisible);
-  };
+  const [openDialogAddSubCourse, setOpenDialogAddSubCourse] = useState(false);
 
   useEffect(() => {
     fetchSubCursos(); // Cargar los subcursos al montar el componente
@@ -64,6 +63,17 @@ function VGestionCursosSubCursos() {
     <div className="VGestionCursosSubCursosContainer">
       <div className="VGestionCursosSubCursosContainerTitle">
         <h3>SubCursos</h3>
+                {/*boton agregar estudiante*/}
+        <Button
+          colorPalette="red"
+          rounded="lg"
+          variant="outline"
+          ml="auto"
+          onClick={() => setOpenDialogAddSubCourse(true)}
+          aria-label="Agregar Subcurso"
+        >
+          Agregar <IoIosAddCircleOutline />
+        </Button>
       </div>
       <div className="VGestionSubCursosContainer">
         <TablaGestionSubCursos
@@ -72,12 +82,27 @@ function VGestionCursosSubCursos() {
           onSubCursoDeleted={handleSubCursoDeleted}
         />
       </div>
-      <div className="ButtonFormularioContent">
-        <PrimaryButton nombre={formularioIsVisible ? "Ocultar" : "Mostrar" } onClick={toggleVisibility}/>
-        </div>
-      <div>
-      {formularioIsVisible &&  <FormularioAgregarSubCurso onSubCursoAdded={handleSubCursoAdded} />}
-      </div>
+            <Dialog.Root
+              placement="center"
+              motionPreset="scale"
+              open={openDialogAddSubCourse}
+              onOpenChange={(e) => setOpenDialogAddSubCourse(e.open)}
+              size="lg"
+            >
+              <Portal>
+                <Dialog.Backdrop />
+                <Dialog.Positioner>
+                  <Dialog.Content>
+                    <Dialog.Body>
+                      <FormularioAgregarSubCurso onSubCursoAdded={handleSubCursoAdded} />
+                    </Dialog.Body>
+                    <Dialog.CloseTrigger asChild>
+                      <CloseButton size="sm" />
+                    </Dialog.CloseTrigger>
+                  </Dialog.Content>
+                </Dialog.Positioner>
+              </Portal>
+            </Dialog.Root>
     </div>
   );
 }

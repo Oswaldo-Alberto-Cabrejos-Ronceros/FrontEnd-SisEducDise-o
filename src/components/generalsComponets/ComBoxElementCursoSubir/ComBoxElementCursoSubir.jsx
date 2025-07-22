@@ -117,7 +117,7 @@ function ComBoxElementCursoSubir({ cursoinfo, unidad, onAgregarContenido }) {
         show={showConfirmation}
         message={confirmationMessage}
       />
-      <div
+      <button
         className="ComBoxElementCursoDocSubirContainer "
         onClick={handleClick}
       >
@@ -125,7 +125,7 @@ function ComBoxElementCursoSubir({ cursoinfo, unidad, onAgregarContenido }) {
           <FaFileUpload />
         </div>
         <p className="PMd">Subir Contenido</p>
-      </div>
+      </button>
       {mostrarOtroComponente && (
         <div className="ComBoxElementCurSubirFormSubida">
           <form onSubmit={handleSubmit}>

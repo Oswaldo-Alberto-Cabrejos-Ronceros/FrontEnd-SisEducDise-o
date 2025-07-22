@@ -9,7 +9,6 @@ import VCursosEstudiante from "../VCursosEstudiante/VCursosEstudiante";
 import VCursosEstudianteContenido from "../VCursosEstudiante/VCursoEstudianteContenido/VCursoEstudianteContenido";
 import VHorarioEstudiante from "../VHorarioEstudianteDocente/VHorarioEstudianteDocente";
 import VNotasEstudiante from "../VNotasEstudiante/VNotasEstudiante";
-import ChatBot from '../generalsComponets/CardChat/CardChat'
 
 function VEstudiante() {
   const [cursos, setCursos] = useState([]);
@@ -69,7 +68,7 @@ function VEstudiante() {
             
           </Routes>
         </div>
-        <ChatBot/>
+
       </div>
   );
 }

@@ -34,7 +34,7 @@ function ComBoxCursoXUnidadDocente({
         console.error("Error al obtener los contenidos:", error);
         setContenidos([]);
       });
-  });
+  }, [curso.Nivel, curso.Grado, curso.SubcursoId, unidadNumero]);
   const agregarContenido = (nuevoContenido) => {
     setContenidos((prevContenidos) => [...prevContenidos, nuevoContenido]);
   };
@@ -47,12 +47,12 @@ function ComBoxCursoXUnidadDocente({
 
   return (
     <div className="ComBoxGeneralContainer">
-      <div className="ComBoxCursoXUnidadContainer" onClick={handleClick}>
+      <button className="ComBoxCursoXUnidadContainer" onClick={handleClick}>
         <p className="PLg">{unidad}</p>
         <div className="ArrowContainer">
           {mostrarOtroComponente ? <IoIosArrowUp /> : <IoIosArrowDown />}
         </div>
-      </div>
+      </button>
       {mostrarOtroComponente && (
         <div className="ComBoxElementContainer">
           {contenidos.map((contenido, index) =>

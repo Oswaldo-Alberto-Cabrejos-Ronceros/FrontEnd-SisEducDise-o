@@ -1,29 +1,29 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import DocenteService from "../../../services/docenteService";
 import "./VGestionDocentes.css";
 import TablaGestionDocentes from "./TablaGestionDocentes/TablaGestionDocentes";
 import FormularioAgregarDocente from "./FormularioAgregarDocente/FormularioAgregarDocente";
 import SearchComponent from "../../generalsComponets/SearchComponent/SearchComponent";
-import SelectComponent from '../../generalsComponets/SelectComponent/SelectComponent';
-import PrimaryButton from "../../generalsComponets/PrimaryButton/PrimaryButton";
+import SelectComponent from "../../generalsComponets/SelectComponent/SelectComponent";
+import { Button, Portal, Dialog, CloseButton } from "@chakra-ui/react";
+import { RiUserAddLine } from "react-icons/ri";
 
 function VGestionDocentes() {
   const [docentes, setDocentes] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-  const [formularioIsVisible, setformularioIsVisible] = useState(false);
 
   // Estados para el nivel y el término de búsqueda
-  const [nivel, setNivel] = useState('');
-  const [searchTerm, setSearchTerm] = useState('');
+  const [nivel, setNivel] = useState("");
+  const [searchTerm, setSearchTerm] = useState("");
 
-  // Función para alternar la visibilidad
-  const toggleVisibility = () => {
-    setformularioIsVisible(!formularioIsVisible);
-  };
+  //For dialog
+
+  const [openDialogAddTeacher, setOpenDialogAddTeacher] = useState(false);
 
   useEffect(() => {
     fetchDocentes();
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [nivel, searchTerm]);
 
   const fetchDocentes = async () => {
@@ -56,7 +56,9 @@ function VGestionDocentes() {
   const handleDocenteUpdated = (updatedDocente) => {
     setDocentes((prevDocentes) =>
       prevDocentes.map((docente) =>
-        docente.usuarioId === updatedDocente.usuarioId ? updatedDocente : docente
+        docente.usuarioId === updatedDocente.usuarioId
+          ? updatedDocente
+          : docente
       )
     );
   };
@@ -74,13 +76,13 @@ function VGestionDocentes() {
       {/* Filtros y Búsqueda */}
       <div className="FiltersAndSearch">
         <div>
-        <div className="SearchGroup">
-          <SearchComponent
-            nombre={"Docentes"}
-            placeholder={"Buscar por DNI"}
-            onSearch={setSearchTerm}
-          />
-        </div>
+          <div className="SearchGroup">
+            <SearchComponent
+              nombre={"Docentes"}
+              placeholder={"Buscar por DNI"}
+              onSearch={setSearchTerm}
+            />
+          </div>
         </div>
 
         <div className="FilterGroup">
@@ -90,13 +92,24 @@ function VGestionDocentes() {
             value={nivel}
             onChange={(e) => setNivel(e.target.value)}
             options={[
-              { value: '', label: 'Listar Todo' },
-              { value: 'PRIMARIA', label: 'Primaria' },
-              { value: 'SECUNDARIA', label: 'Secundaria' },
+              { value: "", label: "Listar Todo" },
+              { value: "PRIMARIA", label: "Primaria" },
+              { value: "SECUNDARIA", label: "Secundaria" },
             ]}
           />
         </div>
 
+        {/*boton agregar docente*/}
+        <Button
+          colorPalette="red"
+          rounded="lg"
+          variant="outline"
+          ml="auto"
+          onClick={() => setOpenDialogAddTeacher(true)}
+          aria-label="Agregar Docente"
+        >
+          Agregar <RiUserAddLine />
+        </Button>
       </div>
 
       {/* Mostrar mensaje de carga o error */}
@@ -111,15 +124,30 @@ function VGestionDocentes() {
             onDocenteDeleted={handleDocenteDeleted}
             onDocenteUpdated={handleDocenteUpdated}
           />
-          <div className="ButtonFormularioContent">
-            <PrimaryButton
-              nombre={formularioIsVisible ? "Ocultar" : "Mostrar"}
-              onClick={toggleVisibility}
-            />
-          </div>
-          {formularioIsVisible && (
-            <FormularioAgregarDocente onDocenteAdded={handleDocenteAdded} />
-          )}
+
+          <Dialog.Root
+            placement="center"
+            motionPreset="scale"
+            open={openDialogAddTeacher}
+            onOpenChange={(e) => setOpenDialogAddTeacher(e.open)}
+            size="xl"
+          >
+            <Portal>
+              <Dialog.Backdrop />
+              <Dialog.Positioner>
+                <Dialog.Content>
+                  <Dialog.Body>
+                    <FormularioAgregarDocente
+                      onDocenteAdded={handleDocenteAdded}
+                    />
+                  </Dialog.Body>
+                  <Dialog.CloseTrigger asChild>
+                    <CloseButton size="sm" />
+                  </Dialog.CloseTrigger>
+                </Dialog.Content>
+              </Dialog.Positioner>
+            </Portal>
+          </Dialog.Root>
         </div>
       )}
     </div>

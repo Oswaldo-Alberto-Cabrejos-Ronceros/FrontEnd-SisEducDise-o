@@ -2,40 +2,16 @@
     width: 100%;
     min-height: 100%;
     display: flex;
-    padding: 10px;
     box-sizing: border-box;
     align-items: center;
     flex-direction: column;
 }
 
-.VGestionCursosContainer .LinkGestionCursos{
-    text-decoration: none;
-}
 
-.VGestionCursosContainer .TitleGestionCursos{
-    align-self:flex-start;
-    margin: 1%;
-    height: auto;
-}
-.VGestionCursosContainer .TitleGestionCursos h3{
-    margin: 0;
-    padding: 0;
-    font-size: 28px;
-} 
 
 
 .VGestionCursosContainer .VGestionCursosButtonsContainer{
     align-self: start;
-    padding: 0px 10px 10px 10px;
-    box-sizing: border-box;
-    margin: 0;
-    width: 100%;
-    max-width: 450px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    flex-wrap: wrap; 
-    gap: 30px;
 }
 
 /* Contenedor del Contenido Cambiante */

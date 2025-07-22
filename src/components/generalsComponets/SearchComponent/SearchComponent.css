@@ -1,6 +1,7 @@
 :root{
     --ColorBorderSearchComponent: #171717;
     --ColorBorderSearchComponentHover: #DC2626;
+    --BackgroundColorSearch:white;
 }
 
 .SearchComponentContainer{
@@ -16,6 +17,7 @@
     align-items: center;
     justify-content: center;
     flex-shrink: 0;
+    background-color: var(--BackgroundColorSearch);
 }
 
 .SearchComponentContainer .IconSearchContainer{

@@ -1,38 +1,44 @@
-.VHonorDocenteAdministradorBimestralContainer{
-    width: 100%;
-    height: auto;
-    display: flex;
-    flex-direction: column;
-    margin: 0;
-    box-sizing: border-box;
+.VHonorDocenteAdministradorBimestralContainer {
+  width: 100%;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  box-sizing: border-box;
 }
 
-.VHonorDocenteAdministradorBimestralContainer .VHonorDocenteAdministradorBimestralTitleContainer{
-    height: auto;
-    margin: 1%;
-    align-self: flex-start;
+.VHonorDocenteAdministradorBimestralContainer
+  .VHonorDocenteAdministradorBimestralTitleContainer {
+  height: auto;
+  margin: 1%;
+  align-self: flex-start;
 }
 
-.VHonorDocenteAdministradorBimestralContainer .VHonorDocenteAdministradorBimestralTitleContainer h3{
-    padding: 0;
-    margin: 0;
+.VHonorDocenteAdministradorBimestralContainer
+  .VHonorDocenteAdministradorBimestralTitleContainer
+  h3 {
+  padding: 0;
+  margin: 0;
 }
 
-.VHonorDocenteAdministradorBimestralContainer .SelectHonorDocenteAdministradorBimestralContainer{
-    height: auto;
-    margin-left: 1%;
-    align-self: flex-start;
-    display: flex;
-    align-items: center;
-    width: 720px;
-    justify-content: space-between;
+.VHonorDocenteAdministradorBimestralContainer
+  .SelectHonorDocenteAdministradorBimestralContainer {
+  height: auto;
+  margin-left: 1%;
+  align-self: flex-start;
+  display: flex;
+  align-items: center;
+  width: 720px;
+  justify-content: space-between;
 }
 
-.VHonorDocenteAdministradorBimestralContainer .VHonorDocenteAdministradorBimestralContent{
-    width: 100%;
-    height: auto;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin:10px;
+.VHonorDocenteAdministradorBimestralContainer
+  .VHonorDocenteAdministradorBimestralContent {
+  width: 100%;
+  height: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
 }

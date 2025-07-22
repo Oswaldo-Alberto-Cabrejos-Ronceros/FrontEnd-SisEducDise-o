@@ -1,13 +1,13 @@
-import React from "react";
 import "./ComponentNotasEstudianteElement.css";
 import { Link } from "react-router-dom";
+import PropTypes from "prop-types";
 
-function ComponentNotasEstudianteElement({ title, tipo,indicador }) {
+function ComponentNotasEstudianteElement({ title, tipo, indicador }) {
   return (
     <div className="ComponentNotasEstudianteElementContainer">
       <Link
         to={`/estudiante/notas/info/${tipo}`}
-        state={{ title,indicador }}
+        state={{ title, indicador }}
         className="LinkComponentNotasEstudianteElement"
       >
         <div className="ComponentNotasEstudianteElementContent">
@@ -18,4 +18,9 @@ function ComponentNotasEstudianteElement({ title, tipo,indicador }) {
   );
 }
 
+ComponentNotasEstudianteElement.propTypes = {
+  title: PropTypes.string.isRequired,
+  tipo: PropTypes.string.isRequired,
+  indicador: PropTypes.string.isRequired,
+};
 export default ComponentNotasEstudianteElement;

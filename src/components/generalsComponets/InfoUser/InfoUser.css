@@ -5,25 +5,21 @@
   --ColorBtnSave:#65A30D;
   --ColorBtnSaveHover:#84CC16;
 }
-Container {
+.Container {
     display: flex;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding-top: 60px; /* Ajusta este valor para alinearlo con la barra roja */
+    justify-content: start;
+    max-height: 80vh;
   }
   
   
   .Menu {
-    position: fixed;
-    left: 130px;
-    top: 100px; /* Ajusta este valor al alto de la barra roja */
     padding: 20px;
     display: flex;
     flex-direction: column;
     gap: 10px;
     background-color: #ffffff;
     height: calc(100vh - 70px); /* Ajusta la altura para no solapar la barra roja */
-    width: 200px; /* Anchura fija para el menú */
+    width: 12.5rem; /* Anchura fija para el menú */
     box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
   }
 
@@ -47,12 +43,12 @@ Container {
   .InfoUserContainer {
     flex: 1;
     padding: 20px;
-    margin-left: 520px; /* Deja espacio a la izquierda para el menú */
+    margin: auto;
+    margin-top: 0;
     max-width: 600px; /* Ancho máximo para centrar el formulario */
     border: 1px solid #ddd;
     border-radius: 8px;
     background-color: #fff;
-    margin-top: 20px; /* Añade margen superior para separarlo del nav */
   }
   
   h2 {
@@ -149,7 +145,6 @@ Container {
     }
   
     .InfoUserContainer {
-      margin-left: 0;
       width: 100%;
       padding: 20px;
     }

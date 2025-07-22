@@ -1,6 +1,7 @@
 :root {
     --Color-Border: #171717;
     --Color-Border-Hover: #DC2626;
+    --Background-Color-Input:white;
 }
 
 .InputComponentContainer {
@@ -12,6 +13,7 @@
     border-radius: 8px;
     border: 1px solid var(--Color-Border);
     align-items: center;
+    background-color: var(--Background-Color-Input);
 }
 
 .IconInputContainer {

@@ -1,7 +1,8 @@
 :root {
-  --BorderTableInputNotas: #171717;
+  --BorderTableInputNotas: #adadad;
   --BackgroudColorTableInputNotasTh: #ef4444;
   --ColorTableInputNotasTh: #fef2f2;
+  --BackgroundColorTable:white;
 }
 
 .TablaNotasInputContainer {
@@ -40,6 +41,7 @@
 .TableInputNotas {
   width: 100%;
   border-collapse: collapse;
+  background-color: var(--BackgroundColorTable);
 }
 .TableInputNotas,
 th,
